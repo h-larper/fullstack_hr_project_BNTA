@@ -29,7 +29,7 @@ public class Employee {
     private String password;
 
     @Column(name = "total_holiday")
-    private Period totalHoliday;
+    private int totalHoliday;
 
     @Column(name = "sort_code")
     private int sortCode;
@@ -61,7 +61,7 @@ public class Employee {
 
     public Employee() {}
 
-    public Employee(String firstName, String lastName, String workEmail, String password, Period totalHoliday,
+    public Employee(String firstName, String lastName, String workEmail, String password, int totalHoliday,
                     int sortCode, int accountNumber, int salary, LocalDate employeeStartDate) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -118,11 +118,11 @@ public class Employee {
         this.password = password;
     }
 
-    public Period getTotalHoliday() {
+    public int getTotalHoliday() {
         return totalHoliday;
     }
 
-    public void setTotalHoliday(Period totalHoliday) {
+    public void setTotalHoliday(int totalHoliday) {
         this.totalHoliday = totalHoliday;
     }
 
