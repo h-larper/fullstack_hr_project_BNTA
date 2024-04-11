@@ -38,9 +38,7 @@ public class DataLoader implements ApplicationRunner {
                 "orcas", Period.ofDays(364), 246810, 12345679, 3000000,
                 LocalDate.of(2001,12,25), null);
         employeeRepository.save(employee3);
-        //Sets the manager to that id
         employee3.setManager(employee1);
-        //Update the employee
         employeeRepository.save(employee3);
 
         Employee employee4 = new Employee("Karen", "Yip", "karen.karen@karen.com",
@@ -48,7 +46,6 @@ public class DataLoader implements ApplicationRunner {
                 LocalDate.of(2021,10,25), null);
         employeeRepository.save(employee4);
         employee4.setManager(employee1);
-        //Update the employee
         employeeRepository.save(employee4);
 
     }
