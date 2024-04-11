@@ -47,11 +47,11 @@ public class Employee {
     private Boolean active;
 
     @JsonIgnoreProperties({"employee"})
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "manager")
     private List<Employee> managees;
 
     @JsonIgnoreProperties({"managees"})
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "manager_id")
     private Employee manager;
 
