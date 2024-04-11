@@ -51,7 +51,7 @@ public class Employee {
     private List<Employee> managees;
 
     @JsonIgnoreProperties({"managees"})
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "manager_id")
     private Employee manager;
 
