@@ -46,7 +46,7 @@ public class Employee {
     @Column(name = "active")
     private Boolean active;
 
-    @JsonIgnoreProperties({"employee"})
+    @JsonIgnoreProperties({"manager"})
     @OneToMany(mappedBy = "manager")
     private List<Employee> managees;
 
