@@ -62,7 +62,7 @@ public class Employee {
     public Employee() {}
 
     public Employee(String firstName, String lastName, String workEmail, String password, Period totalHoliday,
-                    int sortCode, int accountNumber, int salary, LocalDate employeeStartDate, Employee manager) {
+                    int sortCode, int accountNumber, int salary, LocalDate employeeStartDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.workEmail = workEmail;
@@ -74,7 +74,7 @@ public class Employee {
         this.employeeStartDate = employeeStartDate;
         this.active = true;
         this.managees = new ArrayList<>();
-        this.manager = manager;
+        this.manager = null;
         this.requestedTimeOffs = new ArrayList<>();
     }
 

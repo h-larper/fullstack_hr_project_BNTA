@@ -21,12 +21,12 @@ public class DataLoader implements ApplicationRunner {
         //EMPLOYEES
         Employee employee1 = new Employee("Laura", "Harper", "laura@laura.com",
                 "cats", Period.ofDays(20), 451269, 12345678, 200,
-                LocalDate.of(2023,10,6), null);
+                LocalDate.of(2023,10,6));
         employeeRepository.save(employee1);
 
         Employee employee2 = new Employee("Hannah", "Riley", "hannah@hannah.com",
                 "dogs", Period.ofDays(200), 123456, 87654321, 200000,
-                LocalDate.of(2024,4,10), null);
+                LocalDate.of(2024,4,10));
         //Save employee so it gets an id
         employeeRepository.save(employee2);
         //Sets the manager to that id
@@ -36,14 +36,14 @@ public class DataLoader implements ApplicationRunner {
 
         Employee employee3 = new Employee("Maya", "Tetteh", "maya@maya.com",
                 "orcas", Period.ofDays(364), 246810, 12345679, 3000000,
-                LocalDate.of(2001,12,25), null);
+                LocalDate.of(2001,12,25));
         employeeRepository.save(employee3);
         employee3.setManager(employee1);
         employeeRepository.save(employee3);
 
         Employee employee4 = new Employee("Karen", "Yip", "karen.karen@karen.com",
                 "flapjack", Period.ofDays(2), 147258, 98745612, 500,
-                LocalDate.of(2021,10,25), null);
+                LocalDate.of(2021,10,25));
         employeeRepository.save(employee4);
         employee4.setManager(employee1);
         employeeRepository.save(employee4);
