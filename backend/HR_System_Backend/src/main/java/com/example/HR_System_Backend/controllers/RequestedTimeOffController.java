@@ -1,6 +1,7 @@
 package com.example.HR_System_Backend.controllers;
 
 import com.example.HR_System_Backend.models.RequestedTimeOff;
+import com.example.HR_System_Backend.services.EmployeeService;
 import com.example.HR_System_Backend.services.RequestedTimeOffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,5 +60,10 @@ public class RequestedTimeOffController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/employee/{id}")
+    public ResponseEntity <List<RequestedTimeOff>> getTimeOffsByEmployeeId(@PathVariable long id){
+        List<RequestedTimeOff> allTimeOffsById = requestedTimeOffService.getTimeOffsByEmployeeId(id);
+        return new ResponseEntity<>(allTimeOffsById, HttpStatus.OK);
+    }
 
 }
