@@ -14,6 +14,9 @@ public class RequestedTimeOffService {
     @Autowired
     RequestedTimeOffRepository requestedTimeOffRepository;
 
+    @Autowired
+    EmployeeService employeeService;
+
     public List<RequestedTimeOff> getAllRequestedTimeOffs(){
         return requestedTimeOffRepository.findAll();
     }
@@ -38,5 +41,9 @@ public class RequestedTimeOffService {
 
     public void deleteRequestedTimeOffById(long id){
         requestedTimeOffRepository.deleteById(id);
+    }
+
+    public List<RequestedTimeOff> getTimeOffsByEmployeeId(long id) {
+        return requestedTimeOffRepository.findByEmployeeId(id);
     }
 }
