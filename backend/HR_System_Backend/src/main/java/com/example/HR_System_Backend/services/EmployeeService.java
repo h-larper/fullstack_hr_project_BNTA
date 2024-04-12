@@ -2,6 +2,8 @@ package com.example.HR_System_Backend.services;
 
 import com.example.HR_System_Backend.models.Employee;
 import com.example.HR_System_Backend.models.EmployeeDTO;
+import com.example.HR_System_Backend.models.LoginDTO;
+import com.example.HR_System_Backend.models.UpdateProfileDetailsDTO;
 import com.example.HR_System_Backend.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,10 +33,35 @@ public class EmployeeService {
        return newEmployee;
     }
 
+    public Employee login(LoginDTO loginDTO){
+        Employee employee = employeeRepository.findByWorkEmail(loginDTO.getWorkEmail());
+        if(employee.getPassword().equals(loginDTO.getPassword())){
+            return employee;
+        }
+        return null;
+    }
+
     public Employee updateManager(Employee manager, Employee employee){
         employee.setManager(manager);
         employeeRepository.save(employee);
         return employee;
     }
 
+    public Employee updateProfileDetails(Employee employee, UpdateProfileDetailsDTO updateProfileDetailsDTO){
+        employee.setSortCode(updateProfileDetailsDTO.getSortCode());
+        employee.setAccountNumber(updateProfileDetailsDTO.getAccountNumber());
+        employeeRepository.save(employee);
+        return employee;
+    }
+
+    public Long deleteEmployee(Long employeeId){
+        Employee employee = employeeRepository.findById(employeeId).get();
+        List<Employee> managees = employee.getManagees();
+        for(Employee managee : managees){
+            managee.setManager(null);
+            employeeRepository.save(managee);
+        }
+        employeeRepository.deleteById(employeeId);
+        return employeeId;
+    }
 }
