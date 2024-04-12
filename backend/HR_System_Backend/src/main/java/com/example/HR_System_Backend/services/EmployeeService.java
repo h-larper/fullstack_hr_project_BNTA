@@ -2,6 +2,7 @@ package com.example.HR_System_Backend.services;
 
 import com.example.HR_System_Backend.models.Employee;
 import com.example.HR_System_Backend.models.EmployeeDTO;
+import com.example.HR_System_Backend.models.LoginDTO;
 import com.example.HR_System_Backend.models.UpdateProfileDetailsDTO;
 import com.example.HR_System_Backend.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,14 @@ public class EmployeeService {
                employeeDTO.getSalary(), employeeDTO.getEmployeeStartDate());
        employeeRepository.save(newEmployee);
        return newEmployee;
+    }
+
+    public Employee login(LoginDTO loginDTO){
+        Employee employee = employeeRepository.findByWorkEmail(loginDTO.getWorkEmail());
+        if(employee.getPassword().equals(loginDTO.getPassword())){
+            return employee;
+        }
+        return null;
     }
 
     public Employee updateManager(Employee manager, Employee employee){

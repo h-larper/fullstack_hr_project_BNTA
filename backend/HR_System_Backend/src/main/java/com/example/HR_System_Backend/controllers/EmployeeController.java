@@ -1,9 +1,6 @@
 package com.example.HR_System_Backend.controllers;
 
-import com.example.HR_System_Backend.models.Employee;
-import com.example.HR_System_Backend.models.EmployeeDTO;
-import com.example.HR_System_Backend.models.UpdateManagerDTO;
-import com.example.HR_System_Backend.models.UpdateProfileDetailsDTO;
+import com.example.HR_System_Backend.models.*;
 import com.example.HR_System_Backend.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +35,12 @@ public class EmployeeController {
     public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO employeeDTO){
         Employee newEmployee = employeeService.saveEmployee(employeeDTO);
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
+    }
+
+    @PostMapping(value = "/login")
+    public ResponseEntity<Employee> login(@RequestBody LoginDTO loginDTO){
+        Employee currentUser = employeeService.login(loginDTO);
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
     @PatchMapping(value = "/{id}/updateManager")
