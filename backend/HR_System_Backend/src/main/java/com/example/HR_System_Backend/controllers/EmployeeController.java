@@ -48,8 +48,7 @@ public class EmployeeController {
         if (!manager.isPresent()){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
-        Employee employeeToUpdate = employee.get();
-        employeeToUpdate.setManager(manager.get());
-        employeeService.saveEmployee(employeeToUpdate)
+        Employee updatedEmployee = employeeService.updateManager(manager.get(), employee.get());
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 }

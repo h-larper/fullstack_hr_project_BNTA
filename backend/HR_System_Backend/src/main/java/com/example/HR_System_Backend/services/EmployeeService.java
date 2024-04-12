@@ -31,12 +31,10 @@ public class EmployeeService {
        return newEmployee;
     }
 
-
-
-
-    //       Optional<Employee> manager = employeeRepository.findById(employeeDTO.getManagerId());
-//       if (manager.isPresent()){
-//
-//       }
+    public Employee updateManager(Employee manager, Employee employee){
+        employee.setManager(manager);
+        employeeRepository.save(employee);
+        return employee;
+    }
 
 }
