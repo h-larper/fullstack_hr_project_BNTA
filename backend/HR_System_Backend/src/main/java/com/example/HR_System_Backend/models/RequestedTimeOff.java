@@ -28,7 +28,7 @@ public class RequestedTimeOff {
     @Column(name = "approved")
     private Boolean approved;
 
-    @JsonIgnoreProperties({"requestedTimeOffs", "manager"})
+    @JsonIgnoreProperties({"requestedTimeOffs", "manager", "managees"})
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
