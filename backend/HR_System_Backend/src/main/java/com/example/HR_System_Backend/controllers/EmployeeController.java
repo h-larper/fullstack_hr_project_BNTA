@@ -1,15 +1,13 @@
 package com.example.HR_System_Backend.controllers;
 
 import com.example.HR_System_Backend.models.Employee;
+import com.example.HR_System_Backend.models.EmployeeDTO;
+import com.example.HR_System_Backend.models.UpdateManagerDTO;
 import com.example.HR_System_Backend.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/employees")
 public class EmployeeController {
+
     @Autowired
     EmployeeService employeeService;
 
@@ -26,12 +25,31 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Employee>getEmployeeById(@PathVariable long id)
-    {
+    public ResponseEntity<Employee>getEmployeeById(@PathVariable Long id){
         Optional<Employee> employee = employeeService.getEmployeeById(id);
         if (employee.isPresent()){
             return new ResponseEntity<>(employee.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping
+    public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO employeeDTO){
+        Employee newEmployee = employeeService.saveEmployee(employeeDTO);
+        return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
+    }
+
+    @PatchMapping(value = "/{id}/updateManager")
+    public ResponseEntity<Employee> updateManager(@RequestBody UpdateManagerDTO updateManagerDTO, @PathVariable Long id){
+        Optional<Employee> employee = employeeService.getEmployeeById(id);
+        if (!employee.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        Optional<Employee> manager = employeeService.getEmployeeById(updateManagerDTO.getManagerId());
+        if (!manager.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        Employee updatedEmployee = employeeService.updateManager(manager.get(), employee.get());
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 }
