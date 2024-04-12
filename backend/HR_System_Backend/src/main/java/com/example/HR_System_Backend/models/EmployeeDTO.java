@@ -14,12 +14,10 @@ public class EmployeeDTO {
     private int salary;
     private LocalDate employeeStartDate;
 
-    private int managerId;
-
     public EmployeeDTO() {}
 
     public EmployeeDTO(String firstName, String lastName, String workEmail, String password, int totalHoliday,
-                       int sortCode, int accountNumber, int salary, LocalDate employeeStartDate, int managerId){
+                       int sortCode, int accountNumber, int salary, LocalDate employeeStartDate){
         this.firstName = firstName;
         this.lastName = lastName;
         this.workEmail = workEmail;
@@ -29,7 +27,6 @@ public class EmployeeDTO {
         this.accountNumber = accountNumber;
         this.salary = salary;
         this.employeeStartDate = employeeStartDate;
-        this.managerId = managerId;
     }
 
     public String getFirstName() {
@@ -104,11 +101,4 @@ public class EmployeeDTO {
         this.employeeStartDate = employeeStartDate;
     }
 
-    public int getManagerId() {
-        return this.managerId;
-    }
-
-    public void setManagerId(int managerId) {
-        this.managerId = managerId;
-    }
 }
