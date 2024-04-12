@@ -49,6 +49,15 @@ public class RequestedTimeOffController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> deleteRequestedTimeOffById(@PathVariable long id){
+        Optional<RequestedTimeOff> requestedTimeOff = requestedTimeOffService.getRequestedTimeOffById(id);
+        if(requestedTimeOff.isPresent()) {
+            requestedTimeOffService.deleteRequestedTimeOffById(id);
+            return new ResponseEntity<>(id, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
 
 }

@@ -31,9 +31,13 @@ public class RequestedTimeOffService {
         RequestedTimeOff requestedTimeOffUpdate = requestedTimeOffRepository.findById(id).get();
         requestedTimeOffUpdate.setStartDate(requestedTimeOff.getStartDate());
         requestedTimeOffUpdate.setEndDate(requestedTimeOff.getEndDate());
-//        requestedTimeOffUpdate.setType(requestedTimeOff.setType());
+        requestedTimeOffUpdate.setType(requestedTimeOff.getType());
         requestedTimeOffUpdate.setNotes(requestedTimeOff.getNotes());
         requestedTimeOffRepository.save(requestedTimeOffUpdate);
         return requestedTimeOffUpdate;
+    }
+
+    public void deleteRequestedTimeOffById(long id){
+        requestedTimeOffRepository.deleteById(id);
     }
 }
