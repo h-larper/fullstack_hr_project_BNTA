@@ -2,19 +2,19 @@ package com.example.HR_System_Backend.models;
 
 public class UpdateManagerDTO {
 
-    private Long mangerId;
+    private Long managerId;
 
     public UpdateManagerDTO() {}
 
-    public UpdateManagerDTO(Long mangerId) {
-        this.mangerId = mangerId;
+    public UpdateManagerDTO(Long managerId) {
+        this.managerId = managerId;
     }
 
-    public Long getMangerId() {
-        return this.mangerId;
+    public Long getManagerId() {
+        return this.managerId;
     }
 
     public void setMangerId(Long mangerId) {
-        this.mangerId = mangerId;
+        this.managerId = mangerId;
     }
 }
