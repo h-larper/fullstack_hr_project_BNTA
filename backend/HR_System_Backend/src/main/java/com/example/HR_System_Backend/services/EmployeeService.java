@@ -33,12 +33,15 @@ public class EmployeeService {
        return newEmployee;
     }
 
-    public Employee login(LoginDTO loginDTO){
-        Employee employee = employeeRepository.findByWorkEmail(loginDTO.getWorkEmail());
-        if(employee.getPassword().equals(loginDTO.getPassword())){
-            return employee;
+    public Employee login(LoginDTO loginDTO) throws Exception{
+        Optional<Employee> employee = employeeRepository.findByWorkEmail(loginDTO.getWorkEmail());
+        if(!employee.isPresent()){
+            throw new Exception("Work email address doesn't exist");
         }
-        return null;
+        if(employee.get().getPassword().equals(loginDTO.getPassword())){
+            return employee.get();
+        }
+        throw new Exception("Incorrect password");
     }
 
     public Employee updateManager(Employee manager, Employee employee){
