@@ -1,7 +1,10 @@
 package com.example.HR_System_Backend.components;
 
 import com.example.HR_System_Backend.models.Employee;
+import com.example.HR_System_Backend.models.RequestedTimeOff;
+import com.example.HR_System_Backend.models.TimeOffType;
 import com.example.HR_System_Backend.repositories.EmployeeRepository;
+import com.example.HR_System_Backend.repositories.RequestedTimeOffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,6 +17,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     EmployeeRepository employeeRepository;
+
+    @Autowired
+    RequestedTimeOffRepository requestedTimeOffRepository;
 
     @Override
     public void run (ApplicationArguments args) throws Exception{
@@ -58,5 +64,41 @@ public class DataLoader implements ApplicationRunner {
         employee5.setManager(employee2);
         employeeRepository.save(employee5);
 
+        //REQUESTED TIME OFFS
+
+        RequestedTimeOff requestedTimeOff1 = new RequestedTimeOff(LocalDate.of(2024,04,01),
+                LocalDate.of(2024,04, 8), TimeOffType.HOLIDAYLEAVE, "Need a break!!!!!",
+                employee5);
+        requestedTimeOffRepository.save(requestedTimeOff1);
+
+        RequestedTimeOff requestedTimeOff2 = new RequestedTimeOff(LocalDate.of(2024,04,01),
+                LocalDate.of(2024,04, 2), TimeOffType.PARENTALLEAVE, "Think of the children!",
+                employee4);
+        requestedTimeOffRepository.save(requestedTimeOff2);
+
+        RequestedTimeOff requestedTimeOff3 = new RequestedTimeOff(LocalDate.of(2025,06,13),
+                LocalDate.of(2025,06, 27), TimeOffType.HOLIDAYLEAVE, "Off to Portugal - " +
+                "tchau tá logo", employee3);
+        requestedTimeOffRepository.save(requestedTimeOff3);
+
+        RequestedTimeOff requestedTimeOff4 = new RequestedTimeOff(LocalDate.of(2024,04,22),
+                LocalDate.of(2024,04, 22), TimeOffType.COMPASSIONATELEAVE,
+                "Partner cycled into a car door, in A&E",
+                employee4);
+        requestedTimeOffRepository.save(requestedTimeOff4);
+
+        RequestedTimeOff requestedTimeOff5 = new RequestedTimeOff(LocalDate.of(2024,05,07),
+                LocalDate.of(2024,05, 17), TimeOffType.HOLIDAYLEAVE, "Visiting Madeira - " +
+                "I hope it tastes as good as the cake", employee2);
+        requestedTimeOffRepository.save(requestedTimeOff5);
+
+        RequestedTimeOff requestedTimeOff6 = new RequestedTimeOff(LocalDate.of(2024,04,19),
+                LocalDate.of(2024,04, 20), TimeOffType.SICKLEAVE, "Got the runs", employee5);
+        requestedTimeOffRepository.save(requestedTimeOff6);
+
+        RequestedTimeOff requestedTimeOff7 = new RequestedTimeOff(LocalDate.of(2024,04,16),
+                LocalDate.of(2024,04, 17), TimeOffType.SICKLEAVE,
+                "My feline overlord blessed me with a bite - GP appointment", employee2);
+        requestedTimeOffRepository.save(requestedTimeOff7);
     }
 }
