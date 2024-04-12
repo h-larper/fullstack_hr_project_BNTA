@@ -87,6 +87,6 @@ public class DataLoader implements ApplicationRunner {
                 "I hope it tastes as good as the cake", employee2);
 
         RequestedTimeOff requestedTimeOff6 = new RequestedTimeOff(LocalDate.of(2024,04,19),
-                LocalDate.of(2024,04, 20), Type.SICKLEAVE, "Got the squits", employee5);
+                LocalDate.of(2024,04, 20), Type.SICKLEAVE, "Got the runs", employee5);
     }
 }
