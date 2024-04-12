@@ -39,8 +39,12 @@ public class EmployeeController {
 
     @PostMapping(value = "/login")
     public ResponseEntity<Employee> login(@RequestBody LoginDTO loginDTO){
-        Employee currentUser = employeeService.login(loginDTO);
-        return new ResponseEntity<>(currentUser, HttpStatus.OK);
+        try{
+            Employee currentUser = employeeService.login(loginDTO);
+            return new ResponseEntity<>(currentUser, HttpStatus.OK);
+        }catch(Exception exception){
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
+        }
     }
 
     @PatchMapping(value = "/{id}/updateManager")
