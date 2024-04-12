@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,4 +38,17 @@ public class RequestedTimeOffController {
         RequestedTimeOff newRequestedTimeOff = requestedTimeOffService.saveRequestedTimeOff(requestedTimeOff);
         return new ResponseEntity<>(newRequestedTimeOff, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<RequestedTimeOff> updateRequestedTimeOff (@RequestBody RequestedTimeOff requestedTimeOff,
+                                                                    @PathVariable long id) {
+        Optional<RequestedTimeOff> requestedTimeOff1 = requestedTimeOffService.getRequestedTimeOffById(id);
+        if(requestedTimeOff1.isPresent()) {
+            return new ResponseEntity<>(requestedTimeOffService.updateRequestedTimeOff(requestedTimeOff, id), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    
+
 }
