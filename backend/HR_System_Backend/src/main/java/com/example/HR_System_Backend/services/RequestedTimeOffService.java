@@ -21,4 +21,8 @@ public class RequestedTimeOffService {
     public Optional<RequestedTimeOff> getRequestedTimeOffById(long id){
         return requestedTimeOffRepository.findById(id);
     }
+
+    public RequestedTimeOff saveRequestedTimeOff(RequestedTimeOff requestedTimeOff) {
+        return requestedTimeOffRepository.save(requestedTimeOff);
+    }
 }
