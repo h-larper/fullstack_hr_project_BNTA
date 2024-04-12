@@ -1,7 +1,6 @@
 package com.example.HR_System_Backend.services;
 
 import com.example.HR_System_Backend.models.RequestedTimeOff;
-import com.example.HR_System_Backend.models.Type;
 import com.example.HR_System_Backend.repositories.RequestedTimeOffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,7 @@ public class RequestedTimeOffService {
         RequestedTimeOff requestedTimeOffUpdate = requestedTimeOffRepository.findById(id).get();
         requestedTimeOffUpdate.setStartDate(requestedTimeOff.getStartDate());
         requestedTimeOffUpdate.setEndDate(requestedTimeOff.getEndDate());
-        requestedTimeOffUpdate.setType(requestedTimeOff.getType());
+        requestedTimeOffUpdate.setTimeOffType(requestedTimeOff.getTimeOffType());
         requestedTimeOffUpdate.setNotes(requestedTimeOff.getNotes());
         requestedTimeOffRepository.save(requestedTimeOffUpdate);
         return requestedTimeOffUpdate;

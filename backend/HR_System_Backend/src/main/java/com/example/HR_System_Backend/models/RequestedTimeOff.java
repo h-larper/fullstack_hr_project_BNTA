@@ -19,8 +19,8 @@ public class RequestedTimeOff {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "type")
-    private Type type;
+    @Column(name = "time_off_type")
+    private TimeOffType timeOffType;
 
     @Column(name = "notes")
     private String notes;
@@ -35,10 +35,10 @@ public class RequestedTimeOff {
 
     public RequestedTimeOff() {}
 
-    public RequestedTimeOff(LocalDate startDate, LocalDate endDate, Type type, String notes, Employee employee){
+    public RequestedTimeOff(LocalDate startDate, LocalDate endDate, TimeOffType timeOffType, String notes, Employee employee){
         this.startDate = startDate;
         this.endDate = endDate;
-        this.type = type;
+        this.timeOffType = timeOffType;
         this.notes = notes;
         this.approved = false;
         this.employee = employee;
@@ -68,12 +68,12 @@ public class RequestedTimeOff {
         this.endDate = endDate;
     }
 
-    public Type getType() {
-        return this.type;
+    public TimeOffType getTimeOffType() {
+        return this.timeOffType;
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public void setTimeOffType(TimeOffType timeOffType) {
+        this.timeOffType = timeOffType;
     }
 
     public String getNotes() {
