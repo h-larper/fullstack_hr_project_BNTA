@@ -55,7 +55,7 @@ public class Employee {
     @JoinColumn(name = "manager_id")
     private Employee manager;
 
-    @JsonIgnoreProperties({"employee"})
+    @JsonIgnoreProperties({"employee", "requested_time_offs"})
     @OneToMany(mappedBy = "employee")
     private List<RequestedTimeOff> requestedTimeOffs;
 

@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "requested_time_off")
+@Table(name = "requested_time_offs")
 public class RequestedTimeOff {
 
     @Id
@@ -28,7 +28,7 @@ public class RequestedTimeOff {
     @Column(name = "approved")
     private Boolean approved;
 
-    @JsonIgnoreProperties({"requested_time_off"})
+    @JsonIgnoreProperties({"requestedTimeOffs", "manager"})
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;

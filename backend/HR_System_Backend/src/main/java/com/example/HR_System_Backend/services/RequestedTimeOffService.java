@@ -16,5 +16,5 @@ public class RequestedTimeOffService {
     public List<RequestedTimeOff> getAllRequestedTimeOffs(){
         return requestedTimeOffRepository.findAll();
     }
-    
+
 }
