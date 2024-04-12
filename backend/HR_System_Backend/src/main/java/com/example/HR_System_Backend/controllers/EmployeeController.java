@@ -1,10 +1,10 @@
 package com.example.HR_System_Backend.controllers;
 
 import com.example.HR_System_Backend.models.Employee;
+import com.example.HR_System_Backend.models.EmployeeDTO;
 import com.example.HR_System_Backend.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,4 +34,8 @@ public class EmployeeController {
     }
 
     @PostMapping
+    public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO employeeDTO){
+        Employee newEmployee = employeeService.saveEmployee(employeeDTO);
+        return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
+    }
 }
