@@ -2,31 +2,31 @@ package com.example.HR_System_Backend.models;
 
 public class UpdateProfileDetailsDTO {
 
-    private int sortCode;
+    private String sortCode;
 
-    private int accountNumber;
+    private String accountNumber;
 
     public UpdateProfileDetailsDTO() {
     }
 
-    public UpdateProfileDetailsDTO(int sortCode, int accountNumber) {
+    public UpdateProfileDetailsDTO(String sortCode, String accountNumber) {
         this.sortCode = sortCode;
         this.accountNumber = accountNumber;
     }
 
-    public int getSortCode() {
+    public String getSortCode() {
         return sortCode;
     }
 
-    public void setSortCode(int sortCode) {
+    public void setSortCode(String sortCode) {
         this.sortCode = sortCode;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 }

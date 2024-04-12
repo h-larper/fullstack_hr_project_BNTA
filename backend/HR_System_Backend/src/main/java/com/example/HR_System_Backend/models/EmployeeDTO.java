@@ -9,15 +9,15 @@ public class EmployeeDTO {
     private String workEmail;
     private String password;
     private int totalHoliday;
-    private int sortCode;
-    private int accountNumber;
+    private String sortCode;
+    private String accountNumber;
     private int salary;
     private LocalDate employeeStartDate;
 
     public EmployeeDTO() {}
 
     public EmployeeDTO(String firstName, String lastName, String workEmail, String password, int totalHoliday,
-                       int sortCode, int accountNumber, int salary, LocalDate employeeStartDate){
+                       String sortCode, String accountNumber, int salary, LocalDate employeeStartDate){
         this.firstName = firstName;
         this.lastName = lastName;
         this.workEmail = workEmail;
@@ -69,19 +69,19 @@ public class EmployeeDTO {
         this.totalHoliday = totalHoliday;
     }
 
-    public int getSortCode() {
+    public String getSortCode() {
         return this.sortCode;
     }
 
-    public void setSortCode(int sortCode) {
+    public void setSortCode(String sortCode) {
         this.sortCode = sortCode;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return this.accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

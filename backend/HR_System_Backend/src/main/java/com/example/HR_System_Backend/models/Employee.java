@@ -32,10 +32,10 @@ public class Employee {
     private int totalHoliday;
 
     @Column(name = "sort_code")
-    private int sortCode;
+    private String sortCode;
 
     @Column(name = "account_number")
-    private int accountNumber;
+    private String accountNumber;
 
     @Column(name = "salary")
     private int salary;
@@ -62,7 +62,7 @@ public class Employee {
     public Employee() {}
 
     public Employee(String firstName, String lastName, String workEmail, String password, int totalHoliday,
-                    int sortCode, int accountNumber, int salary, LocalDate employeeStartDate) {
+                    String sortCode, String accountNumber, int salary, LocalDate employeeStartDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.workEmail = workEmail;
@@ -126,19 +126,19 @@ public class Employee {
         this.totalHoliday = totalHoliday;
     }
 
-    public int getSortCode() {
+    public String getSortCode() {
         return sortCode;
     }
 
-    public void setSortCode(int sortCode) {
+    public void setSortCode(String sortCode) {
         this.sortCode = sortCode;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
