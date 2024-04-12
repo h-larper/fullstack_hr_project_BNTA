@@ -44,4 +44,15 @@ public class EmployeeService {
         employeeRepository.save(employee);
         return employee;
     }
+
+    public Long deleteEmployee(Long employeeId){
+        Employee employee = employeeRepository.findById(employeeId).get();
+        List<Employee> managees = employee.getManagees();
+        for(Employee managee : managees){
+            managee.setManager(null);
+            employeeRepository.save(managee);
+        }
+        employeeRepository.deleteById(employeeId);
+        return employeeId;
+    }
 }

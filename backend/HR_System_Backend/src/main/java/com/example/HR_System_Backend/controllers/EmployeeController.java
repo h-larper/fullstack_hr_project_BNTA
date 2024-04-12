@@ -64,5 +64,14 @@ public class EmployeeController {
         Employee updatedEmployee = employeeService.updateProfileDetails(employee.get(), updateProfileDetailsDTO);
         return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
-    
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> deleteEmployee(@PathVariable Long id){
+        Optional<Employee> employee = employeeService.getEmployeeById(id);
+        if (!employee.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        Long deletedEmployeeId = employeeService.deleteEmployee(id);
+        return new ResponseEntity<>(deletedEmployeeId, HttpStatus.OK);
+    }
 }
