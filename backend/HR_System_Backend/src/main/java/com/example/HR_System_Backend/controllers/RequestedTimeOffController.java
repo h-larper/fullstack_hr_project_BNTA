@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/requested_time_off")
 
-public class RequestedTimeOffsController {
+public class RequestedTimeOffController {
 
     @Autowired
     RequestedTimeOffService requestedTimeOffService;
