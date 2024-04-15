@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoginForm from "../Components/LoginForm";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import LandingPage from "../Components/LandingPage";
 
 const HRContainer = () => {
 
@@ -29,6 +30,10 @@ const HRContainer = () => {
         {
             path: "/login",
             element: <LoginForm fetchCurrentUser={fetchCurrentUser} />
+        },
+        {
+            path: "/landing",
+            element: <LandingPage />
         }
     ]);
 
