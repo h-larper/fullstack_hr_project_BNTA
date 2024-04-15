@@ -14,19 +14,19 @@ const LoginForm = () => {
             <h2>Login Form:</h2>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor="emailAddress-field">Email Address</label>
+                <label htmlFor="emailAddress-field">Email Address:</label>
                 <input
                     type="text"
-                    placeholder="Email Address"
+                    placeholder="Enter Email Address"
                     id="emailAddress-field"
                     required
                     value={emailAddress}
                     onChange={(event) => setEmailAddress(event.target.value)}
                 />
-                <label htmlFor="password-field">Password</label>
+                <label htmlFor="password-field">Password:</label>
                 <input
                     type="text"
-                    placeholder="Password"
+                    placeholder="Enter Password"
                     id="password-field"
                     required
                     value={password}
