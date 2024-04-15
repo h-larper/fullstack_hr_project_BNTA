@@ -14,7 +14,7 @@
 **The names and versions of libraries used:**
 - React.js
 - React Router DOM
-- Bootstrap
+- SpringBoot
 - React Modal
 
 ### MVP
