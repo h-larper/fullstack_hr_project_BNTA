@@ -1,6 +1,8 @@
 const ProfileForm = () => {
     return ( 
-        <></>
+        <>
+            <p>PROFILE</p>
+        </>
      );
 }
  

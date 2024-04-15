@@ -1,6 +1,8 @@
 const HolidayRequestForm = () => {
     return ( 
-        <></>
+        <>
+            <p>HOLIDAY REQUESTS</p>
+        </>
      );
 }
  

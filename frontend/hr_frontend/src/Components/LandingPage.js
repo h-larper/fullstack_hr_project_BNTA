@@ -4,6 +4,7 @@ import MyHolidaysList from "./MyHolidaysList";
 import ReactModal from "react-modal";
 import HolidayApprovalList from "./HolidayApprovalList";
 import HolidayRequestForm from "./HolidayRequestForm";
+import ProfileForm from "./ProfileForm";
 
 const LandingPage = () => {
     
@@ -18,7 +19,7 @@ const LandingPage = () => {
         setHolidayRequestModal(!holidayRequestModal);
     }
     const toggleProfileModal = () => {
-        profileModal(!profileModal);
+        setProfileModal(!profileModal);
     }
     
     return ( 
@@ -51,11 +52,11 @@ const LandingPage = () => {
             {/* Profile Modal */}
             <button onClick={toggleProfileModal}>Profile</button>
             <ReactModal
-                isOpen={ProfileModal}
+                isOpen={profileModal}
                 onRequestClose={toggleProfileModal}
                 ariaHideApp={false}
             >
-                <HolidayRequestForm />
+                <ProfileForm />
                 <button onClick={toggleProfileModal}>Close</button>
             </ReactModal>
         </>
