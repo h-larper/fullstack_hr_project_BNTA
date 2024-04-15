@@ -5,11 +5,15 @@ const LoginForm = () => {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
+
     return ( 
         <>
             <h2>Login Form:</h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="emailAddress-field">Email Address</label>
                 <input
                     type="text"

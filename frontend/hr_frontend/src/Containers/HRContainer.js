@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { createBrowserRouter } from "react-router-dom";
 import LoginForm from "../Components/LoginForm";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const HRContainer = () => {
 
@@ -33,7 +33,12 @@ const HRContainer = () => {
     ]);
 
     return ( 
-        <h1>Hello from the container!</h1>
+        <>
+            <h1>Hello from the container!</h1>
+            <main>
+                <RouterProvider router={HRRoutes} />
+            </main>
+        </>
      );
 }
  
