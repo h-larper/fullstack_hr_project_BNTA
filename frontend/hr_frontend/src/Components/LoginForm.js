@@ -7,6 +7,12 @@ const LoginForm = ({fetchCurrentUser}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        let userCredentials = {
+            workEmail: emailAddress,
+            password: password
+        }
+        console.log(JSON.stringify(userCredentials));
+        fetchCurrentUser(userCredentials);
     }
 
     return ( 

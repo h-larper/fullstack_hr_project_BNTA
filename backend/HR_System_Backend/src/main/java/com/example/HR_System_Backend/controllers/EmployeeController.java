@@ -43,6 +43,7 @@ public class EmployeeController {
             Employee currentUser = employeeService.login(loginDTO);
             return new ResponseEntity<>(currentUser, HttpStatus.OK);
         }catch(Exception exception){
+            System.out.println(exception.getMessage());
             return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
     }
