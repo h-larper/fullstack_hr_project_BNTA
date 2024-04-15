@@ -34,7 +34,7 @@ const LandingPage = ({fetchRequestedTimeOffs, currentUser}) => {
                 onRequestClose={toggleHolidayApprovalListModal}
                 ariaHideApp={false}
             >
-                <HolidayApprovalList currentUser={currentUser}/>
+                <HolidayApprovalList managees={currentUser.managees}/>
                 <button onClick={toggleHolidayApprovalListModal}>Close</button>
             </ReactModal>
 
