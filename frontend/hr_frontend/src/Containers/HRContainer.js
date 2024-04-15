@@ -7,6 +7,7 @@ const HRContainer = () => {
 
     // UseStates
     const [currentUser, setCurrentUser] = useState({});
+    const [requestedTimeOffs, setRequestedTimeOffs] = useState([]);
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
@@ -20,6 +21,16 @@ const HRContainer = () => {
             setCurrentUser(data);
             return response.status
         }catch(exception){}
+    }
+
+    const fetchRequestedTimeOffs = async (newTimeOffRequest) => {
+        const response = await fetch ("http://localhost:8080/requested_time_off", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(newTimeOffRequest)
+        });
+        const data = await response.json();
+        setRequestedTimeOffs(data);
     }
 
     // UseEffects
@@ -36,7 +47,7 @@ const HRContainer = () => {
         },
         {
             path: "/landing",
-            element: <LandingPage managees={currentUser.managees}/>
+            element: <LandingPage fetchRequestedTimeOffs = {fetchRequestedTimeOffs} currentUser = {currentUser} />
         }
     ]);
 
