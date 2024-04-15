@@ -1,6 +1,8 @@
 const HolidayApprovalList = () => {
     return ( 
-        <></>
+        <>
+            <p>HOLIDAY APPROVAL LIST</p>
+        </>
      );
 }
  

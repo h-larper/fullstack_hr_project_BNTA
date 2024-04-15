@@ -1,7 +1,7 @@
-const MyHolidayList = () => {
+const MyHolidaysList = () => {
     return ( 
         <></>
      );
 }
  
-export default MyHolidayList;
+export default MyHolidaysList;
