@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const HRContainer = () => {
 
@@ -6,8 +6,12 @@ const HRContainer = () => {
     const [currentUser, setCurrentUser] = useState({});
 
     // Fetch Requests
-    const fetchCurrentUser = async () => {
-        const response = await fetch("http://localhost:8080/employees/login");
+    const fetchCurrentUser = async (userLoginCredentials) => {
+        const response = await fetch("http://localhost:8080/employees/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(userLoginCredentials)
+        });
         const data = await response.json();
         setCurrentUser(data);
     }
