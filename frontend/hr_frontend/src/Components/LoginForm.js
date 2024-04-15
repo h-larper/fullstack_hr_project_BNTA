@@ -11,8 +11,10 @@ const LoginForm = ({fetchCurrentUser}) => {
             workEmail: emailAddress,
             password: password
         }
-        console.log(JSON.stringify(userCredentials));
+        
         fetchCurrentUser(userCredentials);
+        setEmailAddress("");
+        setPassword("");
     }
 
     return ( 
@@ -31,7 +33,7 @@ const LoginForm = ({fetchCurrentUser}) => {
                 />
                 <label htmlFor="password-field">Password:</label>
                 <input
-                    type="text"
+                    type="password"
                     placeholder="Enter Password"
                     id="password-field"
                     required
