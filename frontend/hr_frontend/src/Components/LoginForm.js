@@ -28,6 +28,10 @@ const LoginForm = () => {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                 />
+                <input
+                    type="submit"
+                    value="Login"
+                />
             </form>
         </>
      );
