@@ -17,6 +17,7 @@ const HRContainer = () => {
         });
         const data = await response.json();
         setCurrentUser(data);
+        return response.status
     }
 
     // UseEffects

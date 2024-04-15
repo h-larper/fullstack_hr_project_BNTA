@@ -1,18 +1,27 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const LoginForm = ({fetchCurrentUser}) => {
 
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
         let userCredentials = {
             workEmail: emailAddress,
             password: password
         }
         
-        fetchCurrentUser(userCredentials);
+        const status = await fetchCurrentUser(userCredentials);
+        
+        if(status === 200){
+            navigate(`/landing`);
+        }else{
+            alert("Incorrect login details, please try again 😢")
+        }
+
         setEmailAddress("");
         setPassword("");
     }
