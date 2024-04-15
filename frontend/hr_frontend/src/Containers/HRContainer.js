@@ -10,14 +10,16 @@ const HRContainer = () => {
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
-        const response = await fetch("http://localhost:8080/employees/login", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(userLoginCredentials)
-        });
-        const data = await response.json();
-        setCurrentUser(data);
-        return response.status
+        try{
+            const response = await fetch("http://localhost:8080/employees/login", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(userLoginCredentials)
+            });
+            const data = await response.json();
+            setCurrentUser(data);
+            return response.status
+        }catch(exception){}
     }
 
     // UseEffects

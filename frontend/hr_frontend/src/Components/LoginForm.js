@@ -19,7 +19,7 @@ const LoginForm = ({fetchCurrentUser}) => {
         if(status === 200){
             navigate(`/landing`);
         }else{
-            alert("Incorrect login details, please try again 😢")
+            alert("Incorrect login details, please try again 😢");
         }
 
         setEmailAddress("");
