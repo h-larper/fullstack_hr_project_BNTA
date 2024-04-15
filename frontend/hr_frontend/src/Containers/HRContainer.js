@@ -36,7 +36,7 @@ const HRContainer = () => {
         },
         {
             path: "/landing",
-            element: <LandingPage />
+            element: <LandingPage managees={currentUser.managees}/>
         }
     ]);
 

@@ -6,7 +6,7 @@ import HolidayApprovalList from "./HolidayApprovalList";
 import HolidayRequestForm from "./HolidayRequestForm";
 import ProfileForm from "./ProfileForm";
 
-const LandingPage = () => {
+const LandingPage = ({managees}) => {
     
     const [holidayApprovalListModal, setHolidayApprovalListModal] = useState(false);
     const [holidayRequestModal, setHolidayRequestModal] = useState(false);
@@ -34,7 +34,7 @@ const LandingPage = () => {
                 onRequestClose={toggleHolidayApprovalListModal}
                 ariaHideApp={false}
             >
-                <HolidayApprovalList />
+                <HolidayApprovalList managees={managees}/>
                 <button onClick={toggleHolidayApprovalListModal}>Close</button>
             </ReactModal>
 
