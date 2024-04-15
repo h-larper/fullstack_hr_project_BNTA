@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const LoginForm = () => {
+const LoginForm = ({fetchCurrentUser}) => {
 
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");

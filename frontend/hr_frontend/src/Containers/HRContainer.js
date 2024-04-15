@@ -28,7 +28,7 @@ const HRContainer = () => {
     const HRRoutes = createBrowserRouter([
         {
             path: "/login",
-            element: <LoginForm />
+            element: <LoginForm fetchCurrentUser={fetchCurrentUser} />
         }
     ]);
 
