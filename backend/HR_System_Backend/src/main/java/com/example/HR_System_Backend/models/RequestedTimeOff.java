@@ -25,8 +25,8 @@ public class RequestedTimeOff {
     @Column(name = "notes")
     private String notes;
 
-    @Column(name = "approved")
-    private Boolean approved;
+    @Column(name = "status")
+    private Status status;
 
     @JsonIgnoreProperties({"requestedTimeOffs", "manager", "managees"})
     @ManyToOne
@@ -35,12 +35,12 @@ public class RequestedTimeOff {
 
     public RequestedTimeOff() {}
 
-    public RequestedTimeOff(LocalDate startDate, LocalDate endDate, TimeOffType timeOffType, String notes, Employee employee){
+    public RequestedTimeOff(LocalDate startDate, LocalDate endDate, TimeOffType timeOffType, String notes, Status status, Employee employee){
         this.startDate = startDate;
         this.endDate = endDate;
         this.timeOffType = timeOffType;
         this.notes = notes;
-        this.approved = false;
+        this.status = status;
         this.employee = employee;
     }
 
@@ -84,12 +84,12 @@ public class RequestedTimeOff {
         this.notes = notes;
     }
 
-    public Boolean getApproved() {
-        return this.approved;
+    public Status getStatus() {
+        return this.status;
     }
 
-    public void setApproved(Boolean approved) {
-        this.approved = approved;
+    public void setStatus(Status status){
+        this.status = status;
     }
 
     public Employee getEmployee() {
