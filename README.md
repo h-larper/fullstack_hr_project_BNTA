@@ -1,18 +1,37 @@
-<h1 align="center" id="title">Yeet</h1>
+<h1 align="center" id="title">Yeet 👩🏻‍💻👩🏾‍💻👩🏽‍💻👩🏻‍💻</h1>
 
 ## Table of Contents
+1. [Project Description](#project-description)
+2. [Installation instructions](#installation-instructions)
+3. [Usage](#usage)
+4. [Contributing Instructions](#contributing-instructions)
+5. [Credits and Acknowledgements](credits-and-acknowledgements)
+6. [Licences](#licences)
 
+   
 ## Project Description
 
 **The names and versions of libraries used:**
+- React.js
+- React Router DOM
+- Bootstrap
+- React Modal
 
 ### MVP
+- Enable a user to log in to the application.
+- Employees can request holidays, which will then need approval from their manager.
+- Managers can approve their employee's holidays.
+- Calendar-view to display an employee's holidays.
+- Employees can view and update their personal details.
+- Ensure different actions are available if you’re logged in as an employee, manager, or finance team member.
 
 ### Extensions
 
 ### Wireframe
+Can be viewed here:
 
 ### Component diagram
+Can be viewed here:
 
 ## Installation instructions
 **Client-side**
