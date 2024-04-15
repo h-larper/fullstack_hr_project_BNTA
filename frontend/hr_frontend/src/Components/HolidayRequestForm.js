@@ -1,23 +1,43 @@
 import { useState } from "react";
+import Holiday from "./Holiday";
 
-const HolidayRequestForm = () => {
+const HolidayRequestForm = ({fetchRequestedTimeOffs, currentUser}) => {
 
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [type, setType] = useState("");
     const [notes, setNotes] = useState("");
-    const [value, setValue] = useState(null);
+    // const [value, setValue] = useState(null);
 
     const handleChange = (event) => {
-        setValue(event.target.value);
+        setType(event.target.value);
     }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        let newTimeOffRequest = {
+            startDate,
+            endDate,
+            timeOffType: type,
+            notes,
+            status: "PENDING",
+            employee_id: currentUser.id
+        }
+        fetchRequestedTimeOffs(newTimeOffRequest)
+    }
+
+    // const mappedRequestedHoliday = fetchRequestedTimeOffs.map((fetchRequested_time_off) => {
+    //     return <Holiday />
+    // })
+
 
     return ( 
         <>
             <p>HOLIDAY REQUESTS</p>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="start_date_field">Start Date</label>
                 <input
+                    id = "start_date_field"
                     type = "date"
                     placeholder="Start Date"
                     value = {startDate}
@@ -27,6 +47,7 @@ const HolidayRequestForm = () => {
 
                 <label htmlFor="end_date_field">End Date</label>
                 <input
+                    id = "end_date_field"
                     type = "date"
                     placeholder="End Date"
                     value = {endDate}
@@ -36,7 +57,7 @@ const HolidayRequestForm = () => {
 
                 <label htmlFor="type_field">Type</label>
                 <select  
-                    id = "type"
+                    id = "type_field"
                     onChange={handleChange}
                 >
                     <option value = "sick_leave">Sick Leave</option>
@@ -48,6 +69,7 @@ const HolidayRequestForm = () => {
 
                 <label htmlFor="notes_field">Notes</label>
                 <input 
+                    id = "notes_field"
                     type = "text"
                     placeholder="Notes"
                     value = {notes}
