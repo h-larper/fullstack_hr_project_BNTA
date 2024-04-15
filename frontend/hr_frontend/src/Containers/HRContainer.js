@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { createBrowserRouter } from "react-router-dom";
+import LoginForm from "../Components/LoginForm";
 
 const HRContainer = () => {
 
@@ -23,6 +25,12 @@ const HRContainer = () => {
 
 
     // Routes
+    const HRRoutes = createBrowserRouter([
+        {
+            path: "/login",
+            element: <LoginForm />
+        }
+    ]);
 
     return ( 
         <h1>Hello from the container!</h1>
