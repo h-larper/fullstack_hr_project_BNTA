@@ -52,13 +52,11 @@ const HRContainer = () => {
             fetchCurrentUserHoliday(currentUser.id);
         }
 
-        console.log(currentUser.managees);
-        let allPendingHolidayRequests = [];
         if(currentUser.managees) {
+            let allPendingHolidayRequests = [];
             currentUser.managees.forEach((managee) => {
-                let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING")
-                console.log(holidayRequests)
-                allPendingHolidayRequests.concat(holidayRequests);
+                let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
+                allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
                 });
             setPendingHolidayRequests(allPendingHolidayRequests);
         };

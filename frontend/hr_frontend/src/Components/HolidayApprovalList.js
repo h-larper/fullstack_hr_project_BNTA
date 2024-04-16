@@ -5,6 +5,7 @@ const HolidayApprovalList = ({pendingHolidayRequests}) => {
 
     const currentUser = useContext(currentUserContext);
 
+    console.log(pendingHolidayRequests);
     const holidayRequests = pendingHolidayRequests.map((pendingHolidayRequest) => <p> Hello </p>);
     
     return ( 
