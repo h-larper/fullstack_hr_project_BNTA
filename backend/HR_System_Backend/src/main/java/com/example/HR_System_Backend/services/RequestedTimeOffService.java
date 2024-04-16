@@ -1,5 +1,6 @@
 package com.example.HR_System_Backend.services;
 
+import com.example.HR_System_Backend.models.ApprovalDTO;
 import com.example.HR_System_Backend.models.Employee;
 import com.example.HR_System_Backend.models.RequestedTimeOff;
 import com.example.HR_System_Backend.models.RequestedTimeOffDTO;
@@ -42,6 +43,12 @@ public class RequestedTimeOffService {
         requestedTimeOffUpdate.setNotes(requestedTimeOff.getNotes());
         requestedTimeOffRepository.save(requestedTimeOffUpdate);
         return requestedTimeOffUpdate;
+    }
+
+    public RequestedTimeOff updateApprovalStatus(ApprovalDTO approvalDTO, long id){
+        RequestedTimeOff requestedTimeOff = requestedTimeOffRepository.findById(id).get();
+        requestedTimeOff.setStatus(approvalDTO.getStatus());
+        return requestedTimeOffRepository.save(requestedTimeOff);
     }
 
     public void deleteRequestedTimeOffById(long id){

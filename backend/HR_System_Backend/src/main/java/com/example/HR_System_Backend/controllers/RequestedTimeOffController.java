@@ -1,5 +1,6 @@
 package com.example.HR_System_Backend.controllers;
 
+import com.example.HR_System_Backend.models.ApprovalDTO;
 import com.example.HR_System_Backend.models.Employee;
 import com.example.HR_System_Backend.models.RequestedTimeOff;
 import com.example.HR_System_Backend.models.RequestedTimeOffDTO;
@@ -58,6 +59,17 @@ public class RequestedTimeOffController {
             return new ResponseEntity<>(requestedTimeOffService.updateRequestedTimeOff(requestedTimeOff, id), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<RequestedTimeOff> updateApprovalStatus(@RequestBody ApprovalDTO approvalDTO, @PathVariable long id){
+
+        Optional<RequestedTimeOff> requestedTimeOff = requestedTimeOffService.getRequestedTimeOffById(id);
+        if(!requestedTimeOff.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        RequestedTimeOff editedRequestedTimeOff = requestedTimeOffService.updateApprovalStatus(approvalDTO, id);
+        return new ResponseEntity<>(editedRequestedTimeOff, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
