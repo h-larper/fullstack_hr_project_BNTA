@@ -55,6 +55,10 @@ const HRContainer = () => {
             let allPendingHolidayRequests = [];
             currentUser.managees.forEach((managee) => {
                 let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
+                holidayRequests = holidayRequests.map((holidayRequest) => {
+                    holidayRequest.fullName = managee.firstName + " " + managee.lastName;
+                    return holidayRequest;
+                });
                 allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
                 });
             setPendingHolidayRequests(allPendingHolidayRequests);
