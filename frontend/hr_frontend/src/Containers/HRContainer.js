@@ -11,6 +11,7 @@ const HRContainer = () => {
     const [currentUser, setCurrentUser] = useState({});
     const [requestedTimeOffs, setRequestedTimeOffs] = useState([]);
     const [currentUserHoliday, setCurrentUserHoliday] = useState([]);
+    const [pendingHolidayRequests, setPendingHolidayRequests] = useState([]);
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
