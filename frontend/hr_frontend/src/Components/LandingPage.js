@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Calendar from "./Calendar";
-import MyHolidaysList from "./MyHolidaysList";
 import ReactModal from "react-modal";
 import HolidayApprovalList from "./HolidayApprovalList";
 import HolidayRequestForm from "./HolidayRequestForm";
@@ -25,7 +24,6 @@ const LandingPage = ({fetchRequestedTimeOffs, currentUser}) => {
     return ( 
         <>
             <Calendar />
-            <MyHolidaysList />
 
             {/* Holiday Approvals list Modal */}
             <button onClick={toggleHolidayApprovalListModal}>Approvals</button>

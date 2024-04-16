@@ -26,11 +26,6 @@ const HolidayRequestForm = ({fetchRequestedTimeOffs, currentUser}) => {
         fetchRequestedTimeOffs(newTimeOffRequest)
     }
 
-    // const mappedRequestedHoliday = fetchRequestedTimeOffs.map((fetchRequested_time_off) => {
-    //     return <Holiday />
-    // })
-
-
     return ( 
         <>
             <p>HOLIDAY REQUESTS</p>
