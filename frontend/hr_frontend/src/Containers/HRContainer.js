@@ -3,6 +3,7 @@ import LoginForm from "../Components/LoginForm";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LandingPage from "../Components/LandingPage";
 import MyHolidaysList from "../Components/MyHolidaysList";
+import CurrentUserContext from "../Components/CurrentUserContext";
 
 const HRContainer = () => {
 
@@ -75,10 +76,12 @@ const HRContainer = () => {
 
     return ( 
         <>
-            <h1>Hello from the container!</h1>
-            <main>
-                <RouterProvider router={HRRoutes} />
-            </main>
+            <CurrentUserContext.Provider value= {{currentUser, setCurrentUser}}>
+                <h1>Hello from the container!</h1>
+                <main>
+                    <RouterProvider router={HRRoutes} />
+                </main>
+            </CurrentUserContext.Provider>
         </>
      );
 }
