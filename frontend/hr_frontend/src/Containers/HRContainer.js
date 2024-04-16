@@ -54,12 +54,14 @@ const HRContainer = () => {
 
         console.log(currentUser.managees);
         let allPendingHolidayRequests = [];
-        currentUser.managees.forEach((managee) => {
-            let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING")
-            console.log(holidayRequests)
-            allPendingHolidayRequests.concat(holidayRequests);
-            });
-        setPendingHolidayRequests(allPendingHolidayRequests);
+        if(currentUser.managees) {
+            currentUser.managees.forEach((managee) => {
+                let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING")
+                console.log(holidayRequests)
+                allPendingHolidayRequests.concat(holidayRequests);
+                });
+            setPendingHolidayRequests(allPendingHolidayRequests);
+        };
         
 
         //Called every time currentUser is assigned (On startup or when changed)
@@ -88,7 +90,7 @@ const HRContainer = () => {
 
     return ( 
         <>
-            <CurrentUserContext.Provider value= {currentUser}>
+            <CurrentUserContext.Provider value= {{currentUser, setCurrentUser}}>
                 <h1>Hello from the container!</h1>
                 <main>
                     <RouterProvider router={HRRoutes} />
