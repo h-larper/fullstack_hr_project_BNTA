@@ -9,9 +9,8 @@ const HRContainer = () => {
 
     // UseStates
     const [currentUser, setCurrentUser] = useState({});
-    const [requestedTimeOffs, setRequestedTimeOffs] = useState([]);
-    const [currentUserHoliday, setCurrentUserHoliday] = useState([]);
     const [pendingHolidayRequests, setPendingHolidayRequests] = useState([]);
+    const [currentUserHolidays, setCurrentUserHolidays] = useState([]);
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
@@ -27,20 +26,20 @@ const HRContainer = () => {
         }catch(exception){}
     }
 
-    const fetchRequestedTimeOffs = async (newTimeOffRequest) => {
+    const postRequestedTimeOff = async (newTimeOffRequest) => {
         const response = await fetch ("http://localhost:8080/requested_time_off", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newTimeOffRequest)
         });
-        const data = await response.json();
-        setRequestedTimeOffs(data);
+        const newHoliday = await response.json();
+        setCurrentUserHolidays([...currentUserHolidays, newHoliday]);
     }
 
-    const fetchCurrentUserHoliday = async (id) => {
-        const response = await fetch (`http://localhost:8080/requested_time_off/employee/${id}`)
+    const fetchCurrentUserHolidays = async (id) => {
+        const response = await fetch(`http://localhost:8080/requested_time_off/employee/${id}`);
         const data = await response.json();
-        setCurrentUserHoliday(data);
+        setCurrentUserHolidays(data);
     }
 
 
@@ -49,7 +48,7 @@ const HRContainer = () => {
         //Makes sure current user has id/ logged in
         if (currentUser.id){
             //Fetches the holidays based on current user's id
-            fetchCurrentUserHoliday(currentUser.id);
+            fetchCurrentUserHolidays(currentUser.id);
         }
 
         if(currentUser.managees) {
@@ -78,9 +77,9 @@ const HRContainer = () => {
             path: "/landing",
             element: (
             <>
-            <LandingPage fetchRequestedTimeOffs = {fetchRequestedTimeOffs} 
+            <LandingPage postRequestedTimeOff = {postRequestedTimeOff} 
             pendingHolidayRequests = {pendingHolidayRequests} />
-            <MyHolidaysList currentUserHoliday = {currentUserHoliday}/>
+            <MyHolidaysList currentUserHolidays = {currentUserHolidays}/>
             </>
             )
         }

@@ -1,13 +1,14 @@
-import { useState } from "react";
-import Holiday from "./Holiday";
+import { useState, useContext } from "react";
+import currentUserContext from "./CurrentUserContext";
 
-const HolidayRequestForm = ({fetchRequestedTimeOffs, currentUser}) => {
+const HolidayRequestForm = ({postRequestedTimeOff}) => {
 
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [type, setType] = useState("");
     const [notes, setNotes] = useState("");
-    // const [value, setValue] = useState(null);
+
+    const currentUser = useContext(currentUserContext);
 
     const handleChange = (event) => {
         setType(event.target.value);
@@ -15,22 +16,25 @@ const HolidayRequestForm = ({fetchRequestedTimeOffs, currentUser}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
         let newTimeOffRequest = {
-            startDate,
-            endDate,
+            startDate: startDate,
+            endDate: endDate,
             timeOffType: type,
-            notes,
+            notes: notes,
             status: "PENDING",
             employee_id: currentUser.id
         }
-        fetchRequestedTimeOffs(newTimeOffRequest)
+        postRequestedTimeOff(newTimeOffRequest);
+        
     }
 
     return ( 
         <>
             <p>HOLIDAY REQUESTS</p>
+
             <form onSubmit={handleSubmit}>
-                <label htmlFor="start_date_field">Start Date</label>
+                <label htmlFor="start_date_field">Start Date:</label>
                 <input
                     id = "start_date_field"
                     type = "date"
@@ -40,7 +44,7 @@ const HolidayRequestForm = ({fetchRequestedTimeOffs, currentUser}) => {
                     required
                 />
 
-                <label htmlFor="end_date_field">End Date</label>
+                <label htmlFor="end_date_field">End Date:</label>
                 <input
                     id = "end_date_field"
                     type = "date"
@@ -50,7 +54,7 @@ const HolidayRequestForm = ({fetchRequestedTimeOffs, currentUser}) => {
                     required
                 />
 
-                <label htmlFor="type_field">Type</label>
+                <label htmlFor="type_field">Type:</label>
                 <select  
                     id = "type_field"
                     onChange={handleChange}
@@ -62,7 +66,7 @@ const HolidayRequestForm = ({fetchRequestedTimeOffs, currentUser}) => {
                     <option value = "other">Other</option>
                 </select>
 
-                <label htmlFor="notes_field">Notes</label>
+                <label htmlFor="notes_field">Notes:</label>
                 <input 
                     id = "notes_field"
                     type = "text"
