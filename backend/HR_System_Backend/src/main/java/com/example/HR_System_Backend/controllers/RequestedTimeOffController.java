@@ -1,8 +1,11 @@
 package com.example.HR_System_Backend.controllers;
 
+import com.example.HR_System_Backend.models.Employee;
 import com.example.HR_System_Backend.models.RequestedTimeOff;
+import com.example.HR_System_Backend.models.RequestedTimeOffDTO;
 import com.example.HR_System_Backend.services.EmployeeService;
 import com.example.HR_System_Backend.services.RequestedTimeOffService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,9 @@ public class RequestedTimeOffController {
     @Autowired
     RequestedTimeOffService requestedTimeOffService;
 
+    @Autowired
+    EmployeeService employeeService;
+
     @GetMapping
     public ResponseEntity<List<RequestedTimeOff>> getAllRequestedTimeOffs() {
         return new ResponseEntity<>(requestedTimeOffService.getAllRequestedTimeOffs(), HttpStatus.OK);
@@ -35,8 +41,12 @@ public class RequestedTimeOffController {
     }
 
     @PostMapping
-    public ResponseEntity<RequestedTimeOff> createRequestedTimeOff (@RequestBody RequestedTimeOff requestedTimeOff) {
-        RequestedTimeOff newRequestedTimeOff = requestedTimeOffService.saveRequestedTimeOff(requestedTimeOff);
+    public ResponseEntity<RequestedTimeOff> createRequestedTimeOff (@RequestBody RequestedTimeOffDTO requestedTimeOffDTO) {
+        Optional<Employee> employee = employeeService.getEmployeeById(requestedTimeOffDTO.getEmployeeId());
+        if(!employee.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        RequestedTimeOff newRequestedTimeOff = requestedTimeOffService.saveRequestedTimeOff(requestedTimeOffDTO);
         return new ResponseEntity<>(newRequestedTimeOff, HttpStatus.CREATED);
     }
 
