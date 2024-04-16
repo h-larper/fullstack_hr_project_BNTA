@@ -3,6 +3,7 @@ import LoginForm from "../Components/LoginForm";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LandingPage from "../Components/LandingPage";
 import MyHolidaysList from "../Components/MyHolidaysList";
+import CurrentUserContext from "../Components/CurrentUserContext";
 
 const HRContainer = () => {
 
