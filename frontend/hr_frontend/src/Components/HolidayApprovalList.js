@@ -1,12 +1,12 @@
-const HolidayApprovalList = ({managees}) => {
-    
-    const holidayRequests = managees.forEach((managee) => {
-        const filterPending = managee.requestedTimeOffs.filter((requestedTimeOff) => {
-            console.log(requestedTimeOff.status == "PENDING");
-            return requestedTimeOff.status == "PENDING"
-        })
-        return filterPending.map((requestedTimeOff) => { return <p> hello </p>});
-    });
+import { useContext } from "react";
+import currentUserContext from "./CurrentUserContext";
+
+const HolidayApprovalList = ({pendingHolidayRequests}) => {
+
+    const currentUser = useContext(currentUserContext);
+
+    console.log(pendingHolidayRequests);
+    const holidayRequests = pendingHolidayRequests.map((pendingHolidayRequest) => <p> Hello </p>);
     
     return ( 
         <>

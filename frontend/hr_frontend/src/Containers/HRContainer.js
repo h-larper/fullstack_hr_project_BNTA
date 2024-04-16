@@ -9,6 +9,7 @@ const HRContainer = () => {
 
     // UseStates
     const [currentUser, setCurrentUser] = useState({});
+    const [pendingHolidayRequests, setPendingHolidayRequests] = useState([]);
     const [currentUserHolidays, setCurrentUserHolidays] = useState([]);
 
     // Fetch Requests
@@ -49,6 +50,17 @@ const HRContainer = () => {
             //Fetches the holidays based on current user's id
             fetchCurrentUserHolidays(currentUser.id);
         }
+
+        if(currentUser.managees) {
+            let allPendingHolidayRequests = [];
+            currentUser.managees.forEach((managee) => {
+                let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
+                allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
+                });
+            setPendingHolidayRequests(allPendingHolidayRequests);
+        };
+        
+
         //Called every time currentUser is assigned (On startup or when changed)
     }, [currentUser]);
 
@@ -65,9 +77,9 @@ const HRContainer = () => {
             path: "/landing",
             element: (
             <>
-                <LandingPage postRequestedTimeOff={postRequestedTimeOff} 
-                currentUser = {currentUser} />
-                <MyHolidaysList currentUserHolidays={currentUserHolidays} />
+            <LandingPage postRequestedTimeOff = {postRequestedTimeOff} 
+            pendingHolidayRequests = {pendingHolidayRequests} />
+            <MyHolidaysList currentUserHolidays = {currentUserHolidays}/>
             </>
             )
         }
