@@ -5,6 +5,8 @@ const Holiday = ({holiday}) => {
             <p>{holiday.timeOffType}</p>
             <p>Notes: {holiday.notes}</p>
             <p>Status: {holiday.status}</p>
+            <button>Update</button>
+            <button>Delete</button>
         </article>
 
      );

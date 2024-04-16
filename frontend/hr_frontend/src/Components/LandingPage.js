@@ -6,7 +6,7 @@ import HolidayRequestForm from "./HolidayRequestForm";
 import ProfileForm from "./ProfileForm";
 import currentUserContext from "./CurrentUserContext";
 
-const LandingPage = ({fetchRequestedTimeOffs}) => {
+const LandingPage = ({postRequestedTimeOff}) => {
     
     const [holidayApprovalListModal, setHolidayApprovalListModal] = useState(false);
     const [holidayRequestModal, setHolidayRequestModal] = useState(false);
@@ -38,7 +38,7 @@ const LandingPage = ({fetchRequestedTimeOffs}) => {
                 onRequestClose={toggleHolidayApprovalListModal}
                 ariaHideApp={false}
             >
-                <HolidayApprovalList managees={currentUser.managees}/>
+                <HolidayApprovalList managees={currentUser.managees} />
                 <button onClick={toggleHolidayApprovalListModal}>Close</button>
             </ReactModal>
 
@@ -49,7 +49,7 @@ const LandingPage = ({fetchRequestedTimeOffs}) => {
                 onRequestClose={toggleHolidayRequestModal}
                 ariaHideApp={false}
             >
-                <HolidayRequestForm fetchRequestedTimeOffs = {fetchRequestedTimeOffs} currentUser = {currentUser}/>
+                <HolidayRequestForm postRequestedTimeOff={postRequestedTimeOff} currentUser={currentUser} />
                 <button onClick={toggleHolidayRequestModal}>Close</button>
             </ReactModal>
 
