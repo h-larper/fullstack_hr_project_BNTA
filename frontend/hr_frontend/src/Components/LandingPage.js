@@ -27,7 +27,7 @@ const LandingPage = ({fetchRequestedTimeOffs, pendingHolidayRequests}) => {
     return ( 
         <>
 
-            <h2>Welcome {currentUser.currentUser.firstName} </h2>
+            <h2>Welcome {currentUser.firstName} 👋🏼 </h2>
 
             <Calendar />
 
