@@ -12,13 +12,5 @@ public enum TimeOffType {
     TimeOffType(String displayName){
         this.displayName = displayName;
     }
-
-    public static TimeOffType valueOfDisplayName(String typeName){
-        for (TimeOffType timeOffType : TimeOffType.values()){
-            if (timeOffType.displayName.equals(typeName)){
-                return timeOffType;
-            }
-        }
-        return null;
-    }
+    
 }
