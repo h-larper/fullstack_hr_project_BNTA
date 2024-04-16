@@ -10,7 +10,7 @@ const HRContainer = () => {
     // UseStates
     const [currentUser, setCurrentUser] = useState({});
     const [requestedTimeOffs, setRequestedTimeOffs] = useState([]);
-    const [currentUserHoliday, setCurrentUserHoliday] = useState([]);
+    const [currentUserHolidays, setCurrentUserHolidays] = useState([]);
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
@@ -37,9 +37,9 @@ const HRContainer = () => {
     }
 
     const fetchCurrentUserHoliday = async (id) => {
-        const response = await fetch (`http://localhost:8080/requested_time_off/employee/${id}`)
+        const response = await fetch (`http://localhost:8080/requested_time_off/employee/${id}`);
         const data = await response.json();
-        setCurrentUserHoliday(data);
+        setCurrentUserHolidays(data);
     }
 
 
@@ -66,9 +66,9 @@ const HRContainer = () => {
             path: "/landing",
             element: (
             <>
-            <LandingPage fetchRequestedTimeOffs = {fetchRequestedTimeOffs} 
-            currentUser = {currentUser} />
-            <MyHolidaysList currentUserHoliday = {currentUserHoliday}/>
+                <LandingPage fetchRequestedTimeOffs = {fetchRequestedTimeOffs} 
+                currentUser = {currentUser} />
+                <MyHolidaysList currentUserHolidays={currentUserHolidays} />
             </>
             )
         }
