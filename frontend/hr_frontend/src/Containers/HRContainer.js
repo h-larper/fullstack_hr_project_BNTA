@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginForm from "../Components/LoginForm";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LandingPage from "../Components/LandingPage";
+import MyHolidaysList from "../Components/MyHolidaysList";
 
 const HRContainer = () => {
 
     // UseStates
     const [currentUser, setCurrentUser] = useState({});
     const [requestedTimeOffs, setRequestedTimeOffs] = useState([]);
+    const [currentUserHoliday, setCurrentUserHoliday] = useState([]);
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
@@ -33,8 +35,22 @@ const HRContainer = () => {
         setRequestedTimeOffs(data);
     }
 
-    // UseEffects
+    const fetchCurrentUserHoliday = async (id) => {
+        const response = await fetch (`http://localhost:8080/requested_time_off/employee/${id}`)
+        const data = await response.json();
+        setCurrentUserHoliday(data);
+    }
 
+
+    // UseEffects
+    useEffect(() => {
+        //Makes sure current user has id/ logged in
+        if (currentUser.id){
+            //Fetches the holidays based on current user's id
+            fetchCurrentUserHoliday(currentUser.id);
+        }
+        //Called every time currentUser is assigned (On startup or when changed)
+    }, [currentUser]);
 
     // Other Functions
 
@@ -42,12 +58,18 @@ const HRContainer = () => {
     // Routes
     const HRRoutes = createBrowserRouter([
         {
-            path: "/login",
+            path: "/",
             element: <LoginForm fetchCurrentUser={fetchCurrentUser} />
         },
         {
             path: "/landing",
-            element: <LandingPage fetchRequestedTimeOffs = {fetchRequestedTimeOffs} currentUser = {currentUser} />
+            element: (
+            <>
+            <LandingPage fetchRequestedTimeOffs = {fetchRequestedTimeOffs} 
+            currentUser = {currentUser} />
+            <MyHolidaysList currentUserHoliday = {currentUserHoliday}/>
+            </>
+            )
         }
     ]);
 

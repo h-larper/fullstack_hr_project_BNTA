@@ -25,7 +25,6 @@ const LandingPage = ({fetchRequestedTimeOffs, currentUser}) => {
     return ( 
         <>
             <Calendar />
-            <MyHolidaysList />
 
             {/* Holiday Approvals list Modal */}
             <button onClick={toggleHolidayApprovalListModal}>Approvals</button>
