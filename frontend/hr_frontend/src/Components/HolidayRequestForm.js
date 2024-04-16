@@ -26,6 +26,7 @@ const HolidayRequestForm = ({postRequestedTimeOff}) => {
             employee_id: currentUser.id
         }
         postRequestedTimeOff(newTimeOffRequest);
+        
     }
 
     return ( 
