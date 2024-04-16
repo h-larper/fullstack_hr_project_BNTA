@@ -75,10 +75,12 @@ const HRContainer = () => {
 
     return ( 
         <>
-            <h1>Hello from the container!</h1>
-            <main>
-                <RouterProvider router={HRRoutes} />
-            </main>
+            <CurrentUserContext.Provider value= {{currentUser, setCurrentUser}}>
+                <h1>Hello from the container!</h1>
+                <main>
+                    <RouterProvider router={HRRoutes} />
+                </main>
+            </CurrentUserContext.Provider>
         </>
      );
 }
