@@ -1,8 +1,10 @@
-const Holiday = () => {
+const Holiday = ({holiday}) => {
     return ( 
-        <>
-        <p> Holidays</p>
-        </>
+        <article>
+            <p>Start Date: [{holiday.startDate}] to End Date: [{holiday.endDate}]</p>
+            <p>{holiday.timeOffType}</p>
+            
+        </article>
 
      );
 }
