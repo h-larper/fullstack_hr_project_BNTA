@@ -1,6 +1,15 @@
-const HolidayForApproval = ({pendingHolidayRequest}) => {
+const HolidayForApproval = ({pendingHolidayRequest, patchRequestedTimeOff}) => {
     
-    
+    const handleApproval = (event) => {
+        let approvalStatus = {
+            status: "APPROVED"
+        }
+        patchRequestedTimeOff(approvalStatus, pendingHolidayRequest.employeeId, pendingHolidayRequest.id)
+    }
+
+    const handleRejection = (event) => {
+        
+    }
     
     return ( 
         <>
@@ -9,8 +18,8 @@ const HolidayForApproval = ({pendingHolidayRequest}) => {
                 <p>[{pendingHolidayRequest.startDate}] to [{pendingHolidayRequest.endDate}]</p>
                 <p>{pendingHolidayRequest.timeOffType}</p>
                 <p>{pendingHolidayRequest.notes}</p>
-                <button>Approve</button>
-                <button>Reject</button>
+                <button onClick={handleApproval}>Approve</button>
+                <button onClick={handleRejection}>Reject</button>
             </article>
         </>
     );

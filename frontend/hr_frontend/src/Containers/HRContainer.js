@@ -42,6 +42,28 @@ const HRContainer = () => {
         setCurrentUserHolidays(data);
     }
 
+    const fetchUserById = async (id) => {
+        const response = await fetch(`http://localhost:8080/employees/${id}`)
+    }
+
+    const patchRequestedTimeOff = async (approvalStatus, employeeId, requestedTimeOffId) => {
+        const response = await fetch (`http://localhost:8080/requested_time_off/${requestedTimeOffId}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(approvalStatus)
+        });
+        const updatedHoliday = await response.json();
+        // const oldHoliday = currentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId);
+        // console.log(oldHoliday);
+        // console.log(updatedHoliday);
+
+        const updatedCurrentUser = currentUser;
+        console.log(updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId))
+        console.log(currentUser);
+        // updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId) = updatedHoliday;
+        // setCurrentUser(updatedCurrentUser);
+    }
+
 
     // UseEffects
     useEffect(() => {
@@ -53,10 +75,12 @@ const HRContainer = () => {
 
         if(currentUser.managees) {
             let allPendingHolidayRequests = [];
-            currentUser.managees.forEach((managee) => {
+            const copiedCurrentUser = currentUser;
+            copiedCurrentUser.managees.forEach((managee) => {
                 let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
                 holidayRequests = holidayRequests.map((holidayRequest) => {
                     holidayRequest.fullName = managee.firstName + " " + managee.lastName;
+                    holidayRequest.employeeId = managee.id;
                     return holidayRequest;
                 });
                 allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
@@ -81,7 +105,7 @@ const HRContainer = () => {
             path: "/landing",
             element: (
             <>
-            <LandingPage postRequestedTimeOff = {postRequestedTimeOff} 
+            <LandingPage postRequestedTimeOff = {postRequestedTimeOff} patchRequestedTimeOff={patchRequestedTimeOff} 
             pendingHolidayRequests = {pendingHolidayRequests} />
             <MyHolidaysList currentUserHolidays = {currentUserHolidays}/>
             </>
