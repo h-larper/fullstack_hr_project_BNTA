@@ -37,6 +37,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 isOpen={holidayApprovalListModal}
                 onRequestClose={toggleHolidayApprovalListModal}
                 ariaHideApp={false}
+                style={{
+                    content: {},
+                    overlay: {zIndex: 1000}
+                }}
             >
                 <HolidayApprovalList pendingHolidayRequests = {pendingHolidayRequests} patchRequestedTimeOff={patchRequestedTimeOff}/>
                 <button onClick={toggleHolidayApprovalListModal}>Close</button>
@@ -48,6 +52,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 isOpen={holidayRequestModal}
                 onRequestClose={toggleHolidayRequestModal}
                 ariaHideApp={false}
+                style={{
+                    content: {},
+                    overlay: {zIndex: 1000}
+                }}
             >
                 <HolidayRequestForm postRequestedTimeOff={postRequestedTimeOff} currentUser={currentUser} />
                 <button onClick={toggleHolidayRequestModal}>Close</button>
@@ -59,6 +67,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 isOpen={profileModal}
                 onRequestClose={toggleProfileModal}
                 ariaHideApp={false}
+                style={{
+                    content: {},
+                    overlay: {zIndex: 1000}
+                }}
             >
                 <ProfileForm />
                 <button onClick={toggleProfileModal}>Close</button>
