@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
-import Calendar from "./Calendar";
 import ReactModal from "react-modal";
 import HolidayApprovalList from "./HolidayApprovalList";
 import HolidayRequestForm from "./HolidayRequestForm";
 import ProfileForm from "./ProfileForm";
 import currentUserContext from "./CurrentUserContext";
+import WorkCalendar from "./WorkCalendar";
 
-const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff}) => {
+const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays}) => {
   
     const [holidayApprovalListModal, setHolidayApprovalListModal] = useState(false);
     const [holidayRequestModal, setHolidayRequestModal] = useState(false);
@@ -29,7 +29,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
 
             <h2>Welcome {currentUser.currentUser.firstName} 👋🏼 </h2>
 
-            <Calendar />
+            <WorkCalendar currentUserHolidays={currentUserHolidays}/>
 
             {/* Holiday Approvals list Modal */}
             <button onClick={toggleHolidayApprovalListModal}>Approvals</button>
