@@ -1,4 +1,9 @@
-const Holiday = ({holiday}) => {
+const Holiday = ({holiday, deleteHolidayRequest}) => {
+
+    const handleDelete = () => {
+        deleteHolidayRequest(holiday.id);
+    }
+
     return ( 
         <article>
             <p>Start Date: [{holiday.startDate}] to End Date: [{holiday.endDate}]</p>
@@ -6,7 +11,7 @@ const Holiday = ({holiday}) => {
             <p>Notes: {holiday.notes}</p>
             <p>Status: {holiday.status}</p>
             <button>Update</button>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
         </article>
 
      );
