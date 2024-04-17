@@ -3,6 +3,7 @@ package com.example.HR_System_Backend.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -188,5 +189,21 @@ public class Employee {
 
     public void setRequestedTimeOffs(List<RequestedTimeOff> requestedTimeOffs) {
         this.requestedTimeOffs = requestedTimeOffs;
+    }
+
+    public boolean isWeekday(LocalDate date){
+        return (date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY );
+    }
+
+    public int calculateRemainingTimeOffs(){
+        int remainingHoliday = totalHoliday;
+        for (int i = 0; i<requestedTimeOffs.size(); i++){
+            RequestedTimeOff holiday = requestedTimeOffs.get(i);
+            if (holiday.getTimeOffType() == TimeOffType.HOLIDAYLEAVE){
+                long days = holiday.getStartDate().datesUntil(holiday.getEndDate()).filter(date -> isWeekday(date)).count();
+                remainingHoliday -= Math.toIntExact(days);
+            }
+        }
+        return remainingHoliday;
     }
 }
