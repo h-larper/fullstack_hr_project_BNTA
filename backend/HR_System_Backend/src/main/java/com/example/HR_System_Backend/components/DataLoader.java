@@ -33,7 +33,7 @@ public class DataLoader implements ApplicationRunner {
                 LocalDate.of(2023,10,6));
         employeeRepository.save(employee1);
 
-        Employee employee2 = new Employee("Laura", "Harper", "laura@laura.com",
+        Employee employee2 = new Employee("Laura", "Harper", "laura@lily.com",
                 "cats", 20, "451269", "12345678", 200,
                 LocalDate.of(2023,10,6));
         employeeRepository.save(employee2);
@@ -41,7 +41,7 @@ public class DataLoader implements ApplicationRunner {
         employeeRepository.save(employee2);
 
         //Managees
-        Employee employee3 = new Employee("Hannah", "Riley", "hannah@hannah.com",
+        Employee employee3 = new Employee("Hannah", "Riley", "hannah@lily.com",
                 "dogs", 200, "123456", "87654321", 200000,
                 LocalDate.of(2024,4,10));
         //Save employee so it gets an id
@@ -51,14 +51,14 @@ public class DataLoader implements ApplicationRunner {
         //Update the employee
         employeeRepository.save(employee3);
 
-        Employee employee4 = new Employee("Maya", "Tetteh", "maya@maya.com",
+        Employee employee4 = new Employee("Maya", "Tetteh", "maya@lily.com",
                 "orcas", 364, "246810", "12345679", 3000000,
                 LocalDate.of(2001,12,25));
         employeeRepository.save(employee4);
         employee4.setManager(employee2);
         employeeRepository.save(employee4);
 
-        Employee employee5 = new Employee("Karen", "Yip", "karen.karen@karen.com",
+        Employee employee5 = new Employee("Karen", "Yip", "karen.karen@lily.com",
                 "flapjack", 2, "147258", "98745612", 500,
                 LocalDate.of(2021,10,25));
         employeeRepository.save(employee5);
