@@ -54,16 +54,6 @@ const HRContainer = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(approvalStatus)
         });
-        // const updatedHoliday = await response.json();
-        // // const oldHoliday = currentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId);
-        // // console.log(oldHoliday);
-        // // console.log(updatedHoliday);
-
-        // const updatedCurrentUser = currentUser;
-        // console.log(updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId))
-        // console.log(currentUser);
-        // // updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId) = updatedHoliday;
-        // // setCurrentUser(updatedCurrentUser);
         setPendingHolidayRequests(pendingHolidayRequests.filter((holidayRequest) => holidayRequest.id !== requestedTimeOffId));
     }
 
@@ -83,23 +73,10 @@ const HRContainer = () => {
             //Fetches the holidays based on current user's id
             fetchCurrentUserHolidays(currentUser.id);
         }
-
-        // if(currentUser.managees) {
-        //     let allPendingHolidayRequests = [];
-        //     // const copiedCurrentUser = currentUser;
-        //     currentUser.managees.forEach((managee) => {
-        //         let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
-        //         holidayRequests = holidayRequests.map((holidayRequest) => {
-        //             holidayRequest.fullName = managee.firstName + " " + managee.lastName;
-        //             holidayRequest.employeeId = managee.id;
-        //             return holidayRequest;
-        //         });
-        //         allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
-        //     });
-        //     setPendingHolidayRequests(allPendingHolidayRequests);
-        // };
-
-        fetchHolidayApprovals(currentUser.id)
+        
+        if(currentUser.managees){
+            fetchHolidayApprovals(currentUser.id)
+        }
         
         //Called every time currentUser is assigned (On startup or when changed)
     }, [currentUser]);
