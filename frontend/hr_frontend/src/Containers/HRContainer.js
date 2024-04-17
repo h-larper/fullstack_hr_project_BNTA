@@ -69,7 +69,7 @@ const HRContainer = () => {
             method: "DELETE",
             headers: {"Content-Type": "application/json"}
         });
-        setCurrentUserHolidays(holidays.filter((holiday) => holiday.id !== holidayId));
+        setCurrentUserHolidays(currentUserHolidays.filter((holiday) => holiday.id !== holidayId));
     }
 
 
