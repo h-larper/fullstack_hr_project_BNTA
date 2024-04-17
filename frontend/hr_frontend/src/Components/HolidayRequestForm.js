@@ -25,8 +25,6 @@ const HolidayRequestForm = ({postRequestedTimeOff, toggleHolidayRequestModal}) =
             status: "PENDING",
             employeeId: currentUser.currentUser.id
         }
-        console.log(currentUser);
-        console.log(newTimeOffRequest);
         postRequestedTimeOff(newTimeOffRequest);
         toggleHolidayRequestModal();
     }
