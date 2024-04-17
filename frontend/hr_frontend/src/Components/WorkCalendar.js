@@ -9,7 +9,10 @@ const localizer = momentLocalizer(moment) // or globalizeLocalizer
 const WorkCalendar = ({currentUserHolidays}) => {
 
     const calendarEvents = currentUserHolidays.map((currentUserHoliday) => {
-        return {start:currentUserHoliday.startDate, end:currentUserHoliday.endDate, title:currentUserHoliday.notes}
+        const endDate = new Date(currentUserHoliday.endDate);
+        endDate.setDate(endDate.getDate() + 1);
+        const displayEndDate = endDate.toISOString().substring(0, 10);
+        return {start:currentUserHoliday.startDate, end: displayEndDate, title:currentUserHoliday.notes}
     })
 
     return ( 
