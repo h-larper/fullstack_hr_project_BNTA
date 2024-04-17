@@ -39,18 +39,27 @@ const ProfileForm = () => {
                     id = "sort-code-field"
                     type = "text"
                     value = {sortCode}
+                    maxLength="6"
                     onChange={(event) => setSortCode(event.target.value)}
                     placeholder={currentUser.currentUser.sortCode}
                 />
                 <label htmlFor="account-number-field">Account Number: </label>
                 <input  
                     id = "account-number-field"
-                    type = "text"
+                    type = "text" 
                     value = {accountNumber}
+                    maxLength="8"
                     onChange={(event) => setAccountNumber(event.target.value)}
                     placeholder={currentUser.currentUser.accountNumber}
                 />
-                    
+                <label htmlFor="start-date-field">Start Date: </label>
+                <input
+                    id = "start-date-field"
+                    placeholder={currentUser.currentUser.employeeStartDate}
+                    readOnly
+                />
+
+
             </form>
 
         </>
