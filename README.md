@@ -23,9 +23,10 @@
 - Managers can approve their employee's holidays.
 - Calendar-view to display an employee's holidays.
 - Employees can view and update their personal details.
-- Ensure different actions are available if you’re logged in as an employee, manager, or finance team member.
+- Ensure different actions are available if you’re logged in as an employee or manager. 
 
 ### Extensions
+- Add separate functionality for fiance team members - i.e. render a list of bank account details. 
 
 ### Wireframe
 Can be viewed here:
@@ -61,10 +62,10 @@ Find below our contributing guidelines. By following these guidelines, you'll he
 ## Credits and Acknowledgements
 
 ### Yeet Collaborators:
-- Laura Harper
-- Karen Yip
-- Hannah Riley
-- Maya Tetteh
+- Laura Harper (https://github.com/h-larper)
+- Karen Yip (https://github.com/karenyip1999)
+- Hannah Riley (https://github.com/H8S8)
+- Maya Tetteh (https://github.com/MTBNTA)
 
 ### Special thanks to:
 
