@@ -46,7 +46,7 @@ const UpdateHolidayRequestForm = ({holiday, putHolidayRequest, toggleUpdateHolid
                 <input  
                     id = "type_field"
                     type = "text"
-                    placeholder = {holiday.timeOffType}
+                    placeholder = {holiday.timeOffTypeDisplay}
                     readOnly
                 />
 

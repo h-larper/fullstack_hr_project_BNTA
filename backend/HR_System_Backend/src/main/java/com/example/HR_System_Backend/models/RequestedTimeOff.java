@@ -99,4 +99,8 @@ public class RequestedTimeOff {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
+
+    public String getTimeOffTypeDisplay(){
+        return this.timeOffType.getDisplayName();
+    }
 }

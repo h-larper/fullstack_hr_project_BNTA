@@ -17,7 +17,7 @@ const Holiday = ({holiday, deleteHolidayRequest, putHolidayRequest}) => {
     return ( 
         <article>
             <p>Start Date: [{holiday.startDate}] to End Date: [{holiday.endDate}]</p>
-            <p>{holiday.timeOffType}</p>
+            <p>{holiday.timeOffTypeDisplay}</p>
             <p>Notes: {holiday.notes}</p>
             <p>Status: {holiday.status}</p>
             <button onClick={toggleUpdateHolidayModal}>Update</button>
