@@ -64,6 +64,14 @@ const HRContainer = () => {
         // setCurrentUser(updatedCurrentUser);
     }
 
+    const deleteHolidayRequest = async (holidayId) => {
+        await fetch (`http://localhost:8080/requested_time_off/${holidayId}`, {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"}
+        });
+        setCurrentUserHolidays(holidays.filter((holiday) => holiday.id !== holidayId));
+    }
+
 
     // UseEffects
     useEffect(() => {
