@@ -26,6 +26,12 @@ const HRContainer = () => {
         }catch(exception){}
     }
 
+    const fetchHolidayApprovals = async (managerId) => {
+        const response = await fetch(`http://localhost:8080/employees/${managerId}/holiday_approvals`)
+        const data = await response.json();
+        setPendingHolidayRequests(data);
+    }
+
     const postRequestedTimeOff = async (newTimeOffRequest) => {
         const response = await fetch ("http://localhost:8080/requested_time_offs", {
                 method: "POST",
@@ -42,26 +48,23 @@ const HRContainer = () => {
         setCurrentUserHolidays(data);
     }
 
-    const fetchUserById = async (id) => {
-        const response = await fetch(`http://localhost:8080/employees/${id}`)
-    }
-
-    const patchRequestedTimeOff = async (approvalStatus, employeeId, requestedTimeOffId) => {
+    const patchRequestedTimeOff = async (approvalStatus, requestedTimeOffId) => {
         const response = await fetch (`http://localhost:8080/requested_time_offs/${requestedTimeOffId}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(approvalStatus)
         });
-        const updatedHoliday = await response.json();
-        // const oldHoliday = currentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId);
-        // console.log(oldHoliday);
-        // console.log(updatedHoliday);
+        // const updatedHoliday = await response.json();
+        // // const oldHoliday = currentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId);
+        // // console.log(oldHoliday);
+        // // console.log(updatedHoliday);
 
-        const updatedCurrentUser = currentUser;
-        console.log(updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId))
-        console.log(currentUser);
-        // updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId) = updatedHoliday;
-        // setCurrentUser(updatedCurrentUser);
+        // const updatedCurrentUser = currentUser;
+        // console.log(updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId))
+        // console.log(currentUser);
+        // // updatedCurrentUser.managees.find(x => x.id === employeeId).requestedTimeOffs.find(x => x.id === requestedTimeOffId) = updatedHoliday;
+        // // setCurrentUser(updatedCurrentUser);
+        setPendingHolidayRequests(pendingHolidayRequests.filter((holidayRequest) => holidayRequest.id !== requestedTimeOffId));
     }
 
 
@@ -73,22 +76,23 @@ const HRContainer = () => {
             fetchCurrentUserHolidays(currentUser.id);
         }
 
-        if(currentUser.managees) {
-            let allPendingHolidayRequests = [];
-            // const copiedCurrentUser = currentUser;
-            currentUser.managees.forEach((managee) => {
-                let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
-                holidayRequests = holidayRequests.map((holidayRequest) => {
-                    holidayRequest.fullName = managee.firstName + " " + managee.lastName;
-                    holidayRequest.employeeId = managee.id;
-                    return holidayRequest;
-                });
-                allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
-            });
-            setPendingHolidayRequests(allPendingHolidayRequests);
-        };
-        
+        // if(currentUser.managees) {
+        //     let allPendingHolidayRequests = [];
+        //     // const copiedCurrentUser = currentUser;
+        //     currentUser.managees.forEach((managee) => {
+        //         let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
+        //         holidayRequests = holidayRequests.map((holidayRequest) => {
+        //             holidayRequest.fullName = managee.firstName + " " + managee.lastName;
+        //             holidayRequest.employeeId = managee.id;
+        //             return holidayRequest;
+        //         });
+        //         allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
+        //     });
+        //     setPendingHolidayRequests(allPendingHolidayRequests);
+        // };
 
+        fetchHolidayApprovals(currentUser.id)
+        
         //Called every time currentUser is assigned (On startup or when changed)
     }, [currentUser]);
 

@@ -4,7 +4,7 @@ const HolidayForApproval = ({pendingHolidayRequest, patchRequestedTimeOff}) => {
         let approvalStatus = {
             status: "APPROVED"
         }
-        patchRequestedTimeOff(approvalStatus, pendingHolidayRequest.employeeId, pendingHolidayRequest.id)
+        patchRequestedTimeOff(approvalStatus, pendingHolidayRequest.id)
     }
 
     const handleRejection = (event) => {
