@@ -20,6 +20,13 @@ const ProfileForm = () => {
                     placeholder={currentUser.currentUser.firstName}
                     readOnly
                 />
+                <label htmlFor="last-name-field">Last Name: </label>
+                <input
+                    id = "last-name-field"
+                    type="text"
+                    placeholder={currentUser.currentUser.lastName}
+                    readOnly
+                />
 
                 
             </form>
