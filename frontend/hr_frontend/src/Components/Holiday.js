@@ -20,7 +20,7 @@ const Holiday = ({holiday, deleteHolidayRequest}) => {
             <p>{holiday.timeOffType}</p>
             <p>Notes: {holiday.notes}</p>
             <p>Status: {holiday.status}</p>
-            <button>Update</button>
+            <button onClick={toggleUpdateHolidayModal}>Update</button>
             <ReactModal
                 isOpen= {updateHolidayModal}
                 onRequestClose={toggleUpdateHolidayModal}

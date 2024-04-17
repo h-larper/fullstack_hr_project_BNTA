@@ -94,11 +94,11 @@ public class DataLoader implements ApplicationRunner {
         requestedTimeOffRepository.save(requestedTimeOff5);
 
         RequestedTimeOff requestedTimeOff6 = new RequestedTimeOff(LocalDate.of(2024,04,19),
-                LocalDate.of(2024,04, 20), TimeOffType.SICKLEAVE, "Got the runs", Status.PENDING, employee5);
+                LocalDate.of(2024,04, 19), TimeOffType.SICKLEAVE, "Got the runs", Status.PENDING, employee5);
         requestedTimeOffRepository.save(requestedTimeOff6);
 
         RequestedTimeOff requestedTimeOff7 = new RequestedTimeOff(LocalDate.of(2024,04,16),
-                LocalDate.of(2024,04, 17), TimeOffType.SICKLEAVE,
+                LocalDate.of(2024,04, 16), TimeOffType.SICKLEAVE,
                 "My feline overlord blessed me with a bite - GP appointment", Status.PENDING, employee2);
         requestedTimeOffRepository.save(requestedTimeOff7);
     }
