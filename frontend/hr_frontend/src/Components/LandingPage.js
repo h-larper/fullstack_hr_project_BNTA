@@ -6,8 +6,9 @@ import ProfileForm from "./ProfileForm";
 import currentUserContext from "./CurrentUserContext";
 import WorkCalendar from "./WorkCalendar";
 import { useNavigate } from "react-router";
+import MyHolidaysList from "./MyHolidaysList";
 
-const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays, patchUserProfile}) => {
+const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays, patchUserProfile, putHolidayRequest, deleteHolidayRequest}) => {
   
     const [holidayApprovalListModal, setHolidayApprovalListModal] = useState(false);
     const [holidayRequestModal, setHolidayRequestModal] = useState(false);
@@ -38,7 +39,15 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             <h2>Welcome {currentUser.currentUser.firstName} 👋🏼 </h2>
             <button onClick={handleSignOut}>Sign Out</button>
 
-            <WorkCalendar currentUserHolidays={currentUserHolidays}/>
+            <WorkCalendar 
+                currentUserHolidays={currentUserHolidays}
+            />
+
+            <MyHolidaysList 
+                currentUserHolidays = {currentUserHolidays} 
+                deleteHolidayRequest = {deleteHolidayRequest}
+                putHolidayRequest = {putHolidayRequest} 
+            />
 
             {/* Holiday Approvals list Modal */}
             {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
@@ -51,7 +60,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     overlay: {zIndex: 1000}
                 }}
             >
-                <HolidayApprovalList pendingHolidayRequests = {pendingHolidayRequests} patchRequestedTimeOff={patchRequestedTimeOff}/>
+                <HolidayApprovalList 
+                    pendingHolidayRequests = {pendingHolidayRequests} 
+                    patchRequestedTimeOff={patchRequestedTimeOff}
+                />
                 <button onClick={toggleHolidayApprovalListModal}>Close</button>
             </ReactModal>
 
@@ -66,7 +78,11 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     overlay: {zIndex: 1000}
                 }}
             >
-                <HolidayRequestForm postRequestedTimeOff={postRequestedTimeOff} currentUser={currentUser} toggleHolidayRequestModal={toggleHolidayRequestModal} />
+                <HolidayRequestForm 
+                    postRequestedTimeOff={postRequestedTimeOff} 
+                    currentUser={currentUser} 
+                    toggleHolidayRequestModal={toggleHolidayRequestModal} 
+                />
                 <button onClick={toggleHolidayRequestModal}>Close</button>
             </ReactModal>
 
@@ -81,7 +97,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     overlay: {zIndex: 1000}
                 }}
             >
-                <ProfileForm patchUserProfile = {patchUserProfile} toggleProfileModal={toggleProfileModal}/>
+                <ProfileForm 
+                    patchUserProfile = {patchUserProfile} 
+                    toggleProfileModal={toggleProfileModal}
+                />
                 <button onClick={toggleProfileModal}>Close</button>
             </ReactModal>
         </>

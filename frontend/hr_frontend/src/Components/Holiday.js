@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactModal from "react-modal";
 import UpdateHolidayRequestForm from "./UpdateHolidayRequestForm";
 
-const Holiday = ({holiday, deleteHolidayRequest}) => {
+const Holiday = ({holiday, deleteHolidayRequest, putHolidayRequest}) => {
 
     const [updateHolidayModal, setUpdateHolidayModal] = useState(false);
 
@@ -30,7 +30,10 @@ const Holiday = ({holiday, deleteHolidayRequest}) => {
                     overlay:{zIndex: 1000}
                 }}
             > 
-                <UpdateHolidayRequestForm holiday={holiday}/>
+                <UpdateHolidayRequestForm 
+                    holiday={holiday} 
+                    putHolidayRequest = {putHolidayRequest}
+                />
                 <button onClick={toggleUpdateHolidayModal}>Close</button>
             </ReactModal>
             <button onClick={handleDelete}>Delete</button>

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import LoginForm from "../Components/LoginForm";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LandingPage from "../Components/LandingPage";
-import MyHolidaysList from "../Components/MyHolidaysList";
 import CurrentUserContext from "../Components/CurrentUserContext";
 
 const HRContainer = () => {
@@ -67,6 +66,17 @@ const HRContainer = () => {
         setCurrentUser(updatedUser);
     }
 
+    const putHolidayRequest = async (requestedTimeOffId, updatedRequestedTimeOff) => {
+        const response = await fetch (`http://localhost:8080/requested_time_offs/${requestedTimeOffId}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(updatedRequestedTimeOff)
+        })
+        const updatedRequest = await response.json();
+        const updatedCurrentUserHolidays = currentUserHolidays.filter((holiday) => holiday.id !== requestedTimeOffId);
+        setCurrentUserHolidays([...updatedCurrentUserHolidays, updatedRequest]);
+    }
+
     const deleteHolidayRequest = async (holidayId) => {
         await fetch (`http://localhost:8080/requested_time_offs/${holidayId}`, {
             method: "DELETE",
@@ -106,9 +116,15 @@ const HRContainer = () => {
             path: "/landing",
             element: (
             <>
-            <LandingPage postRequestedTimeOff = {postRequestedTimeOff} patchRequestedTimeOff={patchRequestedTimeOff} 
-            pendingHolidayRequests = {pendingHolidayRequests} currentUserHolidays={currentUserHolidays} patchUserProfile= {patchUserProfile}/>
-            <MyHolidaysList currentUserHolidays={currentUserHolidays} deleteHolidayRequest={deleteHolidayRequest} />
+                <LandingPage 
+                    postRequestedTimeOff = {postRequestedTimeOff} 
+                    patchRequestedTimeOff = {patchRequestedTimeOff} 
+                    pendingHolidayRequests = {pendingHolidayRequests} 
+                    currentUserHolidays = {currentUserHolidays} 
+                    patchUserProfile = {patchUserProfile}
+                    putHolidayRequest = {putHolidayRequest}
+                    deleteHolidayRequest = {deleteHolidayRequest}
+                />
             </>
             )
         }
