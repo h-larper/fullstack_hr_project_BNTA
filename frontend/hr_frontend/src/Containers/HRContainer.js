@@ -58,7 +58,7 @@ const HRContainer = () => {
     }
 
     const deleteHolidayRequest = async (holidayId) => {
-        await fetch (`http://localhost:8080/requested_time_off/${holidayId}`, {
+        await fetch (`http://localhost:8080/requested_time_offs/${holidayId}`, {
             method: "DELETE",
             headers: {"Content-Type": "application/json"}
         });
