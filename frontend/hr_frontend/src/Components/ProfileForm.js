@@ -16,15 +16,19 @@ const ProfileForm = () => {
                 <label htmlFor="first-name-field">First Name: </label>
                 <input 
                     id = "first-name-field"
-                    type = "text"
                     placeholder={currentUser.currentUser.firstName}
                     readOnly
                 />
                 <label htmlFor="last-name-field">Last Name: </label>
                 <input
                     id = "last-name-field"
-                    type="text"
                     placeholder={currentUser.currentUser.lastName}
+                    readOnly
+                />
+                <label htmlFor="work-email-field">Work Email: </label>
+                <input
+                    id = "work-email-field"
+                    placeholder={currentUser.currentUser.workEmail}
                     readOnly
                 />
 
