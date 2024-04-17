@@ -57,7 +57,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     overlay: {zIndex: 1000}
                 }}
             >
-                <HolidayRequestForm postRequestedTimeOff={postRequestedTimeOff} currentUser={currentUser} />
+                <HolidayRequestForm postRequestedTimeOff={postRequestedTimeOff} currentUser={currentUser} toggleHolidayRequestModal={toggleHolidayRequestModal} />
                 <button onClick={toggleHolidayRequestModal}>Close</button>
             </ReactModal>
 

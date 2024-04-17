@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import currentUserContext from "./CurrentUserContext";
 
-const HolidayRequestForm = ({postRequestedTimeOff}) => {
+const HolidayRequestForm = ({postRequestedTimeOff, toggleHolidayRequestModal}) => {
 
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
@@ -23,10 +23,12 @@ const HolidayRequestForm = ({postRequestedTimeOff}) => {
             timeOffType: type,
             notes: notes,
             status: "PENDING",
-            employee_id: currentUser.id
+            employeeId: currentUser.currentUser.id
         }
+        console.log(currentUser);
+        console.log(newTimeOffRequest);
         postRequestedTimeOff(newTimeOffRequest);
-        
+        toggleHolidayRequestModal();
     }
 
     return ( 
@@ -58,12 +60,14 @@ const HolidayRequestForm = ({postRequestedTimeOff}) => {
                 <select  
                     id = "type_field"
                     onChange={handleChange}
+                    defaultValue="SELECTLEAVE"
                 >
-                    <option value = "sick_leave">Sick Leave</option>
-                    <option value = "compassionate_leave">Compassionate Leave</option>
-                    <option value = "parental_leave">Parental Leave</option>
-                    <option value = "holiday_leave">Holiday Leave</option>
-                    <option value = "other">Other</option>
+                    <option disabled value="SELECTLEAVE">Choose an option</option>
+                    <option value = "SICKLEAVE">Sick Leave</option>
+                    <option value = "COMPASSIONATELEAVE">Compassionate Leave</option>
+                    <option value = "PARENTALLEAVE">Parental Leave</option>
+                    <option value = "HOLIDAYLEAVE">Holiday Leave</option>
+                    <option value = "OTHER">Other</option>
                 </select>
 
                 <label htmlFor="notes_field">Notes:</label>
