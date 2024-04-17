@@ -69,15 +69,17 @@ const HRContainer = () => {
     // UseEffects
     useEffect(() => {
         //Makes sure current user has id/ logged in
-        if (currentUser.id){
-            //Fetches the holidays based on current user's id
-            fetchCurrentUserHolidays(currentUser.id);
+
+        if(currentUser){
+            if (currentUser.id){
+                //Fetches the holidays based on current user's id
+                fetchCurrentUserHolidays(currentUser.id);
+            }
+            
+            if(currentUser.managees){
+                fetchHolidayApprovals(currentUser.id)
+            }
         }
-        
-        if(currentUser.managees){
-            fetchHolidayApprovals(currentUser.id)
-        }
-        
         //Called every time currentUser is assigned (On startup or when changed)
     }, [currentUser]);
 

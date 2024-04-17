@@ -5,12 +5,15 @@ import HolidayRequestForm from "./HolidayRequestForm";
 import ProfileForm from "./ProfileForm";
 import currentUserContext from "./CurrentUserContext";
 import WorkCalendar from "./WorkCalendar";
+import { useNavigate } from "react-router";
 
 const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays}) => {
   
     const [holidayApprovalListModal, setHolidayApprovalListModal] = useState(false);
     const [holidayRequestModal, setHolidayRequestModal] = useState(false);
     const [profileModal, setProfileModal] = useState(false);
+
+    const navigate = useNavigate();
 
     const currentUser = useContext(currentUserContext);
 
@@ -23,11 +26,17 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
     const toggleProfileModal = () => {
         setProfileModal(!profileModal);
     }
+
+    const handleSignOut = (event) => {
+        currentUser.setCurrentUser(null);
+        navigate("/");
+    }
     
     return ( 
         <>
 
             <h2>Welcome {currentUser.currentUser.firstName} 👋🏼 </h2>
+            <button onClick={handleSignOut}>Sign Out</button>
 
             <WorkCalendar currentUserHolidays={currentUserHolidays}/>
 
