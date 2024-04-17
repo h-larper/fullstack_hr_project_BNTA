@@ -1,9 +1,9 @@
 import Holiday from "./Holiday";
 
-const MyHolidaysList = ({currentUserHolidays}) => {
+const MyHolidaysList = ({currentUserHolidays, deleteHolidayRequest}) => {
 
     const mappedHolidays = currentUserHolidays.map((holiday, index) => {
-        return <Holiday key={index} holiday={holiday} />
+        return <Holiday key={index} holiday={holiday} deleteHolidayRequest={deleteHolidayRequest} />
     });
 
     return ( 

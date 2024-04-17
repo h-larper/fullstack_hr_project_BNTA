@@ -115,7 +115,7 @@ const HRContainer = () => {
             <>
             <LandingPage postRequestedTimeOff = {postRequestedTimeOff} patchRequestedTimeOff={patchRequestedTimeOff} 
             pendingHolidayRequests = {pendingHolidayRequests} currentUserHolidays={currentUserHolidays}/>
-            <MyHolidaysList currentUserHolidays = {currentUserHolidays}/>
+            <MyHolidaysList currentUserHolidays={currentUserHolidays} deleteHolidayRequest={deleteHolidayRequest} />
             </>
             )
         }
