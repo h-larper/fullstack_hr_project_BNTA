@@ -75,8 +75,8 @@ const HRContainer = () => {
 
         if(currentUser.managees) {
             let allPendingHolidayRequests = [];
-            const copiedCurrentUser = currentUser;
-            copiedCurrentUser.managees.forEach((managee) => {
+            // const copiedCurrentUser = currentUser;
+            currentUser.managees.forEach((managee) => {
                 let holidayRequests = managee.requestedTimeOffs.filter((requestedTimeOff) => requestedTimeOff.status === "PENDING");
                 holidayRequests = holidayRequests.map((holidayRequest) => {
                     holidayRequest.fullName = managee.firstName + " " + managee.lastName;
@@ -84,7 +84,7 @@ const HRContainer = () => {
                     return holidayRequest;
                 });
                 allPendingHolidayRequests = allPendingHolidayRequests.concat(holidayRequests);
-                });
+            });
             setPendingHolidayRequests(allPendingHolidayRequests);
         };
         
