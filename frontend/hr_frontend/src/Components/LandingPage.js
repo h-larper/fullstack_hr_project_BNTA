@@ -7,7 +7,7 @@ import currentUserContext from "./CurrentUserContext";
 import WorkCalendar from "./WorkCalendar";
 import { useNavigate } from "react-router";
 
-const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays}) => {
+const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays, patchUserProfile}) => {
   
     const [holidayApprovalListModal, setHolidayApprovalListModal] = useState(false);
     const [holidayRequestModal, setHolidayRequestModal] = useState(false);
@@ -81,7 +81,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     overlay: {zIndex: 1000}
                 }}
             >
-                <ProfileForm />
+                <ProfileForm patchUserProfile = {patchUserProfile} toggleProfileModal={toggleProfileModal}/>
                 <button onClick={toggleProfileModal}>Close</button>
             </ReactModal>
         </>

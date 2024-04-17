@@ -57,6 +57,16 @@ const HRContainer = () => {
         setPendingHolidayRequests(pendingHolidayRequests.filter((holidayRequest) => holidayRequest.id !== requestedTimeOffId));
     }
 
+    const patchUserProfile = async (id, updatedProfileDetails) => {
+        const response = await fetch (`http://localhost:8080/employees/${id}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(updatedProfileDetails)
+        })
+        const updatedUser = await response.json();
+        setCurrentUser(updatedUser);
+    }
+
     const deleteHolidayRequest = async (holidayId) => {
         await fetch (`http://localhost:8080/requested_time_offs/${holidayId}`, {
             method: "DELETE",
@@ -97,7 +107,7 @@ const HRContainer = () => {
             element: (
             <>
             <LandingPage postRequestedTimeOff = {postRequestedTimeOff} patchRequestedTimeOff={patchRequestedTimeOff} 
-            pendingHolidayRequests = {pendingHolidayRequests} currentUserHolidays={currentUserHolidays}/>
+            pendingHolidayRequests = {pendingHolidayRequests} currentUserHolidays={currentUserHolidays} patchUserProfile= {patchUserProfile}/>
             <MyHolidaysList currentUserHolidays={currentUserHolidays} deleteHolidayRequest={deleteHolidayRequest} />
             </>
             )

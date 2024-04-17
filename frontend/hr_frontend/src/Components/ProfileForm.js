@@ -1,7 +1,7 @@
 import currentUserContext from "./CurrentUserContext";
 import { useContext, useState } from "react";
 
-const ProfileForm = () => {
+const ProfileForm = ({patchUserProfile, toggleProfileModal}) => {
 
     const currentUser = useContext(currentUserContext);
 
@@ -10,6 +10,12 @@ const ProfileForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        let updatedProfileDetails = {
+            sortCode, 
+            accountNumber
+        }
+        patchUserProfile(currentUser.currentUser.id, updatedProfileDetails);
+        toggleProfileModal();
     }
 
     return ( 
@@ -64,6 +70,8 @@ const ProfileForm = () => {
                     placeholder= {"£" + currentUser.currentUser.salary / 100}
                     readOnly
                 />
+
+                <input type="submit" value="Submit"/>
             </form>
 
         </>
