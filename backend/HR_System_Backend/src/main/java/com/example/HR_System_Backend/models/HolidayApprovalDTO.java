@@ -15,20 +15,17 @@ public class HolidayApprovalDTO {
 
     private String notes;
 
-    private Status status;
-
     private String fullName;
 
     public HolidayApprovalDTO() {
     }
 
-    public HolidayApprovalDTO(Long id, LocalDate startDate, LocalDate endDate, TimeOffType timeOffType, String notes, Status status, String fullName) {
+    public HolidayApprovalDTO(Long id, LocalDate startDate, LocalDate endDate, TimeOffType timeOffType, String notes, String fullName) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.timeOffType = timeOffType;
         this.notes = notes;
-        this.status = status;
         this.fullName = fullName;
     }
 
@@ -70,14 +67,6 @@ public class HolidayApprovalDTO {
 
     public void setNotes(String notes) {
         this.notes = notes;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 
     public String getFullName() {

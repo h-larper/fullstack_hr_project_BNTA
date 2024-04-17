@@ -33,7 +33,12 @@ public class EmployeeController {
 
     @GetMapping(value = "/{id}/holiday_approvals")
     public ResponseEntity<List<HolidayApprovalDTO>> getHolidayApprovals(@PathVariable Long id){
-
+        Optional<Employee> manager = employeeService.getEmployeeById(id);
+        if(!manager.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        List<HolidayApprovalDTO> holidayApprovals = employeeService.getHolidayApprovals(id);
+        return new ResponseEntity<>(holidayApprovals, HttpStatus.OK);
     }
 
     @PostMapping
