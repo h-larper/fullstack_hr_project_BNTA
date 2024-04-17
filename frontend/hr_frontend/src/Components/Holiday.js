@@ -33,6 +33,7 @@ const Holiday = ({holiday, deleteHolidayRequest, putHolidayRequest}) => {
                 <UpdateHolidayRequestForm 
                     holiday={holiday} 
                     putHolidayRequest = {putHolidayRequest}
+                    toggleUpdateHolidayModal = {toggleUpdateHolidayModal}
                 />
                 <button onClick={toggleUpdateHolidayModal}>Close</button>
             </ReactModal>

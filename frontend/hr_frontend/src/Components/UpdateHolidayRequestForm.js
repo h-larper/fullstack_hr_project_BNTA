@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const UpdateHolidayRequestForm = ({holiday, putHolidayRequest}) => {
+const UpdateHolidayRequestForm = ({holiday, putHolidayRequest, toggleUpdateHolidayModal}) => {
 
     const [startDate, setStartDate] = useState(holiday.startDate);
     const [endDate, setEndDate] = useState(holiday.endDate);
@@ -8,7 +8,15 @@ const UpdateHolidayRequestForm = ({holiday, putHolidayRequest}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+        const updatedHolidayRequest = {
+            startDate,
+            endDate,
+            timeOffType: holiday.timeOffType,
+            notes,
+            status: "PENDING"
+        }
+        putHolidayRequest(holiday.id, updatedHolidayRequest);
+        toggleUpdateHolidayModal();
     }
 
     return (  
