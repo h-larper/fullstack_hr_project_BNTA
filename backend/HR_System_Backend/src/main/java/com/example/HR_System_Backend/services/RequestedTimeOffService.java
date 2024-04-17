@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static com.example.HR_System_Backend.models.Status.PENDING;
+
 @Service
 public class RequestedTimeOffService {
 
@@ -41,6 +43,7 @@ public class RequestedTimeOffService {
         requestedTimeOffUpdate.setEndDate(requestedTimeOff.getEndDate());
         requestedTimeOffUpdate.setTimeOffType(requestedTimeOff.getTimeOffType());
         requestedTimeOffUpdate.setNotes(requestedTimeOff.getNotes());
+        requestedTimeOffUpdate.setStatus(PENDING);
         requestedTimeOffRepository.save(requestedTimeOffUpdate);
         return requestedTimeOffUpdate;
     }
