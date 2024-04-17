@@ -31,6 +31,7 @@ const Holiday = ({holiday, deleteHolidayRequest}) => {
                 }}
             > 
                 <UpdateHolidayRequestForm holiday={holiday}/>
+                <button onClick={toggleUpdateHolidayModal}>Close</button>
             </ReactModal>
             <button onClick={handleDelete}>Delete</button>
         </article>
