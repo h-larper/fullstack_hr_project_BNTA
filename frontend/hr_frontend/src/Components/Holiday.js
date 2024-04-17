@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
+import UpdateHolidayRequestForm from "./UpdateHolidayRequestForm";
 
 const Holiday = ({holiday, deleteHolidayRequest}) => {
 
@@ -20,8 +21,16 @@ const Holiday = ({holiday, deleteHolidayRequest}) => {
             <p>Notes: {holiday.notes}</p>
             <p>Status: {holiday.status}</p>
             <button>Update</button>
-            <ReactModal> 
-
+            <ReactModal
+                isOpen= {updateHolidayModal}
+                onRequestClose={toggleUpdateHolidayModal}
+                ariaHideApp={false}
+                style={{
+                    content:{},
+                    overlay:{zIndex: 1000}
+                }}
+            > 
+                <UpdateHolidayRequestForm holiday={holiday}/>
             </ReactModal>
             <button onClick={handleDelete}>Delete</button>
         </article>
