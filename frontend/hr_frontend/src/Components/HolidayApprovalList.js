@@ -6,9 +6,7 @@ const HolidayApprovalList = ({pendingHolidayRequests, patchRequestedTimeOff}) =>
 
     const currentUser = useContext(currentUserContext);
 
-    console.log(pendingHolidayRequests);
     const holidayRequests = pendingHolidayRequests.map((pendingHolidayRequest) => {
-        console.log(pendingHolidayRequest);
         return <HolidayForApproval pendingHolidayRequest={pendingHolidayRequest} patchRequestedTimeOff={patchRequestedTimeOff} key={pendingHolidayRequest.id}/>
     });
     

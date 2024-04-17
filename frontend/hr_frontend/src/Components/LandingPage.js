@@ -32,7 +32,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             <WorkCalendar currentUserHolidays={currentUserHolidays}/>
 
             {/* Holiday Approvals list Modal */}
-            <button onClick={toggleHolidayApprovalListModal}>Approvals</button>
+            {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
             <ReactModal
                 isOpen={holidayApprovalListModal}
                 onRequestClose={toggleHolidayApprovalListModal}
