@@ -31,6 +31,11 @@ public class EmployeeController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/{id}/holiday_approvals")
+    public ResponseEntity<List<HolidayApprovalDTO>> getHolidayApprovals(@PathVariable Long id){
+
+    }
+
     @PostMapping
     public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO employeeDTO){
         Employee newEmployee = employeeService.saveEmployee(employeeDTO);
@@ -47,7 +52,7 @@ public class EmployeeController {
         }
     }
 
-    @PatchMapping(value = "/{id}/updateManager")
+    @PatchMapping(value = "/{id}/update_manager")
     public ResponseEntity<Employee> updateManager(@RequestBody UpdateManagerDTO updateManagerDTO, @PathVariable Long id){
         Optional<Employee> employee = employeeService.getEmployeeById(id);
         if (!employee.isPresent()){

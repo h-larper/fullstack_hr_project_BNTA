@@ -27,7 +27,7 @@ const HRContainer = () => {
     }
 
     const postRequestedTimeOff = async (newTimeOffRequest) => {
-        const response = await fetch ("http://localhost:8080/requested_time_off", {
+        const response = await fetch ("http://localhost:8080/requested_time_offs", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newTimeOffRequest)
@@ -37,7 +37,7 @@ const HRContainer = () => {
     }
 
     const fetchCurrentUserHolidays = async (id) => {
-        const response = await fetch(`http://localhost:8080/requested_time_off/employee/${id}`);
+        const response = await fetch(`http://localhost:8080/requested_time_offs/employee/${id}`);
         const data = await response.json();
         setCurrentUserHolidays(data);
     }
@@ -47,7 +47,7 @@ const HRContainer = () => {
     }
 
     const patchRequestedTimeOff = async (approvalStatus, employeeId, requestedTimeOffId) => {
-        const response = await fetch (`http://localhost:8080/requested_time_off/${requestedTimeOffId}`, {
+        const response = await fetch (`http://localhost:8080/requested_time_offs/${requestedTimeOffId}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(approvalStatus)
