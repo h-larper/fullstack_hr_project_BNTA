@@ -44,12 +44,6 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 currentUserHolidays={currentUserHolidays}
             />
 
-            <MyHolidaysList 
-                currentUserHolidays = {currentUserHolidays} 
-                deleteHolidayRequest = {deleteHolidayRequest}
-                putHolidayRequest = {putHolidayRequest} 
-            />
-
             {/* Holiday Approvals list Modal */}
             {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
             <ReactModal
@@ -104,6 +98,12 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 />
                 <button onClick={toggleProfileModal}>Close</button>
             </ReactModal>
+
+            <MyHolidaysList 
+                currentUserHolidays = {currentUserHolidays} 
+                deleteHolidayRequest = {deleteHolidayRequest}
+                putHolidayRequest = {putHolidayRequest} 
+            />
         </>
      );
 }
