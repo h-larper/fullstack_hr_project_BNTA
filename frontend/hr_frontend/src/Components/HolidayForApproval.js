@@ -8,7 +8,10 @@ const HolidayForApproval = ({pendingHolidayRequest, patchRequestedTimeOff}) => {
     }
 
     const handleRejection = (event) => {
-        
+        let approvalStatus = {
+            status: "REJECTED"
+        }
+        patchRequestedTimeOff(approvalStatus, pendingHolidayRequest.id)
     }
     
     return ( 
