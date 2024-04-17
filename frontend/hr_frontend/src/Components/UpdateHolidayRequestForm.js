@@ -2,9 +2,9 @@ import { useState } from "react";
 
 const UpdateHolidayRequestForm = ({holiday}) => {
 
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
-    const [notes, setNotes] = useState("");
+    const [startDate, setStartDate] = useState(holiday.startDate);
+    const [endDate, setEndDate] = useState(holiday.endDate);
+    const [notes, setNotes] = useState(holiday.notes);
 
     const handleSubmit = () => {}
 
@@ -43,7 +43,6 @@ const UpdateHolidayRequestForm = ({holiday}) => {
                 <input 
                     id = "notes_field"
                     type = "text"
-                    placeholder={holiday.notes}
                     value = {notes}
                     onChange={(event) => setNotes(event.target.value)}
                     required
