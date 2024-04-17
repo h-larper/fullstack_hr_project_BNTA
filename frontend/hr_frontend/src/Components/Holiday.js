@@ -1,4 +1,13 @@
+import { useState } from "react";
+import ReactModal from "react-modal";
+
 const Holiday = ({holiday, deleteHolidayRequest}) => {
+
+    const [updateHolidayModal, setUpdateHolidayModal] = useState(false);
+
+    const toggleUpdateHolidayModal = () => {
+        setUpdateHolidayModal(!updateHolidayModal);
+    }
 
     const handleDelete = () => {
         deleteHolidayRequest(holiday.id);
@@ -11,6 +20,9 @@ const Holiday = ({holiday, deleteHolidayRequest}) => {
             <p>Notes: {holiday.notes}</p>
             <p>Status: {holiday.status}</p>
             <button>Update</button>
+            <ReactModal> 
+
+            </ReactModal>
             <button onClick={handleDelete}>Delete</button>
         </article>
 
