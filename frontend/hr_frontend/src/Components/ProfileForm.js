@@ -58,8 +58,12 @@ const ProfileForm = () => {
                     placeholder={currentUser.currentUser.employeeStartDate}
                     readOnly
                 />
-
-
+                <label htmlFor="salary-field">Salary: </label>
+                <input 
+                    id = "salary-field"
+                    placeholder= {"£" + currentUser.currentUser.salary / 100}
+                    readOnly
+                />
             </form>
 
         </>
