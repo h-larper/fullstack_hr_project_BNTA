@@ -1,15 +1,15 @@
 package com.example.HR_System_Backend.services;
 
-import com.example.HR_System_Backend.models.Employee;
-import com.example.HR_System_Backend.models.EmployeeDTO;
-import com.example.HR_System_Backend.models.LoginDTO;
-import com.example.HR_System_Backend.models.UpdateProfileDetailsDTO;
+import com.example.HR_System_Backend.models.*;
 import com.example.HR_System_Backend.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static com.example.HR_System_Backend.models.Status.PENDING;
 
 @Service
 public class EmployeeService {
@@ -23,6 +23,27 @@ public class EmployeeService {
 
     public Optional<Employee> getEmployeeById(long id){
         return employeeRepository.findById(id);
+    }
+
+    public List<HolidayApprovalDTO> getHolidayApprovals(long id){
+        List<Employee> managees = employeeRepository.findById(id).get().getManagees();
+        List<HolidayApprovalDTO> holidayApprovals = new ArrayList<>();
+
+        //loop through managees
+        for(Employee managee : managees){
+            //loop through rtos
+            for(RequestedTimeOff requestedTimeOff : managee.getRequestedTimeOffs()){
+                //check for pending
+                if(requestedTimeOff.getStatus() == PENDING){
+                    //create DTO and append
+                    HolidayApprovalDTO holidayApproval = new HolidayApprovalDTO(requestedTimeOff.getId(),
+                            requestedTimeOff.getStartDate(), requestedTimeOff.getEndDate(), requestedTimeOff.getTimeOffType(),
+                            requestedTimeOff.getNotes(), managee.getFirstName() + " " + managee.getLastName());
+                    holidayApprovals.add(holidayApproval);
+                }
+            }
+        }
+        return holidayApprovals;
     }
 
     public Employee saveEmployee(EmployeeDTO employeeDTO){

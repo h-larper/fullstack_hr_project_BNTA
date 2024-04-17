@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/requested_time_off")
+@RequestMapping(value = "/requested_time_offs")
 
 public class RequestedTimeOffController {
 
