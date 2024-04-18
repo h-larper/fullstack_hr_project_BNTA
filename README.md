@@ -67,32 +67,32 @@ https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/User%20Flow%20Di
 
 ## Installation instructions
 **Client-side**
-1. Install PostgreSQL, POSTICO, POSTMAN and an IDEA that supports Java
-2. In the terminal, navigate to the directory you want to clone the repository into and then clone the repository using the following command:
+**1. Install PostgreSQL, POSTICO, POSTMAN and an IDE that supports Java
+**2. In the terminal, navigate to the directory you want to clone the repository into and then clone the repository using the following command:
    ```bash
    git clone git@github.com:h-larper/fullstack_hr_project_BNTA.git
    ```
-3. In the terminal, create a PostgreSQL database following the command:
+**3. In the terminal, create a PostgreSQL database following the command:
    ```bash
    createdb hr_system
    ```
-4. Run the application and use POSTMAN and POSTICO to run the endpoints and view changes to the database
+**4. Run the application and use POSTMAN and POSTICO to run the endpoints and view changes to the database
 
 **Server-side**
-1. Navigate to the front end project directory 
+**1. Navigate to the front end project directory 
    ```bash
    cd frontend
    ```
-2. Install the dependencies
+**2. Install the dependencies
    ```bash
    npm install
    ```
 ## Usage
-1. Start the development server
+**1. Start the development server
    ``` bash 
    npm start
    ```
-2. Open a browser and navigate to [`http://localhost:3000`](http://localhost:3000) to view the application
+**2. Open a browser and navigate to [`http://localhost:3000`](http://localhost:3000) to view the application
 
 ## Contributing Instructions
 
