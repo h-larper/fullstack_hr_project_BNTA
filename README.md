@@ -27,15 +27,23 @@
 - React Modal
 
 ### MVP
-- Enable a user to log in to the application.
-- Employees can request holidays, which will then need approval from their manager.
-- Managers can approve their employee's holidays.
-- Calendar-view to display an employee's holidays.
-- Employees can view and update their personal details.
-- Ensure different actions are available if you’re logged in as an employee or manager. 
+* [x] Enable a user to log in to the application.
+* [x] Employees can request holidays, which will then need approval from their manager.
+* [x] Managers can approve their employee's holidays.
+* [x] Calendar-view to display an employee's holidays.
+* [x] Employees can view and update their personal details.
+* [x] Ensure different actions are available if you’re logged in as an employee or manager. 
 
 ### Extensions
-- Add separate functionality for fiance team members - i.e. render a list of bank account details. 
+* [x] Employees can update *(this will put the holiday through for approval again)* or delete existing holidays.
+* [x] Add a counter for remaining holiday.
+* [ ] Add a counter for number of holiday requests to approve, as a manager. 
+* [ ] Add separate functionality for fiance team members - i.e. render a list of bank account details. 
+* [ ] Add a colour picker feature to 'Hello' Statement based on a user's favourite colour. 
+* [ ] Annual appraisal dates are displayed on the calendar.
+* [ ] Appraisals are automatically booked on the calendar annually based on an employee's start date. 
+
+
 
 ### Wireframe
 Can be viewed here:
