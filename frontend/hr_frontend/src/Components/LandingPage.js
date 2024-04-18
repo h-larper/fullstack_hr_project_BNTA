@@ -37,7 +37,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
         <>
 
             <h2>Welcome {currentUser.currentUser.firstName} 👋🏼  </h2>
-            <h3>Days off remaining: {currentUser.currentUser.calculateRemainingTimeOffs}</h3>
+            <h3>Days off remaining: {currentUser.currentUser.getCalculateRemainingTimeOffs}</h3>
             <button onClick={handleSignOut}>Sign Out</button>
 
             <WorkCalendar 

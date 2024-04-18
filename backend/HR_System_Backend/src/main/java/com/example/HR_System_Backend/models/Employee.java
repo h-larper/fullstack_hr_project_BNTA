@@ -191,16 +191,16 @@ public class Employee {
         this.requestedTimeOffs = requestedTimeOffs;
     }
 
-    public boolean isWeekday(LocalDate date){
+    public boolean getIsWeekday(LocalDate date){
         return (date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY );
     }
 
-    public int calculateRemainingTimeOffs(){
+    public int getCalculateRemainingTimeOffs(){
         int remainingHoliday = totalHoliday;
         for (int i = 0; i<requestedTimeOffs.size(); i++){
             RequestedTimeOff holiday = requestedTimeOffs.get(i);
             if (holiday.getTimeOffType() == TimeOffType.HOLIDAYLEAVE){
-                long days = holiday.getStartDate().datesUntil(holiday.getEndDate()).filter(date -> isWeekday(date)).count();
+                long days = holiday.getStartDate().datesUntil(holiday.getEndDate()).filter(date -> getIsWeekday(date)).count();
                 remainingHoliday -= Math.toIntExact(days);
             }
         }
