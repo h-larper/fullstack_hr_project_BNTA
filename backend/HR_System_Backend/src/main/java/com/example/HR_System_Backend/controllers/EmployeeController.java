@@ -42,15 +42,15 @@ public class EmployeeController {
         return new ResponseEntity<>(holidayApprovals, HttpStatus.OK);
     }
 
-//    @GetMapping(value = "/{id}/calendar_events")
-//    public ResponseEntity<List<RequestedTimeOff>> getCalendarEvents(@PathVariable Long id){
-//        Optional<Employee> manager = employeeService.getEmployeeById(id);
-//        if(!manager.isPresent()){
-//            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-//        }
-//        List<RequestedTimeOff> calendarEvents = employeeService.getCalendarEvents(id);
-//        return new ResponseEntity<>(calendarEvents, HttpStatus.OK);
-//    }
+    @GetMapping(value = "/{id}/calendar_events")
+    public ResponseEntity<List<RequestedTimeOff>> getCalendarEvents(@PathVariable Long id){
+        Optional<Employee> manager = employeeService.getEmployeeById(id);
+        if(!manager.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        List<RequestedTimeOff> calendarEvents = employeeService.getCalendarEvents(id);
+        return new ResponseEntity<>(calendarEvents, HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO employeeDTO){
