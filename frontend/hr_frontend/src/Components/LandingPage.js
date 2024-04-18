@@ -40,10 +40,12 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
 
             <h2>Welcome {currentUser.currentUser.firstName} 👋🏼  </h2>
             <h3>Days off remaining: {currentUser.currentUser.calculateRemainingTimeOffs}</h3>
-            <button onClick={handleSignOut}>Sign Out</button>
-            <button onClick={toggleProfileModal}>Profile</button>
-            {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
-            <button onClick={toggleHolidayRequestModal}>Request Leave</button>
+            <nav>
+                <button onClick={handleSignOut}>Sign Out</button>
+                <button onClick={toggleProfileModal}>Profile</button>
+                {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
+                <button onClick={toggleHolidayRequestModal}>Request Leave</button>
+            </nav>
 
             <section id = "main_content">
                 <WorkCalendar
