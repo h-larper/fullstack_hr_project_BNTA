@@ -49,6 +49,7 @@ Can be viewed here:
 
 ### ERD
 Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Entity%20Relationship%20Diagram.png
 
 ### User Flow Diagram
 Can be viewed here:
