@@ -43,7 +43,7 @@ const WorkCalendar = ({calendarEvents}) => {
     }
 
     return ( 
-        <div id = "calendar" style={{height: "60vh", width: "60vw", margin: "auto"}}>
+        <div id = "calendar" style={{height: "60vh", width: "55vw"}}>
             <Calendar
             localizer={localizer}
             events={workCalendarEvents}

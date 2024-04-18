@@ -3,6 +3,7 @@
     border-radius: 20px;
     border: solid #12263A;
     text-align: center;
+    width: 30vw;
 }
 
 #my_holiday_list button {
@@ -20,8 +21,8 @@
 }
 
 #main_content {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav button {
