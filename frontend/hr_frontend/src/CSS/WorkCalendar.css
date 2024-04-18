@@ -4,3 +4,10 @@
     padding: 20px;
     border: solid #12263A;
 }
+
+.rbc-calendar {
+    font-family: "Jersey 25", sans-serif;
+    font-style: normal;
+    text-align: center;
+    font-size: 15pt;
+}
