@@ -31,9 +31,9 @@ const HolidayRequestForm = ({postRequestedTimeOff, toggleHolidayRequestModal}) =
 
     return ( 
         <>
-            <p>HOLIDAY REQUESTS</p>
+            <h4>HOLIDAY REQUESTS</h4>
 
-            <form onSubmit={handleSubmit}>
+            <form id="request_form" onSubmit={handleSubmit}>
                 <label htmlFor="start_date_field">Start Date:</label>
                 <input
                     id = "start_date_field"
@@ -77,7 +77,7 @@ const HolidayRequestForm = ({postRequestedTimeOff, toggleHolidayRequestModal}) =
                     onChange={(event) => setNotes(event.target.value)}
                     required
                 />
-                <input type="submit" value="Submit"/>
+                <input id="request_button" type="submit" value="Submit"/>
             </form>
         </>
      );
