@@ -7,6 +7,7 @@ import currentUserContext from "./CurrentUserContext";
 import WorkCalendar from "./WorkCalendar";
 import { useNavigate } from "react-router";
 import MyHolidaysList from "./MyHolidaysList";
+import '../CSS/LandingPage.css';
 
 const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays, patchUserProfile, putHolidayRequest, deleteHolidayRequest}) => {
   
@@ -98,12 +99,13 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 />
                 <button onClick={toggleProfileModal}>Close</button>
             </ReactModal>
-
-            <MyHolidaysList 
-                currentUserHolidays = {currentUserHolidays} 
-                deleteHolidayRequest = {deleteHolidayRequest}
-                putHolidayRequest = {putHolidayRequest} 
-            />
+            <div id="my_holiday_list">
+                <MyHolidaysList 
+                    currentUserHolidays = {currentUserHolidays} 
+                    deleteHolidayRequest = {deleteHolidayRequest}
+                    putHolidayRequest = {putHolidayRequest} 
+                />
+            </div>
         </>
      );
 }
