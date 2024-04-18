@@ -72,7 +72,6 @@ Can be viewed here:
    ```
 2. Open a browser and navigate to [`http://localhost:3000`](http://localhost:3000) to view the application
 
-
 ## Contributing Instructions
 
 We appreciate your interest in contributing to the Yeet Project. We welcome contributions of all kinds, from bug reports and documentation improvements to new features and code changes.
