@@ -12,7 +12,7 @@ const HolidayApprovalList = ({pendingHolidayRequests, patchRequestedTimeOff}) =>
     
     return ( 
         <>
-            <h3>Holidays to be approved:</h3>
+            <h4>Holidays To Be Approved</h4>
             {holidayRequests}
         </>
      );

@@ -1,3 +1,5 @@
+import '../CSS/MyHolidaysList.css'
+
 const HolidayForApproval = ({pendingHolidayRequest, patchRequestedTimeOff}) => {
     
     const handleApproval = (event) => {
@@ -21,8 +23,10 @@ const HolidayForApproval = ({pendingHolidayRequest, patchRequestedTimeOff}) => {
                 <p>[{pendingHolidayRequest.startDate}] to [{pendingHolidayRequest.endDate}]</p>
                 <p>{pendingHolidayRequest.timeOffType}</p>
                 <p>{pendingHolidayRequest.notes}</p>
-                <button onClick={handleApproval}>Approve</button>
-                <button onClick={handleRejection}>Reject</button>
+                <div id="button_container">
+                    <button id= "approval_button" onClick={handleApproval}>Approve</button>
+                    <button id= "reject_button" onClick={handleRejection}>Reject</button>
+                </div>
             </article>
         </>
     );

@@ -21,7 +21,7 @@ const ProfileForm = ({patchUserProfile, toggleProfileModal}) => {
 
     return ( 
         <>
-            <h4> PROFILE</h4>
+            <h4> Profile </h4>
             <form id="profile_form" onSubmit={handleSubmit}>
                 <label htmlFor="first-name-field">First Name: </label>
                 <input 

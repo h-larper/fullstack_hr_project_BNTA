@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
 import UpdateHolidayRequestForm from "./UpdateHolidayRequestForm";
+import '../CSS/MyHolidaysList.css'
 
 const Holiday = ({holiday, deleteHolidayRequest, putHolidayRequest}) => {
 

@@ -31,7 +31,7 @@ const HolidayRequestForm = ({postRequestedTimeOff, toggleHolidayRequestModal}) =
 
     return ( 
         <>
-            <h4>HOLIDAY REQUESTS</h4>
+            <h4>Holiday Requests</h4>
 
             <form id="request_form" onSubmit={handleSubmit}>
                 <label htmlFor="start_date_field">Start Date:</label>
