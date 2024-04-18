@@ -73,7 +73,7 @@ public class DataLoader implements ApplicationRunner {
         requestedTimeOffRepository.save(requestedTimeOff1);
 
         RequestedTimeOff requestedTimeOff2 = new RequestedTimeOff(LocalDate.of(2024,04,01),
-                LocalDate.of(2024,04, 2), TimeOffType.PARENTALLEAVE, "Think of the children!", Status.PENDING,
+                LocalDate.of(2024,04, 3), TimeOffType.PARENTALLEAVE, "Think of the children!", Status.PENDING,
                 employee4);
         requestedTimeOffRepository.save(requestedTimeOff2);
 
