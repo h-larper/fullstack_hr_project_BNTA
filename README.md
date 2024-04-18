@@ -45,9 +45,18 @@ Can be viewed here:
 
 ## Installation instructions
 **Client-side**
-**Server-side**
+1. Install PostgreSQL, POSTICO, POSTMAN and an IDEA that supports Java
+2. In the terminal, navigate to the directory you want to clone the repository into and then clone the repository using the following command:
+   ```bash
+   git clone git@github.com:h-larper/fullstack_hr_project_BNTA.git
+   ```
+3. In the terminal, create a PostgreSQL database following the command:
+   ```bash
+   createdb hr_system
+   ```
+4. Run the application and use POSTMAN and POSTICO to run the endpoints and view changes to the database
 
-## Usage
+
 
 ## Contributing Instructions
 
