@@ -18,7 +18,7 @@ const HolidayForApproval = ({pendingHolidayRequest, patchRequestedTimeOff}) => {
     
     return ( 
         <>
-            <article>
+            <article id="approvals">
                 <p>{pendingHolidayRequest.fullName}</p>
                 <p>[{pendingHolidayRequest.startDate}] to [{pendingHolidayRequest.endDate}]</p>
                 <p>{pendingHolidayRequest.timeOffType}</p>

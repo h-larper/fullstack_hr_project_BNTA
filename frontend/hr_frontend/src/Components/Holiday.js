@@ -27,8 +27,11 @@ const Holiday = ({holiday, deleteHolidayRequest, putHolidayRequest}) => {
                 onRequestClose={toggleUpdateHolidayModal}
                 ariaHideApp={false}
                 style={{
-                    content:{},
-                    overlay:{zIndex: 1000}
+                    content: {height:"80%",
+                    margin: "auto",
+                    width: "50%",
+                    borderRadius: "20px"},
+                    overlay: {zIndex: 1000}
                 }}
             > 
                 <UpdateHolidayRequestForm 
@@ -36,7 +39,7 @@ const Holiday = ({holiday, deleteHolidayRequest, putHolidayRequest}) => {
                     putHolidayRequest = {putHolidayRequest}
                     toggleUpdateHolidayModal = {toggleUpdateHolidayModal}
                 />
-                <button onClick={toggleUpdateHolidayModal}>Close</button>
+                <button className="modal_close_button" onClick={toggleUpdateHolidayModal}>Close</button>
             </ReactModal>
             <button onClick={handleDelete}>Delete</button>
         </article>

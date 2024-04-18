@@ -21,7 +21,8 @@ const UpdateHolidayRequestForm = ({holiday, putHolidayRequest, toggleUpdateHolid
 
     return (  
         <>
-            <form onSubmit={handleSubmit}>
+            <h4>Update Holiday</h4>
+            <form id="update_form" onSubmit={handleSubmit}>
                 <label htmlFor="start_date_field">Start Date:</label>
                 <input
                     id = "start_date_field"
@@ -58,7 +59,7 @@ const UpdateHolidayRequestForm = ({holiday, putHolidayRequest, toggleUpdateHolid
                     onChange={(event) => setNotes(event.target.value)}
                     required
                 />
-                <input type="submit" value="Submit"/>
+                <input id="update_button" type="submit" value="Submit"/>
             </form>
         </>
     );

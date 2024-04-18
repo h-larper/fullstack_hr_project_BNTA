@@ -11,6 +11,9 @@ article {
     border-radius: 10px;
     margin: 20px;
     padding: 10px;
+}
+
+#approvals{
     background-color: #EAF6FF
 }
 
@@ -51,4 +54,19 @@ article p {
 #button_container {
     display: flex;
     justify-content: space-between;
+}
+
+.modal_close_button {
+    border-radius: 7px;
+    padding: 3px;
+    width: 100px;
+    text-decoration: none;
+    margin-top: 15px;
+    margin: auto;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #fafda9b6;
+    height: 30px;
+    font-size: large;
 }
