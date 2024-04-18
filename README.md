@@ -43,6 +43,7 @@ https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Wireframe.png
 
 ### Component diagram
 Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Component%20Diagram.png
 
 ### Class Diagram
 Can be viewed here:
