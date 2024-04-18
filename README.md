@@ -11,8 +11,8 @@
    
 ## Project Description
 
-Aim: 	To create an easy-to-use, intuitive HR system that is extendable.
-Why?
+- Aim: 	To create an easy-to-use, intuitive HR system that is extendable.
+- Why?
    - A need to eradicate use of paper records within the business - improved organisation and reduced errors to employee records & schedules.
    - To combine separate physical diaries digitally, reducing potential conflicts.
    - Automated scheduling of appraisals - improved employee productivity & satisfaction.
