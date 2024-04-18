@@ -4,7 +4,7 @@ import '../CSS/MyHolidaysList.css';
 const MyHolidaysList = ({currentUserHolidays, deleteHolidayRequest, putHolidayRequest}) => {
 
     const mappedHolidays = currentUserHolidays.map((holiday, index) => {
-        return <Holiday 
+        return <Holiday
                     key={index} 
                     holiday={holiday} 
                     deleteHolidayRequest={deleteHolidayRequest}

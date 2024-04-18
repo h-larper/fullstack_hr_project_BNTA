@@ -5,3 +5,9 @@ h1 {
     text-align: center;
     font-size: 30pt;
 }
+
+article {
+    border: solid #D6BBC0 3px;
+    border-radius: 10px;
+    margin: 20px;
+}
