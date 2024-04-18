@@ -39,9 +39,20 @@
 
 ### Wireframe
 Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Wireframe.png
 
 ### Component diagram
 Can be viewed here:
+
+### Class Diagram
+Can be viewed here:
+
+### ERD
+Can be viewed here:
+
+### User Flow Diagram
+Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/User%20Flow%20Diagram.png
 
 ## Installation instructions
 **Client-side**
