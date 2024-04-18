@@ -10,6 +10,7 @@ const HRContainer = () => {
     const [currentUser, setCurrentUser] = useState({});
     const [pendingHolidayRequests, setPendingHolidayRequests] = useState([]);
     const [currentUserHolidays, setCurrentUserHolidays] = useState([]);
+    const [calendarEvents, setCalendarEvents] = useState([]);
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
@@ -37,7 +38,11 @@ const HRContainer = () => {
         setCurrentUserHolidays(data);
     }
 
-
+    const fetchCalendarEvents = async (id) => {
+        const response = await fetch(`localhost:8080/employees/${id}/calendar_events`);
+        const data = await response.json();
+        setCalendarEvents(data);
+    }
 
     const postRequestedTimeOff = async (newTimeOffRequest) => {
         const response = await fetch ("http://localhost:8080/requested_time_offs", {
@@ -126,6 +131,7 @@ const HRContainer = () => {
                     patchUserProfile = {patchUserProfile}
                     putHolidayRequest = {putHolidayRequest}
                     deleteHolidayRequest = {deleteHolidayRequest}
+                    fetchCalendarEvents = {fetchCalendarEvents}
                 />
             </>
             )
