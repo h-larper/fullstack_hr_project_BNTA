@@ -58,3 +58,18 @@ nav button {
 #banner {
     margin-top: -130pt;
 }
+
+.modal_close_button {
+    border-radius: 7px;
+    padding: 3px;
+    width: 100px;
+    text-decoration: none;
+    margin-top: 15px;
+    margin: auto;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #fafda9b6;
+    height: 30px;
+    font-size: large;
+}

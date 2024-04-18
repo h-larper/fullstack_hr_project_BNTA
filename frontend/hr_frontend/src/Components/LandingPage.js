@@ -70,9 +70,9 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 onRequestClose={toggleHolidayApprovalListModal}
                 ariaHideApp={false}
                 style={{
-                    content: {height:"70%",
+                    content: {height:"80%",
                     margin: "auto",
-                    width: "70%",
+                    width: "50%",
                     borderRadius: "20px"},
                     overlay: {zIndex: 1000}
                 }}
@@ -81,7 +81,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     pendingHolidayRequests = {pendingHolidayRequests} 
                     patchRequestedTimeOff={patchRequestedTimeOff}
                 />
-                <button onClick={toggleHolidayApprovalListModal}>Close</button>
+                <button className="modal_close_button" onClick={toggleHolidayApprovalListModal}>Close</button>
             </ReactModal>
 
             {/* Holiday Request Form Modal */}
@@ -90,9 +90,9 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 onRequestClose={toggleHolidayRequestModal}
                 ariaHideApp={false}
                 style={{
-                    content: {height:"70%",
+                    content: {height:"80%",
                     margin: "auto",
-                    width: "70%",
+                    width: "50%",
                     borderRadius: "20px"},
                     overlay: {zIndex: 1000}
                 }}
@@ -102,7 +102,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     currentUser={currentUser} 
                     toggleHolidayRequestModal={toggleHolidayRequestModal} 
                 />
-                <button onClick={toggleHolidayRequestModal}>Close</button>
+                <button className="modal_close_button" onClick={toggleHolidayRequestModal}>Close</button>
             </ReactModal>
 
             {/* Profile Modal */}
@@ -111,9 +111,9 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 onRequestClose={toggleProfileModal}
                 ariaHideApp={false}
                 style={{
-                    content: {height:"70%",
+                    content: {height:"80%",
                     margin: "auto",
-                    width: "70%",
+                    width: "50%",
                     borderRadius: "20px"},
                     overlay: {zIndex: 1000}
                 }}
@@ -122,7 +122,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     patchUserProfile = {patchUserProfile} 
                     toggleProfileModal={toggleProfileModal}
                 />
-                <button onClick={toggleProfileModal}>Close</button>
+                <button className="modal_close_button" onClick={toggleProfileModal}>Close</button>
             </ReactModal>
         </>
      );

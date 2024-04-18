@@ -1,0 +1,35 @@
+h4 {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: x-large;
+    text-align: center;
+}
+
+#profile_form label {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#profile_form{
+    display: flex;
+    flex-direction: column;
+}
+
+#profile_form input {
+    margin-bottom: 10px;
+}
+
+#profile_button {
+    border-radius: 7px;
+    padding: 3px;
+    width: 100px;
+    text-decoration: none;
+    margin-top: 15px;
+    margin: auto;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #EAF6FF;
+}

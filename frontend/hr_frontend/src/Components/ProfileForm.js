@@ -1,5 +1,6 @@
 import currentUserContext from "./CurrentUserContext";
 import { useContext, useState } from "react";
+import '../CSS/ModalForms.css';
 
 const ProfileForm = ({patchUserProfile, toggleProfileModal}) => {
 
@@ -20,8 +21,8 @@ const ProfileForm = ({patchUserProfile, toggleProfileModal}) => {
 
     return ( 
         <>
-            <p>PROFILE</p>
-            <form onSubmit={handleSubmit}>
+            <h4> PROFILE</h4>
+            <form id="profile_form" onSubmit={handleSubmit}>
                 <label htmlFor="first-name-field">First Name: </label>
                 <input 
                     id = "first-name-field"
@@ -71,7 +72,7 @@ const ProfileForm = ({patchUserProfile, toggleProfileModal}) => {
                     readOnly
                 />
 
-                <input type="submit" value="Submit"/>
+                <input id="profile_button" type="submit" value="Submit"/>
             </form>
 
         </>
