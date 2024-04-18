@@ -203,6 +203,9 @@ public class Employee {
                 long days = holiday.getStartDate().datesUntil(holiday.getEndDate()).filter(date -> getIsWeekday(date)).count();
                 remainingHoliday -= Math.toIntExact(days);
             }
+            if (getIsWeekday(holiday.getEndDate())){
+                remainingHoliday -= 1;
+            }
         }
         return remainingHoliday;
     }
