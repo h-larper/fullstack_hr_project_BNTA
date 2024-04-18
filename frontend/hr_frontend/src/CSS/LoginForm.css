@@ -10,6 +10,7 @@
     padding: 30px;
     max-width: 400px;
     margin: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #login_form {
@@ -37,8 +38,4 @@ h2 {
     text-decoration: none;
     margin-top: 15px;
     margin: auto;
-}
-
-main {
-    background-color: aqua;
 }
