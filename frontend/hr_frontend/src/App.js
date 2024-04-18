@@ -11,7 +11,7 @@ function App() {
       </head>
       <HRContainer />
       <footer>
-          Created by Lily's Subordinates ©️ so employees can escape once in a while! 🏝️
+          Created by Lily's Subordinates©️ so employees can escape once in a while! 🏝️
       </footer>
     </>
   );

@@ -49,9 +49,12 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             </nav>
 
             <section id = "main_content">
-                <WorkCalendar
-                    calendarEvents={calendarEvents}
-                />
+                <div id="calendar_box">
+                    <WorkCalendar
+                        calendarEvents={calendarEvents}
+                    />
+
+                </div>
                 <div id="my_holiday_list">
                     <MyHolidaysList 
                         currentUserHolidays = {currentUserHolidays} 
@@ -67,7 +70,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 onRequestClose={toggleHolidayApprovalListModal}
                 ariaHideApp={false}
                 style={{
-                    content: {},
+                    content: {height:"70%",
+                    margin: "auto",
+                    width: "70%",
+                    borderRadius: "20px"},
                     overlay: {zIndex: 1000}
                 }}
             >
@@ -84,7 +90,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 onRequestClose={toggleHolidayRequestModal}
                 ariaHideApp={false}
                 style={{
-                    content: {},
+                    content: {height:"70%",
+                    margin: "auto",
+                    width: "70%",
+                    borderRadius: "20px"},
                     overlay: {zIndex: 1000}
                 }}
             >
@@ -102,7 +111,10 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 onRequestClose={toggleProfileModal}
                 ariaHideApp={false}
                 style={{
-                    content: {},
+                    content: {height:"70%",
+                    margin: "auto",
+                    width: "70%",
+                    borderRadius: "20px"},
                     overlay: {zIndex: 1000}
                 }}
             >
