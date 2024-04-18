@@ -41,6 +41,9 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             <h2>Welcome {currentUser.currentUser.firstName} 👋🏼  </h2>
             <h3>Days off remaining: {currentUser.currentUser.calculateRemainingTimeOffs}</h3>
             <button onClick={handleSignOut}>Sign Out</button>
+            <button onClick={toggleProfileModal}>Profile</button>
+            {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
+            <button onClick={toggleHolidayRequestModal}>Request Leave</button>
 
             <section id = "main_content">
                 <WorkCalendar
@@ -56,7 +59,6 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             </section>
 
             {/* Holiday Approvals list Modal */}
-            {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
             <ReactModal
                 isOpen={holidayApprovalListModal}
                 onRequestClose={toggleHolidayApprovalListModal}
@@ -74,7 +76,6 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             </ReactModal>
 
             {/* Holiday Request Form Modal */}
-            <button onClick={toggleHolidayRequestModal}>Request Leave</button>
             <ReactModal
                 isOpen={holidayRequestModal}
                 onRequestClose={toggleHolidayRequestModal}
@@ -93,7 +94,6 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             </ReactModal>
 
             {/* Profile Modal */}
-            <button onClick={toggleProfileModal}>Profile</button>
             <ReactModal
                 isOpen={profileModal}
                 onRequestClose={toggleProfileModal}
