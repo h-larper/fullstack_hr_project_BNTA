@@ -1,0 +1,20 @@
+body{
+  margin: 50px;
+  background-image: url("../Assets/background_image_3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  min-height: 100vh;
+}
+
+footer {
+  background-color: aliceblue;
+  color: #12263A;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  margin-left: 33%;
+  margin-right: 33%;
+  border: #D6BBC0 solid 3px;
+}

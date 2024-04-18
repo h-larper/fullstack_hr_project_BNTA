@@ -3,6 +3,8 @@ import LoginForm from "../Components/LoginForm";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LandingPage from "../Components/LandingPage";
 import CurrentUserContext from "../Components/CurrentUserContext";
+import '../CSS/HRContainer.css';
+import Logo2 from "../Assets/Logo2.png"
 
 const HRContainer = () => {
 
@@ -133,7 +135,9 @@ const HRContainer = () => {
     return ( 
         <>
             <CurrentUserContext.Provider value= {{currentUser, setCurrentUser}}>
-                <h1>Hello from the container!</h1>
+                <div id="logo__container">
+                    <img id="Logo2" src={Logo2} alt="Yeet Logo"/>
+                </div>
                 <main>
                     <RouterProvider router={HRRoutes} />
                 </main>
