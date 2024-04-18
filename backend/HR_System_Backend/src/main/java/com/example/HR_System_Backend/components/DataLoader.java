@@ -72,8 +72,8 @@ public class DataLoader implements ApplicationRunner {
                 employee5);
         requestedTimeOffRepository.save(requestedTimeOff1);
 
-        RequestedTimeOff requestedTimeOff2 = new RequestedTimeOff(LocalDate.of(2024,04,01),
-                LocalDate.of(2024,04, 3), TimeOffType.PARENTALLEAVE, "Think of the children!", Status.PENDING,
+        RequestedTimeOff requestedTimeOff2 = new RequestedTimeOff(LocalDate.of(2024,04,02),
+                LocalDate.of(2024,04, 03), TimeOffType.PARENTALLEAVE, "Think of the children!", Status.PENDING,
                 employee4);
         requestedTimeOffRepository.save(requestedTimeOff2);
 
@@ -82,7 +82,7 @@ public class DataLoader implements ApplicationRunner {
                 "tchau tá logo", Status.PENDING, employee3);
         requestedTimeOffRepository.save(requestedTimeOff3);
 
-        RequestedTimeOff requestedTimeOff4 = new RequestedTimeOff(LocalDate.of(2024,04,22),
+        RequestedTimeOff requestedTimeOff4 = new RequestedTimeOff(LocalDate.of(2024,04,19),
                 LocalDate.of(2024,04, 22), TimeOffType.COMPASSIONATELEAVE,
                 "Partner cycled into a car door, in A&E", Status.PENDING,
                 employee4);
