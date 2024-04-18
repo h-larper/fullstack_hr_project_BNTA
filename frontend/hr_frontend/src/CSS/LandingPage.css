@@ -1,5 +1,21 @@
 #my_holiday_list {
-    background-color: aliceblue;
+    background-color: white;
+    border-radius: 10px;
+    border: solid #12263A;
+}
+
+#my_holiday_list button {
+    border-radius: 7px;
+    padding: 3px;
+    width: 150px;
+    height: 40px;
+    text-decoration: none;
+    margin: 15px;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    background-color: #B9E6FF;
 }
 
 #main_content {

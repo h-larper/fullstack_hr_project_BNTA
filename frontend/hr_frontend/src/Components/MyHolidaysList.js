@@ -1,4 +1,5 @@
 import Holiday from "./Holiday";
+import '../CSS/MyHolidaysList.css';
 
 const MyHolidaysList = ({currentUserHolidays, deleteHolidayRequest, putHolidayRequest}) => {
 
