@@ -56,6 +56,16 @@ Can be viewed here:
    ```
 4. Run the application and use POSTMAN and POSTICO to run the endpoints and view changes to the database
 
+**Server-side**
+1. Navigate to the front end project directory 
+   ```bash
+   cd frontend
+   ```
+2. Install the dependencies
+   ```bash
+   npm install
+   ```
+
 
 
 ## Contributing Instructions
