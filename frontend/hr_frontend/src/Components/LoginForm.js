@@ -51,8 +51,9 @@ const LoginForm = ({fetchCurrentUser}) => {
                     onChange={(event) => setPassword(event.target.value)}
                 />
                 <input
+                    id="log_in_button"
                     type="submit"
-                    value="Login"
+                    value="Log In"
                 />
             </form>
         </div>
