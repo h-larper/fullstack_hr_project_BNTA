@@ -53,7 +53,19 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                     <WorkCalendar
                         calendarEvents={calendarEvents}
                     />
-
+                    <div className="key">
+                        <ul className="calendar_key">
+                            <li><span class="pending_mine"></span>My Pending</li>
+                            <li><span class="approved_mine"></span>My Approved</li>
+                            <li><span class="rejected_mine"></span>My Rejected</li>
+                            {currentUser.currentUser.managees.length > 0 ?
+                            <li><span class="pending_managee"></span>Managees Pending</li> : <></>}
+                            {currentUser.currentUser.managees.length > 0 ?
+                            <li><span class="approved_managee"></span>Managees Approved</li> : <></>}
+                            {currentUser.currentUser.managees.length > 0 ?
+                            <li><span class="rejected_managee"></span>Managees Rejected</li> : <></>}
+                        </ul>
+                    </div>
                 </div>
                 <div id="my_holiday_list">
                     <MyHolidaysList 

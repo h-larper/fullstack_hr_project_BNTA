@@ -34,7 +34,9 @@ const WorkCalendar = ({calendarEvents}) => {
         }
         if(event.currentUsersEvent && event.status === "REJECTED"){
             newStyle.backgroundColor = "#FF6347";
-            
+        }
+        if(event.currentUsersEvent && event.status === "PENDING"){
+            newStyle.backgroundColor = "#C8A2C8";
         }
         return {
             className: "",
