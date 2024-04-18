@@ -12,6 +12,8 @@ public class CalendarEvent {
 
     private TimeOffType timeOffType;
 
+    private Status status;
+
     private String notes;
 
     private String fullName;
@@ -21,15 +23,24 @@ public class CalendarEvent {
     public CalendarEvent() {
     }
 
-    public CalendarEvent(Long id, LocalDate startDate, LocalDate endDate, TimeOffType timeOffType, String notes,
+    public CalendarEvent(Long id, LocalDate startDate, LocalDate endDate, TimeOffType timeOffType, Status status, String notes,
                          String fullName, Boolean isCurrentUsersEvent) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.timeOffType = timeOffType;
+        this.status = status;
         this.notes = notes;
         this.fullName = fullName;
         this.isCurrentUsersEvent = isCurrentUsersEvent;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Long getId() {

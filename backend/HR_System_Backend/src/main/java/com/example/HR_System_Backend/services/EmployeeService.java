@@ -53,14 +53,14 @@ public class EmployeeService {
         List<CalendarEvent> calendarEvents = new ArrayList<>();
         for(RequestedTimeOff requestedTimeOff : manager.getRequestedTimeOffs()){
             calendarEvents.add(new CalendarEvent(requestedTimeOff.getId(), requestedTimeOff.getStartDate(), requestedTimeOff.getEndDate(),
-                    requestedTimeOff.getTimeOffType(), requestedTimeOff.getNotes(), manager.getFirstName() + " " + manager.getLastName(),
-                    true));
+                    requestedTimeOff.getTimeOffType(), requestedTimeOff.getStatus(), requestedTimeOff.getNotes(),
+                    manager.getFirstName() + " " + manager.getLastName(), true));
         }
         for(Employee managee : managees) {
             for (RequestedTimeOff requestedTimeOff : managee.getRequestedTimeOffs()) {
                 calendarEvents.add(new CalendarEvent(requestedTimeOff.getId(), requestedTimeOff.getStartDate(), requestedTimeOff.getEndDate(),
-                        requestedTimeOff.getTimeOffType(), requestedTimeOff.getNotes(), managee.getFirstName() + " " + managee.getLastName(),
-                        false));
+                        requestedTimeOff.getTimeOffType(), requestedTimeOff.getStatus(), requestedTimeOff.getNotes(),
+                        managee.getFirstName() + " " + managee.getLastName(), false));
             }
         }
         return calendarEvents;

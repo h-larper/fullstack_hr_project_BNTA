@@ -112,6 +112,12 @@ const HRContainer = () => {
         //Called every time currentUser is assigned (On startup or when changed)
     }, [currentUser]);
 
+    useEffect(() => {
+        if(currentUser){
+            fetchCalendarEvents(currentUser.id);
+        }
+    }, [pendingHolidayRequests, currentUserHolidays])
+
     // Other Functions
 
 

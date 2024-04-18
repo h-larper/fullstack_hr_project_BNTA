@@ -14,18 +14,26 @@ const WorkCalendar = ({calendarEvents}) => {
         const displayEndDate = endDate.toISOString().substring(0, 10);
         return {start:calendarEvent.startDate, end: displayEndDate,
             title:calendarEvent.fullName + ": " + calendarEvent.notes,
-            status:calendarEvent.status, isCurrentUsersEvent:calendarEvent.isCurrentUsersEvent}
+            status:calendarEvent.status, currentUsersEvent:calendarEvent.currentUsersEvent}
     })
 
     const eventStyleGetter = (event) => {
         let newStyle = {
-            backgroundColor: "#000000"
+            backgroundColor: "#D3D3D3",
+            color: "#000000"
         }
         if(event.status === "APPROVED"){
-            newStyle.backgroundColor = "#00FF00";
+            newStyle.backgroundColor = "#B9FF66";
         }
         if(event.status === "REJECTED"){
-            newStyle.backgroundColor = "#FF0000";
+            newStyle.backgroundColor = "#FFCCCB";
+        }
+        if(event.currentUsersEvent && event.status === "APPROVED"){
+            newStyle.backgroundColor = "#00AD43";
+        }
+        if(event.currentUsersEvent && event.status === "REJECTED"){
+            newStyle.backgroundColor = "#FF6347";
+            
         }
         return {
             className: "",
