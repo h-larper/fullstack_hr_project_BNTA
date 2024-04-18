@@ -1,7 +1,8 @@
 #my_holiday_list {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     border: solid #12263A;
+    text-align: center;
 }
 
 #my_holiday_list button {
