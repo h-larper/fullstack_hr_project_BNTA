@@ -42,9 +42,18 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
             <h3>Days off remaining: {currentUser.currentUser.calculateRemainingTimeOffs}</h3>
             <button onClick={handleSignOut}>Sign Out</button>
 
-            <WorkCalendar
-                calendarEvents={calendarEvents}
-            />
+            <section id = "main_content">
+                <WorkCalendar
+                    calendarEvents={calendarEvents}
+                />
+                <div id="my_holiday_list">
+                    <MyHolidaysList 
+                        currentUserHolidays = {currentUserHolidays} 
+                        deleteHolidayRequest = {deleteHolidayRequest}
+                        putHolidayRequest = {putHolidayRequest} 
+                    />
+                </div>
+            </section>
 
             {/* Holiday Approvals list Modal */}
             {currentUser.currentUser.managees.length > 0 ? <button onClick={toggleHolidayApprovalListModal}>Approvals</button> : <></>}
@@ -100,13 +109,6 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
                 />
                 <button onClick={toggleProfileModal}>Close</button>
             </ReactModal>
-            <div id="my_holiday_list">
-                <MyHolidaysList 
-                    currentUserHolidays = {currentUserHolidays} 
-                    deleteHolidayRequest = {deleteHolidayRequest}
-                    putHolidayRequest = {putHolidayRequest} 
-                />
-            </div>
         </>
      );
 }
