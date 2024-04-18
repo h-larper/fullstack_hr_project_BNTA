@@ -65,7 +65,12 @@ Can be viewed here:
    ```bash
    npm install
    ```
-
+## Usage
+1. Start the development server
+   ``` bash 
+   npm start
+   ```
+2. Open a browser and navigate to [`http://localhost:3000`](http://localhost:3000) to view the application
 
 
 ## Contributing Instructions
