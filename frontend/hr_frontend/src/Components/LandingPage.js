@@ -8,7 +8,8 @@ import WorkCalendar from "./WorkCalendar";
 import { useNavigate } from "react-router";
 import MyHolidaysList from "./MyHolidaysList";
 
-const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays, patchUserProfile, putHolidayRequest, deleteHolidayRequest}) => {
+const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequestedTimeOff, currentUserHolidays,
+    patchUserProfile, putHolidayRequest, deleteHolidayRequest,calendarEvents}) => {
   
     const [holidayApprovalListModal, setHolidayApprovalListModal] = useState(false);
     const [holidayRequestModal, setHolidayRequestModal] = useState(false);
@@ -42,6 +43,7 @@ const LandingPage = ({pendingHolidayRequests, patchRequestedTimeOff, postRequest
 
             <WorkCalendar 
                 currentUserHolidays={currentUserHolidays}
+                calendarEvents={calendarEvents}
             />
 
             {/* Holiday Approvals list Modal */}

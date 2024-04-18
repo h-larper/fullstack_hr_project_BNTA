@@ -7,7 +7,7 @@ import CurrentUserContext from "../Components/CurrentUserContext";
 const HRContainer = () => {
 
     // UseStates
-    const [currentUser, setCurrentUser] = useState({});
+    const [currentUser, setCurrentUser] = useState(null);
     const [pendingHolidayRequests, setPendingHolidayRequests] = useState([]);
     const [currentUserHolidays, setCurrentUserHolidays] = useState([]);
     const [calendarEvents, setCalendarEvents] = useState([]);
@@ -39,7 +39,7 @@ const HRContainer = () => {
     }
 
     const fetchCalendarEvents = async (id) => {
-        const response = await fetch(`localhost:8080/employees/${id}/calendar_events`);
+        const response = await fetch(`http://localhost:8080/employees/${id}/calendar_events`);
         const data = await response.json();
         setCalendarEvents(data);
     }
@@ -106,6 +106,8 @@ const HRContainer = () => {
             if(currentUser.managees){
                 fetchHolidayApprovals(currentUser.id)
             }
+
+            fetchCalendarEvents(currentUser.id);
         }
         //Called every time currentUser is assigned (On startup or when changed)
     }, [currentUser]);
@@ -131,7 +133,7 @@ const HRContainer = () => {
                     patchUserProfile = {patchUserProfile}
                     putHolidayRequest = {putHolidayRequest}
                     deleteHolidayRequest = {deleteHolidayRequest}
-                    fetchCalendarEvents = {fetchCalendarEvents}
+                    calendarEvents = {calendarEvents}
                 />
             </>
             )

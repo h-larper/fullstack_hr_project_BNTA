@@ -6,9 +6,16 @@ import "react-big-calendar/lib/css/react-big-calendar.css"
 // to the correct localizer.
 const localizer = momentLocalizer(moment) // or globalizeLocalizer
 
-const WorkCalendar = ({currentUserHolidays}) => {
+const WorkCalendar = ({currentUserHolidays, calendarEvents}) => {
 
-    const calendarEvents = currentUserHolidays.map((currentUserHoliday) => {
+    // const calendarEvents = currentUserHolidays.map((currentUserHoliday) => {
+    //     const endDate = new Date(currentUserHoliday.endDate);
+    //     endDate.setDate(endDate.getDate() + 1);
+    //     const displayEndDate = endDate.toISOString().substring(0, 10);
+    //     return {start:currentUserHoliday.startDate, end: displayEndDate, title:currentUserHoliday.notes, status:currentUserHoliday.status}
+    // })
+
+    const workCalendarEvents = calendarEvents.map((currentUserHoliday) => {
         const endDate = new Date(currentUserHoliday.endDate);
         endDate.setDate(endDate.getDate() + 1);
         const displayEndDate = endDate.toISOString().substring(0, 10);
@@ -54,7 +61,7 @@ const WorkCalendar = ({currentUserHolidays}) => {
         <div style={{height: "60vh", width: "60vw", margin: "auto"}}>
             <Calendar
             localizer={localizer}
-            events={calendarEvents}
+            events={workCalendarEvents}
             eventPropGetter={(eventStyleGetter)}
             defaultView={'month'}
             views={['month', 'agenda']}
