@@ -35,9 +35,10 @@ nav button {
     font-weight: 400;
     font-style: normal;
     font-size: large;
+    background-color: #EAF6FF;
 }
 
-h2 {
+#banner h2 {
     font-size: 50pt;
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;
@@ -45,14 +46,14 @@ h2 {
     text-align: right;
 }
 
-#banner {
-    margin-top: -130pt;
-}
-
-h3 {
+#banner h3 {
     text-align: right;
     font-size: 28pt;
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+#banner {
+    margin-top: -130pt;
 }

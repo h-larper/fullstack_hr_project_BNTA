@@ -6,7 +6,7 @@
     justify-content: center;
     width: 30%;
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 30px;
     max-width: 400px;
     margin: auto;
@@ -50,4 +50,5 @@ h2 {
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background-color: #EAF6FF;
 }

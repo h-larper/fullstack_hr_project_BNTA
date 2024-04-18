@@ -8,7 +8,7 @@ body{
 }
 
 footer {
-  background-color: aliceblue;
+  background-color: white;
   color: #12263A;
   align-items: center;
   text-align: center;
@@ -21,4 +21,5 @@ footer {
   font-weight: 400;
   font-style: normal;
   font-size: 20pt;
+  border-radius: 20px;
 }
