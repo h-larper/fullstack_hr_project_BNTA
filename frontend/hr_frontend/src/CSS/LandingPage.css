@@ -73,3 +73,38 @@ nav button {
     height: 30px;
     font-size: large;
 }
+
+#calendar_box{
+    display: flex;
+    flex-direction: column;
+}
+
+.key{
+    background-color: white;
+    border: solid #12263A;
+    height: 50px;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-top: 25px;
+}
+.calendar_key {
+    list-style: none;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.calendar_key li {
+    float: left;
+    margin-right: 15px;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 0;
+}
+.calendar_key span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+.calendar_key .pending_mine { background-color: #C8A2C8; }
+.calendar_key .approved_mine { background-color: #00AD43; }
+.calendar_key .rejected_mine { background-color: #FF6347; }
+.calendar_key .pending_managee { background-color: #D3D3D3; }
+.calendar_key .approved_managee { background-color: #B9FF66; }
+.calendar_key .rejected_managee { background-color: #FFCCCB; }
