@@ -46,6 +46,15 @@ public class EmployeeService {
         return holidayApprovals;
     }
 
+//    public List<RequestedTimeOff> getCalendarEvents(Long id){
+//        Employee manager = employeeRepository.findById(id).get();
+//        List<Employee> managees = manager.getManagees();
+//        List<RequestedTimeOff> calendarEvents = manager.getRequestedTimeOffs();
+//        for(Employee managee : managees){
+//
+//        }
+//    }
+
     public Employee saveEmployee(EmployeeDTO employeeDTO){
        Employee newEmployee = new Employee(employeeDTO.getFirstName(), employeeDTO.getLastName(), employeeDTO.getWorkEmail(),
                employeeDTO.getPassword(), employeeDTO.getTotalHoliday(), employeeDTO.getSortCode(), employeeDTO.getAccountNumber(),
