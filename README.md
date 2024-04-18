@@ -43,7 +43,18 @@
 * [ ] Annual appraisal dates are displayed on the calendar.
 * [ ] Appraisals are automatically booked on the calendar annually based on an employee's start date. 
 
+### Endpoints
 
+#### Employees
+
+|   | URL         | Method | Description                    | Request Body | Response Body|
+|---|-------------|--------|--------------------------------|--------------|---------------|
+| INDEX | /employees| GET   | Returns a list of all employees|             |[list of employees as shown below]|
+| CREATE| /employees   | POST   | Creates a new employee         | {"firstName": "Laura", "lastName": "Harper", "workEmail": "laura@laura.com", "password": "cats", "totalHoliday": "20", "sortCode": "206089", "accountNumber": "12345678", "salary": "2", "employeeStartDate": "2024-03-06"}             | {"id": 6, "firstName": "Laura", "lastName": "Harper", "workEmail": "laura@laura.com", "password": "cats", "totalHoliday": 20, "sortCode": "206089", "accountNumber": "12345678", "salary": 2, "employeeStartDate": "2024-03-06", "active": true, "managees": [], "manager": null, "requestedTimeOffs": [], "calculateRemainingTimeOffs": 20}  |
+| SHOW  | /employees/:id  | GET    | Returns details of one specific employee |              |{ "id": 3, "firstName": "Hannah", "lastName": "Riley", "workEmail": "hannah@lily.com", "password": "dogs", "totalHoliday": 200, "sortCode": "123456", "accountNumber": "87654321", "salary": 200000, "employeeStartDate": "2024-04-10", "active": true, "managees": [], "manager": {Employee object of manager}, "requestedTimeOffs": [Array of RequestedTimeOff objects], "calculateRemainingTimeOffs": 200}|
+| UPDATE| /employee/:id  | PUT    | Updates a specific employee       | {"sortCode": "568912", "accountNumber": "12345679"} |{"id": 2, "firstName": "Laura", "lastName": "Harper", "workEmail": "laura@laura.com", "password": "cats", "totalHoliday": "20", "sortCode": "206089", "accountNumber": "12345678", "salary": "200", "employeeStartDate": "2024-03-06", "active" : "true", "managees": [Array of Employees], "manager" : {Employee object of manager}, "requestedTimeOffs": [Array of RequestedTimeOff objects], "calculateRemainingTimeOffs": 20}|
+| DELETE| /employees/:id  | DELETE | Deletes a specific employee       |              | {"id": "1"} |
+| UPDATE| /posts/:postId/:userId/likes  | PATCH | Adds and removes likes       |             |    |
 
 ### Wireframe
 Can be viewed here:
