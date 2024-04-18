@@ -10,11 +10,14 @@ body{
 footer {
   background-color: aliceblue;
   color: #12263A;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   align-items: center;
   text-align: center;
   padding: 20px;
-  margin-left: 33%;
-  margin-right: 33%;
+  margin-left: 22%;
+  margin-right: 22%;
   border: #D6BBC0 solid 3px;
+  margin-top: 40px;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

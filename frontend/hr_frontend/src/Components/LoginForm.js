@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import '../CSS/LoginForm.css';
 
 const LoginForm = ({fetchCurrentUser}) => {
 
@@ -27,10 +28,10 @@ const LoginForm = ({fetchCurrentUser}) => {
     }
 
     return ( 
-        <>
-            <h2>Login Form:</h2>
+        <div id="login__container">
+            <h2>Log In:</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="login_form">
                 <label htmlFor="emailAddress-field">Email Address:</label>
                 <input
                     type="text"
@@ -50,11 +51,12 @@ const LoginForm = ({fetchCurrentUser}) => {
                     onChange={(event) => setPassword(event.target.value)}
                 />
                 <input
+                    id="log_in_button"
                     type="submit"
-                    value="Login"
+                    value="Log In"
                 />
             </form>
-        </>
+        </div>
      );
 }
  
