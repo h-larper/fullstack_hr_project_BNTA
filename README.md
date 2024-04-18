@@ -11,6 +11,15 @@
    
 ## Project Description
 
+- Aim: 	To create an easy-to-use, intuitive HR system that is extendable.
+- Why?
+   - A need to eradicate use of paper records within the business - improved organisation and reduced errors to employee records & schedules.
+   - To combine separate physical diaries digitally, reducing potential conflicts.
+   - Automated scheduling of appraisals - improved employee productivity & satisfaction.
+   - Increased accessibility of resources to all employees.
+   - Increased scalability potential of the business.
+
+
 **The names and versions of libraries used:**
 - React.js
 - React Router DOM
@@ -18,15 +27,21 @@
 - React Modal
 
 ### MVP
-- Enable a user to log in to the application.
-- Employees can request holidays, which will then need approval from their manager.
-- Managers can approve their employee's holidays.
-- Calendar-view to display an employee's holidays.
-- Employees can view and update their personal details.
-- Ensure different actions are available if you’re logged in as an employee or manager. 
+* [x] Enable a user to log in to the application.
+* [x] Employees can request holidays, which will then need approval from their manager.
+* [x] Managers can approve their employee's holidays.
+* [x] Calendar-view to display an employee's holidays.
+* [x] Employees can view and update their personal details.
+* [x] Ensure different actions are available if you’re logged in as an employee or manager. 
 
 ### Extensions
-- Add separate functionality for fiance team members - i.e. render a list of bank account details.
+* [x] Employees can update *(this will put the holiday through for approval again)* or delete existing holidays.
+* [x] Add a counter for remaining holiday.
+* [ ] Add a counter for number of holiday requests to approve, as a manager. 
+* [ ] Add separate functionality for fiance team members - i.e. render a list of bank account details. 
+* [ ] Add a colour picker feature to 'Hello' Statement based on a user's favourite colour. 
+* [ ] Annual appraisal dates are displayed on the calendar.
+* [ ] Appraisals are automatically booked on the calendar annually based on an employee's start date. 
 
 ### Endpoints
 
@@ -43,13 +58,52 @@
 
 ### Wireframe
 Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Wireframe.png
 
 ### Component diagram
 Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Component%20Diagram.png
+
+### Class Diagram
+Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Class%20Diagram.png
+
+### ERD
+Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Entity%20Relationship%20Diagram.png
+
+### User Flow Diagram
+Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/User%20Flow%20Diagram.png
 
 ## Installation instructions
 **Client-side**
+**1.** Install PostgreSQL, POSTICO, POSTMAN and an IDE that supports Java
+**2.** In the terminal, navigate to the directory you want to clone the repository into and then clone the repository using the following command:
+   ```bash
+   git clone git@github.com:h-larper/fullstack_hr_project_BNTA.git
+   ```
+**3.** In the terminal, create a PostgreSQL database following the command:
+   ```bash
+   createdb hr_system
+   ```
+**4.** Run the application and use POSTMAN and POSTICO to run the endpoints and view changes to the database
+
 **Server-side**
+**1.** Navigate to the front end project directory 
+   ```bash
+   cd frontend
+   ```
+**2.** Install the dependencies
+   ```bash
+   npm install
+   ```
+## Usage
+**1.** Start the development server
+   ``` bash 
+   npm start
+   ```
+**2.** Open a browser and navigate to [`http://localhost:3000`](http://localhost:3000) to view the application
 
 ## Contributing Instructions
 
