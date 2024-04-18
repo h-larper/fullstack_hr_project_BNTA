@@ -6,40 +6,16 @@ import "react-big-calendar/lib/css/react-big-calendar.css"
 // to the correct localizer.
 const localizer = momentLocalizer(moment) // or globalizeLocalizer
 
-const WorkCalendar = ({currentUserHolidays, calendarEvents}) => {
+const WorkCalendar = ({calendarEvents}) => {
 
-    // const calendarEvents = currentUserHolidays.map((currentUserHoliday) => {
-    //     const endDate = new Date(currentUserHoliday.endDate);
-    //     endDate.setDate(endDate.getDate() + 1);
-    //     const displayEndDate = endDate.toISOString().substring(0, 10);
-    //     return {start:currentUserHoliday.startDate, end: displayEndDate, title:currentUserHoliday.notes, status:currentUserHoliday.status}
-    // })
-
-    const workCalendarEvents = calendarEvents.map((currentUserHoliday) => {
-        const endDate = new Date(currentUserHoliday.endDate);
+    const workCalendarEvents = calendarEvents.map((calendarEvent) => {
+        const endDate = new Date(calendarEvent.endDate);
         endDate.setDate(endDate.getDate() + 1);
         const displayEndDate = endDate.toISOString().substring(0, 10);
-        return {start:currentUserHoliday.startDate, end: displayEndDate, title:currentUserHoliday.notes, status:currentUserHoliday.status}
+        return {start:calendarEvent.startDate, end: displayEndDate,
+            title:calendarEvent.fullName + ": " + calendarEvent.notes,
+            status:calendarEvent.status, isCurrentUsersEvent:calendarEvent.isCurrentUsersEvent}
     })
-
-    // const inclusiveDate = (date) => {
-    //     const endDate = new Date(date);
-    //     endDate.setDate(endDate.getDate() + 1);
-    //     const displayEndDate = endDate.toISOString().substring(0, 10);
-    //     return displayEndDate
-    // }
-
-    // const calendarEvents = () => {
-    //     console.log("hello");
-    //     const currentUserEvents = currentUserHolidays.map((currentUserHoliday) => {
-    //         const endDate = new Date(currentUserHoliday.endDate);
-    //         endDate.setDate(endDate.getDate() + 1);
-    //         const displayEndDate = endDate.toISOString().substring(0, 10);
-    //         return {start:currentUserHoliday.startDate, end:displayEndDate, title:currentUserHoliday.notes}
-    //         })
-    //     console.log(currentUserEvents);
-    //     return currentUserEvents;
-    // }
 
     const eventStyleGetter = (event) => {
         let newStyle = {
