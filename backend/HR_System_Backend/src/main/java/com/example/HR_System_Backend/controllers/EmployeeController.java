@@ -2,6 +2,7 @@ package com.example.HR_System_Backend.controllers;
 
 import com.example.HR_System_Backend.models.*;
 import com.example.HR_System_Backend.services.EmployeeService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +40,16 @@ public class EmployeeController {
         }
         List<HolidayApprovalDTO> holidayApprovals = employeeService.getHolidayApprovals(id);
         return new ResponseEntity<>(holidayApprovals, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{id}/calendar_events")
+    public ResponseEntity<List<CalendarEvent>> getCalendarEvents(@PathVariable Long id){
+        Optional<Employee> manager = employeeService.getEmployeeById(id);
+        if(!manager.isPresent()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+        List<CalendarEvent> calendarEvents = employeeService.getCalendarEvents(id);
+        return new ResponseEntity<>(calendarEvents, HttpStatus.OK);
     }
 
     @PostMapping

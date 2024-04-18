@@ -199,7 +199,7 @@ public class Employee {
         int remainingHoliday = totalHoliday;
         for (int i = 0; i<requestedTimeOffs.size(); i++){
             RequestedTimeOff holiday = requestedTimeOffs.get(i);
-            if (holiday.getTimeOffType() == TimeOffType.HOLIDAYLEAVE){
+            if (holiday.getTimeOffType() == TimeOffType.HOLIDAYLEAVE && holiday.getStatus() == Status.APPROVED){
                 long days = holiday.getStartDate().datesUntil(holiday.getEndDate()).filter(date -> getIsWeekday(date)).count();
                 remainingHoliday -= Math.toIntExact(days);
                 if (getIsWeekday(holiday.getEndDate())){

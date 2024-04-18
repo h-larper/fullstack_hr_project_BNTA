@@ -9,9 +9,10 @@ import Logo2 from "../Assets/Logo2.png"
 const HRContainer = () => {
 
     // UseStates
-    const [currentUser, setCurrentUser] = useState({});
+    const [currentUser, setCurrentUser] = useState(null);
     const [pendingHolidayRequests, setPendingHolidayRequests] = useState([]);
     const [currentUserHolidays, setCurrentUserHolidays] = useState([]);
+    const [calendarEvents, setCalendarEvents] = useState([]);
 
     // Fetch Requests
     const fetchCurrentUser = async (userLoginCredentials) => {
@@ -33,6 +34,18 @@ const HRContainer = () => {
         setPendingHolidayRequests(data);
     }
 
+    const fetchCurrentUserHolidays = async (id) => {
+        const response = await fetch(`http://localhost:8080/requested_time_offs/employee/${id}`);
+        const data = await response.json();
+        setCurrentUserHolidays(data);
+    }
+
+    const fetchCalendarEvents = async (id) => {
+        const response = await fetch(`http://localhost:8080/employees/${id}/calendar_events`);
+        const data = await response.json();
+        setCalendarEvents(data);
+    }
+
     const postRequestedTimeOff = async (newTimeOffRequest) => {
         const response = await fetch ("http://localhost:8080/requested_time_offs", {
                 method: "POST",
@@ -41,12 +54,6 @@ const HRContainer = () => {
         });
         const newHoliday = await response.json();
         setCurrentUserHolidays([...currentUserHolidays, newHoliday]);
-    }
-
-    const fetchCurrentUserHolidays = async (id) => {
-        const response = await fetch(`http://localhost:8080/requested_time_offs/employee/${id}`);
-        const data = await response.json();
-        setCurrentUserHolidays(data);
     }
 
     const patchRequestedTimeOff = async (approvalStatus, requestedTimeOffId) => {
@@ -101,9 +108,17 @@ const HRContainer = () => {
             if(currentUser.managees){
                 fetchHolidayApprovals(currentUser.id)
             }
+
+            fetchCalendarEvents(currentUser.id);
         }
         //Called every time currentUser is assigned (On startup or when changed)
     }, [currentUser]);
+
+    useEffect(() => {
+        if(currentUser){
+            fetchCalendarEvents(currentUser.id);
+        }
+    }, [pendingHolidayRequests, currentUserHolidays])
 
     // Other Functions
 
@@ -126,6 +141,7 @@ const HRContainer = () => {
                     patchUserProfile = {patchUserProfile}
                     putHolidayRequest = {putHolidayRequest}
                     deleteHolidayRequest = {deleteHolidayRequest}
+                    calendarEvents = {calendarEvents}
                 />
             </>
             )
