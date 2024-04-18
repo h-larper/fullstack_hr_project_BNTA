@@ -29,7 +29,7 @@ public class CalendarEvent {
         this.timeOffType = timeOffType;
         this.notes = notes;
         this.fullName = fullName;
-        this.isCurrentUsersEvent = isCurrentUsersEvent
+        this.isCurrentUsersEvent = isCurrentUsersEvent;
     }
 
     public Long getId() {

@@ -46,13 +46,24 @@ public class EmployeeService {
         return holidayApprovals;
     }
 
-    public List<RequestedTimeOff> getCalendarEvents(Long id){
+    public List<CalendarEvent> getCalendarEvents(Long id){
         Employee manager = employeeRepository.findById(id).get();
         List<Employee> managees = manager.getManagees();
-        List<RequestedTimeOff> calendarEvents = manager.getRequestedTimeOffs();
-        for(Employee managee : managees){
 
+        List<CalendarEvent> calendarEvents = new ArrayList<>();
+        for(RequestedTimeOff requestedTimeOff : manager.getRequestedTimeOffs()){
+            calendarEvents.add(new CalendarEvent(requestedTimeOff.getId(), requestedTimeOff.getStartDate(), requestedTimeOff.getEndDate(),
+                    requestedTimeOff.getTimeOffType(), requestedTimeOff.getNotes(), manager.getFirstName() + " " + manager.getLastName(),
+                    true));
         }
+        for(Employee managee : managees) {
+            for (RequestedTimeOff requestedTimeOff : managee.getRequestedTimeOffs()) {
+                calendarEvents.add(new CalendarEvent(requestedTimeOff.getId(), requestedTimeOff.getStartDate(), requestedTimeOff.getEndDate(),
+                        requestedTimeOff.getTimeOffType(), requestedTimeOff.getNotes(), managee.getFirstName() + " " + managee.getLastName(),
+                        false));
+            }
+        }
+        return calendarEvents;
     }
 
     public Employee saveEmployee(EmployeeDTO employeeDTO){

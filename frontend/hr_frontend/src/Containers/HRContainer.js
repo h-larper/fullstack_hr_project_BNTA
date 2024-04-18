@@ -31,6 +31,14 @@ const HRContainer = () => {
         setPendingHolidayRequests(data);
     }
 
+    const fetchCurrentUserHolidays = async (id) => {
+        const response = await fetch(`http://localhost:8080/requested_time_offs/employee/${id}`);
+        const data = await response.json();
+        setCurrentUserHolidays(data);
+    }
+
+
+
     const postRequestedTimeOff = async (newTimeOffRequest) => {
         const response = await fetch ("http://localhost:8080/requested_time_offs", {
                 method: "POST",
@@ -39,12 +47,6 @@ const HRContainer = () => {
         });
         const newHoliday = await response.json();
         setCurrentUserHolidays([...currentUserHolidays, newHoliday]);
-    }
-
-    const fetchCurrentUserHolidays = async (id) => {
-        const response = await fetch(`http://localhost:8080/requested_time_offs/employee/${id}`);
-        const data = await response.json();
-        setCurrentUserHolidays(data);
     }
 
     const patchRequestedTimeOff = async (approvalStatus, requestedTimeOffId) => {

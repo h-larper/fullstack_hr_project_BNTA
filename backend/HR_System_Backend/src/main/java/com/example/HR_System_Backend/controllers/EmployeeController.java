@@ -43,12 +43,12 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/{id}/calendar_events")
-    public ResponseEntity<List<RequestedTimeOff>> getCalendarEvents(@PathVariable Long id){
+    public ResponseEntity<List<CalendarEvent>> getCalendarEvents(@PathVariable Long id){
         Optional<Employee> manager = employeeService.getEmployeeById(id);
         if(!manager.isPresent()){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
-        List<RequestedTimeOff> calendarEvents = employeeService.getCalendarEvents(id);
+        List<CalendarEvent> calendarEvents = employeeService.getCalendarEvents(id);
         return new ResponseEntity<>(calendarEvents, HttpStatus.OK);
     }
 
