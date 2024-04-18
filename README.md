@@ -46,6 +46,7 @@ Can be viewed here:
 
 ### Class Diagram
 Can be viewed here:
+https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Class%20Diagram.png
 
 ### ERD
 Can be viewed here:
