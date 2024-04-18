@@ -10,8 +10,10 @@
     padding: 30px;
     max-width: 400px;
     margin: auto;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }      
 
 #login_form {
     display: flex;
@@ -38,4 +40,7 @@ h2 {
     text-decoration: none;
     margin-top: 15px;
     margin: auto;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
