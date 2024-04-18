@@ -1,4 +1,4 @@
-import './App.css';
+import './CSS/App.css';
 import HRContainer from './Containers/HRContainer';
 
 function App() {
