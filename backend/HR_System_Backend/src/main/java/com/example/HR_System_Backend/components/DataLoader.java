@@ -67,14 +67,14 @@ public class DataLoader implements ApplicationRunner {
 
         //REQUESTED TIME OFFS
 
-        RequestedTimeOff requestedTimeOff1 = new RequestedTimeOff(LocalDate.of(2024,04,01),
-                LocalDate.of(2024,04, 8), TimeOffType.HOLIDAYLEAVE,
+        RequestedTimeOff requestedTimeOff1 = new RequestedTimeOff(LocalDate.of(2024,04,22),
+                LocalDate.of(2024,04, 29), TimeOffType.HOLIDAYLEAVE,
                 "Going back to the motherland for some dumplings", Status.PENDING,
                 employee5);
         requestedTimeOffRepository.save(requestedTimeOff1);
 
-        RequestedTimeOff requestedTimeOff2 = new RequestedTimeOff(LocalDate.of(2024,04,02),
-                LocalDate.of(2024,04, 03), TimeOffType.PARENTALLEAVE, "Think of the children!", Status.PENDING,
+        RequestedTimeOff requestedTimeOff2 = new RequestedTimeOff(LocalDate.of(2024,04,23),
+                LocalDate.of(2024,04, 24), TimeOffType.PARENTALLEAVE, "Think of the children!", Status.PENDING,
                 employee4);
         requestedTimeOffRepository.save(requestedTimeOff2);
 
@@ -100,7 +100,7 @@ public class DataLoader implements ApplicationRunner {
 
         RequestedTimeOff requestedTimeOff7 = new RequestedTimeOff(LocalDate.of(2024,04,16),
                 LocalDate.of(2024,04, 16), TimeOffType.SICKLEAVE,
-                "My feline overlord blessed me with a bite - GP appointment", Status.PENDING, employee2);
+                "My feline overlord blessed me with a bite - GP appointment", Status.APPROVED, employee2);
         requestedTimeOffRepository.save(requestedTimeOff7);
     }
 }
