@@ -59,7 +59,7 @@ public class DataLoader implements ApplicationRunner {
         employeeRepository.save(employee4);
 
         Employee employee5 = new Employee("Karen", "Yip", "karen.karen@lily.com",
-                "flapjack", 2, "147258", "98745612", 500,
+                "flapjack", 20, "147258", "98745612", 500,
                 LocalDate.of(2021,10,25));
         employeeRepository.save(employee5);
         employee5.setManager(employee2);
@@ -68,7 +68,8 @@ public class DataLoader implements ApplicationRunner {
         //REQUESTED TIME OFFS
 
         RequestedTimeOff requestedTimeOff1 = new RequestedTimeOff(LocalDate.of(2024,04,01),
-                LocalDate.of(2024,04, 8), TimeOffType.HOLIDAYLEAVE, "Need a break!!!!!", Status.PENDING,
+                LocalDate.of(2024,04, 8), TimeOffType.HOLIDAYLEAVE,
+                "Going back to the motherland for some dumplings", Status.PENDING,
                 employee5);
         requestedTimeOffRepository.save(requestedTimeOff1);
 
