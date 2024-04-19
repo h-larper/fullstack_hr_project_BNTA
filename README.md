@@ -78,9 +78,10 @@ https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/User%20Flow%20Di
 
 ## Installation instructions
 **Client-side**
-**1. Install PostgreSQL, POSTICO, POSTMAN and an IDE that supports Java
 
-**2. In the terminal, navigate to the directory you want to clone the repository into and then clone the repository using the following command:
+**1.** Install PostgreSQL, POSTICO, POSTMAN and an IDE that supports Java
+
+**2.** In the terminal, navigate to the directory you want to clone the repository into and then clone the repository using the following command:
    ```bash
    git clone git@github.com:h-larper/fullstack_hr_project_BNTA.git
    ```
