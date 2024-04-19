@@ -100,6 +100,11 @@ https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/User%20Flow%20Di
    ```bash
    npm install
    ```
+## Libraries Used
+- react-router-dom
+- react-modal
+- react-big-calendar
+
 ## Usage
 **1.** Start the development server
    ``` bash 
@@ -117,7 +122,7 @@ Find below our contributing guidelines. By following these guidelines, you'll he
 
 **2. Create a Branch:** Clone the forked repository to your local machine & create a new branch for your contribution.
 
-**3.Make Changes:** Make your changes to the code & ensure your changes follow our coding style.
+**3. Make Changes:** Make your changes to the code & ensure your changes follow our coding style.
 
 **4. Commit Your Changes:** Commit your changes to your local branch with a descriptive commit message.
 
