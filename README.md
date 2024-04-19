@@ -68,7 +68,7 @@ https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Component%20Diag
 Can be viewed here:
 https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Class%20Diagram.png
 
-### ERD
+### Entity Relationship Diagram
 Can be viewed here:
 https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Entity%20Relationship%20Diagram.png
 
