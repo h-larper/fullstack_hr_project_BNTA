@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "ed48a114-9beb-4e54-976e-ebec89c82e8b",
+		"name": "HR_System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32579074"
+	},
+	"item": [
+		{
+			"name": "/employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/:id/holiday_approvals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/2/holiday_approvals",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"2",
+						"holiday_approvals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/:id/calendar_events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/2/calendar_events",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"2",
+						"calendar_events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Laura\",\n    \"lastName\": \"Harper\",\n    \"workEmail\": \"laura@lily.com\",\n    \"password\": \"cats\",\n    \"totalHoliday\": \"20\",\n    \"sortCode\": \"206089\",\n    \"accountNumber\": \"12345678\",\n    \"salary\": \"2\",\n    \"employeeStartDate\": \"2024-03-06\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"workEmail\": \"laura@lily.com\",\n    \"password\": \"cats\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employees/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/:id/update_manager",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"managerId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employees/4/update_manager",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"4",
+						"update_manager"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sortCode\": \"568912\", \"accountNumber\": \"12345679\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employees/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employee/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/requested_time_offs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/requested_time_offs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requested_time_offs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/requested_time_offs/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/requested_time_offs/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requested_time_offs",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/requested_time_offs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startDate\": \"2024-04-01\",\n    \"endDate\": \"2024-04-02\",\n    \"timeOffType\": \"HOLIDAYLEAVE\",\n    \"notes\": \"i need a holiday\",\n    \"status\": \"PENDING\",\n    \"employeeId\": \"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/requested_time_offs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requested_time_offs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/requested_time_offs/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startDate\": \"2024-04-01\",\n    \"endDate\": \"2024-04-02\",\n    \"timeOffType\": \"COMPASSIONATELEAVE\",\n    \"notes\": \"i need a hollybob\",\n    \"status\": \"PENDING\",\n    \"employeeId\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/requested_time_offs/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requested_time_offs",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/requested_time_offs/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\":\"APPROVED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/requested_time_offs/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requested_time_offs",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/requested_time_offs/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"startDate\": \"2024-04-01\", \"endDate\": \"2024-04-02\", \"notes\": \"i need a hollybob\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/requested_time_offs/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requested_time_offs",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/requested_time_offs/employee/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/requested_time_offs/employee/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requested_time_offs",
+						"employee",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
