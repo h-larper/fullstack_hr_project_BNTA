@@ -25,6 +25,7 @@
 - React Router DOM
 - SpringBoot
 - React Modal
+- React Big Calendar
 
 ### MVP
 * [x] Enable a user to log in to the application.
@@ -100,10 +101,6 @@ https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/User%20Flow%20Di
    ```bash
    npm install
    ```
-## Libraries Used
-- react-router-dom
-- react-modal
-- react-big-calendar
 
 ## Usage
 **1.** Start the development server
