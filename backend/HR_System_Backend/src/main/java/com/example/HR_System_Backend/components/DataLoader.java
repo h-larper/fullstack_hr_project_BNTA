@@ -69,7 +69,7 @@ public class DataLoader implements ApplicationRunner {
 
         RequestedTimeOff requestedTimeOff1 = new RequestedTimeOff(LocalDate.of(2024,04,22),
                 LocalDate.of(2024,04, 29), TimeOffType.HOLIDAYLEAVE,
-                "Going back to the motherland for some dumplings", Status.PENDING,
+                "Going back to the motherland for some dumplings", Status.APPROVED,
                 employee5);
         requestedTimeOffRepository.save(requestedTimeOff1);
 
