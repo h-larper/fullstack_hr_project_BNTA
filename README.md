@@ -23,9 +23,9 @@
 **The names and versions of libraries used:**
 - React.js
 - React Router DOM
-- SpringBoot
 - React Modal
 - React Big Calendar
+- SpringBoot
 
 ### MVP
 * [x] Enable a user to log in to the application.
