@@ -57,6 +57,180 @@
 | DELETE| /employees/:id  | DELETE | Deletes a specific employee       |              | {"id": "1"} |
 | UPDATE| /posts/:postId/:userId/likes  | PATCH | Adds and removes likes       |             |    |
 
+#### RequestedTimeOffs
+
+|   | URL         | Method | Description                    | Request Body | Response Body|
+|---|-------------|--------|--------------------------------|--------------|---------------|
+|INDEX|/requested_time_offs| GET| Returns list of all requested time offs|   | <details>
+  <summary>Click me</summary>
+  
+  ```json
+[
+    {
+        "id": 1,
+        "startDate": "2024-04-22",
+        "endDate": "2024-04-29",
+        "timeOffType": "HOLIDAYLEAVE",
+        "notes": "Going back to the motherland for some dumplings",
+        "status": "APPROVED",
+        "employee": {
+            "id": 5,
+            "firstName": "Karen",
+            "lastName": "Yip",
+            "workEmail": "karen.karen@lily.com",
+            "password": "flapjack",
+            "totalHoliday": 20,
+            "sortCode": "147258",
+            "accountNumber": "98745612",
+            "salary": 500,
+            "employeeStartDate": "2021-10-25",
+            "active": true,
+            "calculateRemainingTimeOffs": 14
+        },
+        "timeOffTypeDisplay": "Holiday Leave"
+    },
+    {
+        "id": 2,
+        "startDate": "2024-04-23",
+        "endDate": "2024-04-24",
+        "timeOffType": "PARENTALLEAVE",
+        "notes": "Think of the children!",
+        "status": "PENDING",
+        "employee": {
+            "id": 4,
+            "firstName": "Maya",
+            "lastName": "Tetteh",
+            "workEmail": "maya@lily.com",
+            "password": "orcas",
+            "totalHoliday": 364,
+            "sortCode": "246810",
+            "accountNumber": "12345679",
+            "salary": 3000000,
+            "employeeStartDate": "2001-12-25",
+            "active": true,
+            "calculateRemainingTimeOffs": 364
+        },
+        "timeOffTypeDisplay": "Parental Leave"
+    },
+    {
+        "id": 3,
+        "startDate": "2025-06-13",
+        "endDate": "2025-06-27",
+        "timeOffType": "HOLIDAYLEAVE",
+        "notes": "Off to Portugal - tchau tá logo",
+        "status": "PENDING",
+        "employee": {
+            "id": 3,
+            "firstName": "Hannah",
+            "lastName": "Riley",
+            "workEmail": "hannah@lily.com",
+            "password": "dogs",
+            "totalHoliday": 200,
+            "sortCode": "123456",
+            "accountNumber": "87654321",
+            "salary": 200000,
+            "employeeStartDate": "2024-04-10",
+            "active": true,
+            "calculateRemainingTimeOffs": 200
+        },
+        "timeOffTypeDisplay": "Holiday Leave"
+    },
+    {
+        "id": 4,
+        "startDate": "2024-04-19",
+        "endDate": "2024-04-22",
+        "timeOffType": "COMPASSIONATELEAVE",
+        "notes": "Partner cycled into a car door, in A&E",
+        "status": "PENDING",
+        "employee": {
+            "id": 4,
+            "firstName": "Maya",
+            "lastName": "Tetteh",
+            "workEmail": "maya@lily.com",
+            "password": "orcas",
+            "totalHoliday": 364,
+            "sortCode": "246810",
+            "accountNumber": "12345679",
+            "salary": 3000000,
+            "employeeStartDate": "2001-12-25",
+            "active": true,
+            "calculateRemainingTimeOffs": 364
+        },
+        "timeOffTypeDisplay": "Compassionate Leave"
+    },
+    {
+        "id": 5,
+        "startDate": "2024-05-07",
+        "endDate": "2024-05-17",
+        "timeOffType": "HOLIDAYLEAVE",
+        "notes": "Visiting Madeira - I hope it tastes as good as the cake",
+        "status": "PENDING",
+        "employee": {
+            "id": 2,
+            "firstName": "Laura",
+            "lastName": "Harper",
+            "workEmail": "laura@lily.com",
+            "password": "cats",
+            "totalHoliday": 20,
+            "sortCode": "451269",
+            "accountNumber": "12345678",
+            "salary": 200,
+            "employeeStartDate": "2023-10-06",
+            "active": true,
+            "calculateRemainingTimeOffs": 20
+        },
+        "timeOffTypeDisplay": "Holiday Leave"
+    },
+    {
+        "id": 6,
+        "startDate": "2024-04-19",
+        "endDate": "2024-04-19",
+        "timeOffType": "SICKLEAVE",
+        "notes": "Got the runs",
+        "status": "PENDING",
+        "employee": {
+            "id": 5,
+            "firstName": "Karen",
+            "lastName": "Yip",
+            "workEmail": "karen.karen@lily.com",
+            "password": "flapjack",
+            "totalHoliday": 20,
+            "sortCode": "147258",
+            "accountNumber": "98745612",
+            "salary": 500,
+            "employeeStartDate": "2021-10-25",
+            "active": true,
+            "calculateRemainingTimeOffs": 14
+        },
+        "timeOffTypeDisplay": "Sick Leave"
+    },
+    {
+        "id": 7,
+        "startDate": "2024-04-16",
+        "endDate": "2024-04-16",
+        "timeOffType": "SICKLEAVE",
+        "notes": "My feline overlord blessed me with a bite - GP appointment",
+        "status": "APPROVED",
+        "employee": {
+            "id": 2,
+            "firstName": "Laura",
+            "lastName": "Harper",
+            "workEmail": "laura@lily.com",
+            "password": "cats",
+            "totalHoliday": 20,
+            "sortCode": "451269",
+            "accountNumber": "12345678",
+            "salary": 200,
+            "employeeStartDate": "2023-10-06",
+            "active": true,
+            "calculateRemainingTimeOffs": 20
+        },
+        "timeOffTypeDisplay": "Sick Leave"
+    }
+]
+  ```
+</details> |
+
 ### Wireframe
 Can be viewed here:
 https://github.com/h-larper/fullstack_hr_project_BNTA/blob/main/Wireframe.png
