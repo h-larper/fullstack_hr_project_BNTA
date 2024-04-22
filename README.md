@@ -61,7 +61,7 @@
 
 |   | URL         | Method | Description                    | Request Body | Response Body|
 |---|-------------|--------|--------------------------------|--------------|---------------|
-|INDEX|/requested_time_offs| GET| Returns list of all requested time offs|   | <details>
+|INDEX|/requested_time_offs| GET| Returns list of all requested time offs|   | {<details>
   <summary>Click me</summary>
   
   ```json
@@ -229,7 +229,7 @@
     }
 ]
   ```
-</details> |
+</details> }|
 
 ### Wireframe
 Can be viewed here:
